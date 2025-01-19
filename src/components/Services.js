@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import services from "../services.json";
 import tools from "../tools.json";
@@ -9,6 +9,20 @@ import { FaInfoCircle } from "react-icons/fa";
 function Services() {
   const [selectedTool, setSelectedTool] = useState(null);
   const [selectedService, setSelectedService] = useState(null);
+  const [headerHeight, setHeaderHeight] = useState(0);
+
+  // Haal de hoogte van de header op en stel de marge in
+  useEffect(() => {
+    const headerElement = document.querySelector("nav");
+    if (headerElement) {
+      setHeaderHeight(headerElement.offsetHeight);
+    }
+  }, []);
+
+  // Sorteer services alfabetisch op naam
+  const sortedServices = [...services].sort((a, b) =>
+    a.name.localeCompare(b.name)
+  );
 
   // Animatie-instellingen
   const fadeInVariants = {
@@ -17,14 +31,19 @@ function Services() {
   };
 
   return (
-    <div>
+    <div
+      style={{
+        marginTop: headerHeight, // Dynamische marge onder de header
+      }}
+    >
       {/* Services Sectie */}
       <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-b from-bg-light to-bg-primary">
         <h1 className="text-4xl md:text-5xl font-extrabold text-primary mb-12 text-center">
           Diensten
         </h1>
         <p className="text-center text-on-bg max-w-3xl leading-relaxed">
-          Ontdek hoe mijn expertise in AI en marketing jouw bedrijf kan helpen groeien. Klik op een dienst om meer te leren.
+          Ontdek hoe mijn expertise in AI en marketing jouw bedrijf kan helpen
+          groeien. Klik op een dienst om meer te leren.
         </p>
         <motion.div
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-10 px-6 max-w-7xl"
@@ -32,7 +51,7 @@ function Services() {
           animate="visible"
           variants={fadeInVariants}
         >
-          {services.map((service) => (
+          {sortedServices.map((service) => (
             <motion.div
               key={service.id}
               className="relative p-6 bg-card shadow-lg rounded-lg overflow-hidden transform transition duration-300 group cursor-pointer"
@@ -110,7 +129,7 @@ function Services() {
         </motion.div>
       </div>
 
-      {/* Modal voor Tool Details */}
+      {/* Modaal voor Tool Details */}
       {selectedTool && (
         <GlassModal
           isOpen={!!selectedTool}

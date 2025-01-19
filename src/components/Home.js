@@ -27,43 +27,176 @@ function Home() {
 
   return (
     <div>
-      {/* Hero Sectie */}
+     {/* Hero Sectie */}
+<div
+  className="relative text-on-dark flex items-center justify-center overflow-hidden"
+  style={{
+    minHeight: "100vh",
+    background: `linear-gradient(0deg, #8BC6EC 0%, #0362c8 100%)`, // Nieuwe gradient
+  }}
+>
+  {/* SVG Afbeelding */}
   <div
-    className="flex flex-col items-center justify-center min-h-screen bg-cover bg-center"
+    className="absolute inset-0"
     style={{
-      backgroundImage:
-        "url('https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')",
-      color: "var(--text-on-dark)", // Aangepaste variabele voor lichte tekst
-      textShadow: "1px 1px 2px rgba(0, 0, 0, 0.8)",
+      backgroundImage: "url('/assets/img/hero.svg')",
+      backgroundSize: "cover",
+      backgroundPosition: "center",
+      zIndex: 1,
     }}
-  >
-    <h1 className="text-4xl md:text-5xl lg:text-6xl font-primary font-bold text-on-dark">
-      Welkom bij Xinudesign
-    </h1>
-    <p className="mt-4 text-lg md:text-xl lg:text-2xl text-center font-secondary text-on-dark">
-      Transformeer je marketing met AI-gestuurde oplossingen.
-    </p>
-    <Button
-      onClick={() => navigate("/services")}
-      className="mt-6 px-8 py-4 text-lg bg-primary hover:bg-hover-primary text-on-primary font-semibold rounded-lg shadow-lg transition duration-300"
-    >
-      Ontdek de diensten
-    </Button>
+  ></div>
+
+  {/* Content */}
+  <div className="container mx-auto flex flex-col lg:flex-row items-center px-6 relative z-10">
+    {/* Tekstsectie */}
+    <div className="text-center lg:text-left lg:w-1/2">
+      <h1 className="text-5xl md:text-6xl font-primary font-bold uppercase tracking-wide mb-4 text-on-dark">
+        Xinudesign
+      </h1>
+      <p className="text-lg md:text-xl font-secondary text-on-dark mb-6">
+        Van idee tot realisatie
+      </p>
+      <Button
+        onClick={() => navigate("/services")}
+        className="px-6 py-3 bg-primary hover:bg-hover-primary text-on-primary font-bold rounded-lg transition duration-300"
+      >
+        Get Started
+      </Button>
+    </div>
   </div>
 
-      {/* Introductie Sectie */}
-      <AnimatedSection className="py-16 bg-background px-6">
-        <div className="max-w-7xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-primary font-bold text-primary">
-            Waarom Xinudesign?
-          </h2>
-          <p className="mt-4 text-text leading-relaxed font-secondary">
-            Bij Xinudesign combineren we de kracht van kunstmatige intelligentie
-            met menselijke creativiteit. Ons doel is om jouw marketing naar een
-            hoger niveau te tillen door middel van op maat gemaakte oplossingen.
-          </p>
-        </div>
-      </AnimatedSection>
+  {/* Scheidingslijn of Golf */}
+  <div className="absolute bottom-0 left-0 right-0">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 1440 320"
+      className="w-full h-auto"
+      fill="currentColor"
+      style={{ color: "#8BC6EC" }}
+    >
+      <path
+        fill="currentColor"
+        d="M0,128L60,122.7C120,117,240,107,360,106.7C480,107,600,117,720,128C840,139,960,149,1080,154.7C1200,160,1320,160,1380,160L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"
+      ></path>
+    </svg>
+  </div>
+</div>
+
+{/* Services Sectie */}
+<AnimatedSection
+  className="py-16 px-6"
+  style={{
+    background: "linear-gradient(0deg, #8BC6EC 0%, #0362c8 100%)", // Nieuwe gradient
+  }}
+>
+  <div className="max-w-7xl mx-auto text-center">
+    <h2 className="text-3xl md:text-4xl font-primary font-bold text-primary mb-8">
+      Onze Diensten
+    </h2>
+    <p className="text-lg md:text-xl font-secondary -light mb-12">
+      Ontdek hoe Xinudesign jouw bedrijf kan versterken met onze unieke en
+      innovatieve oplossingen.
+    </p>
+    <motion.div
+      className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+      initial="hidden"
+      animate="visible"
+      variants={{
+        hidden: { opacity: 0, y: 20 },
+        visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+      }}
+    >
+      {[
+        {
+          name: "AI-gestuurde Content Creatie",
+          description:
+            "Creëer efficiënte en creatieve inhoud met behulp van AI-tools zoals GPT en DALL-E.",
+        },
+        {
+          name: "Marketing Automatisering",
+          description:
+            "Automatiseer je campagnes en workflows met slimme AI-integraties.",
+        },
+        {
+          name: "SEO en SEM",
+          description:
+            "Boost je online zichtbaarheid met AI-gestuurde analyses en optimalisaties.",
+        },
+        {
+          name: "Workshops en Trainingen",
+          description:
+            "Leer hoe je AI-tools kunt inzetten voor marketing en contentcreatie.",
+        },
+        {
+          name: "Webdesign met CMS",
+          description:
+            "Beheer eenvoudig je website met een krachtig Content Management Systeem.",
+        },
+        {
+          name: "Webdevelopment",
+          description:
+            "Bouw krachtige, schaalbare webapplicaties met moderne technologieën.",
+        },
+      ].map((service, index) => (
+        <motion.div
+          key={index}
+          className="relative p-6 bg-card shadow-lg rounded-lg overflow-hidden transform transition duration-300 group"
+        >
+          {/* Hover Animatie Achtergrond */}
+          <div className="absolute inset-0 bg-gradient-to-br from-primary to-accent opacity-0 group-hover:opacity-80 transition duration-500 rounded-lg"></div>
+
+          {/* Service Content */}
+          <div className="relative z-10">
+            <h3 className="text-xl font-bold text-primary group-hover:text-on-accent transition duration-300 text-center">
+              {service.name}
+            </h3>
+            <p className="mt-4 text-on-card group-hover:text-on-accent-light transition duration-300 text-center">
+              {service.description}
+            </p>
+          </div>
+        </motion.div>
+      ))}
+    </motion.div>
+    {/* Button naar alle services */}
+    <div className="mt-12">
+    <Button
+  onClick={() => {
+    navigate("/services");
+    window.scrollTo({ top: 0, behavior: "smooth" }); // Scroll naar de top
+  }}
+  className="px-6 py-3 bg-primary hover:bg-hover-primary text-on-primary font-bold rounded-lg transition duration-300"
+>
+  Bekijk Alle Diensten
+</Button>
+
+    </div>
+  </div>
+</AnimatedSection>
+
+
+
+<AnimatedSection
+  className="py-16 px-6"
+  style={{
+    background: "linear-gradient(180deg, #0362c8 0%, #ffffff 100%)", // Correcte gradient
+    backgroundSize: "cover", // Zorgt ervoor dat de gradient de volledige sectie bedekt
+    backgroundRepeat: "no-repeat", // Voorkomt herhaling
+    width: "100%", // Zorgt voor volledige breedte
+  }}
+>
+  <div className="max-w-7xl mx-auto text-center">
+    <h2 className="text-3xl md:text-4xl font-primary font-bold text-primary">
+      Waarom Xinudesign?
+    </h2>
+    <p className="mt-4 text-text leading-relaxed font-secondary">
+      Bij Xinudesign combineren we de kracht van kunstmatige intelligentie
+      met menselijke creativiteit. Ons doel is om jouw marketing naar een
+      hoger niveau te tillen door middel van op maat gemaakte oplossingen.
+    </p>
+  </div>
+</AnimatedSection>
+
+
 
       {/* Voordelen Sectie */}
   <AnimatedSection className="py-16 px-6">

@@ -1,32 +1,38 @@
 :root {
-    /* Kleuren */
-    --primary-color: #0362c8;
-    --secondary-color: #6c63ff;
-    --background-color: #f7f9fc;
-    --text-color: #333333;
-    --hover-color: #0056b3;
-  
-    /* Nieuwe tekstkleuren */
-    --text-on-dark: #ffffff; /* Voor tekst op donkere achtergronden */
-    --text-on-primary: #ffffff; /* Voor tekst op primaire achtergrond */
-    --text-on-primary-light: #f1f1f1; /* Lichtere tint voor tekst op primaire kleuren */
-    --text-on-card-light: #f5f5f5; /* Voor subtiele lichte tekst op gekleurde achtergronden */
-  
-    /* Lettertypes */
-    --font-primary: 'Montserrat', sans-serif;
-    --font-secondary: 'Lato', sans-serif;
-  
-    /* Animatiekleuren */
-    --hover-gradient-start: #007bff;
-    --hover-gradient-end: #6c63ff;
-  
-    /* Animatie instellingen */
-    --hover-duration: 0.8s;
-  }
-  
-  body {
-    font-family: var(--font-primary);
-    color: var(--text-color);
-    background-color: var(--background-color);
-  }
-  
+  /* Kleuren */
+  --primary-color: #0362c8;
+  --secondary-color: #6c63ff;
+  --background-color: #f7f9fc;
+  --text-color: #333333;
+  --hover-color: #0056b3;
+
+  /* Nieuwe tekstkleuren */
+  --text-on-dark: #ffffff; /* Voor tekst op donkere achtergronden */
+  --text-on-primary: #ffffff; /* Voor tekst op primaire achtergrond */
+  --text-on-primary-light: #f1f1f1; /* Lichtere tint voor tekst op primaire kleuren */
+  --text-on-card-light: #f5f5f5; /* Voor subtiele lichte tekst op gekleurde achtergronden */
+
+  /* Lettertypes */
+  --font-primary: 'Montserrat', sans-serif;
+  --font-secondary: 'Lato', sans-serif;
+
+  /* Lettertype-diktes */
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  /* Animatiekleuren */
+  --hover-gradient-start: #007bff;
+  --hover-gradient-end: #6c63ff;
+
+  /* Animatie instellingen */
+  --hover-duration: 0.8s;
+}
+
+body {
+  font-family: var(--font-primary);
+  color: var(--text-color);
+  background-color: var(--background-color);
+}

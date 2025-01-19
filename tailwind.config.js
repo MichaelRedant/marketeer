@@ -40,6 +40,15 @@ module.exports = {
         secondary: "var(--font-secondary)", // Secundaire lettertype
       },
 
+      // Font weights
+      fontWeight: {
+        light: 'var(--font-weight-light)',
+        regular: 'var(--font-weight-regular)',
+        medium: 'var(--font-weight-medium)',
+        semibold: 'var(--font-weight-semibold)',
+        bold: 'var(--font-weight-bold)',
+      },
+
       // Gradients voor hover-effecten
       gradientColorStops: {
         hover: {

@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "name": "AI-gestuurde Content Creatie",
+    "name": "Content Creatie",
     "description": "Creëer efficiënte en creatieve inhoud met behulp van AI-tools zoals GPT en DALL-E.",
     "details": "Van blogs en social media posts tot visuals, deze service combineert AI met menselijke creativiteit om hoogwaardige, unieke inhoud te creëren.",
     "benefits": [
@@ -12,7 +12,7 @@
   },
   {
     "id": 2,
-    "name": "Marketing Automatisering",
+    "name": "Automatisering",
     "description": "Automatiseer je campagnes en workflows met slimme AI-integraties.",
     "details": "Optimaliseer je marketingfunnels met tools zoals HubSpot en ActiveCampaign. Versnel je campagnes, verbeter personalisatie en verhoog conversies.",
     "benefits": [
@@ -23,7 +23,7 @@
   },
   {
     "id": 3,
-    "name": "SEO en SEM",
+    "name": "SEO / SEM",
     "description": "Boost je online zichtbaarheid met AI-gestuurde analyses en optimalisaties.",
     "details": "Gebruik krachtige tools zoals SEMrush en SurferSEO om zoekwoorden, inhoud en advertenties te verbeteren. Zorg dat je bedrijf bovenaan staat in zoekresultaten.",
     "benefits": [
@@ -56,7 +56,7 @@
   },
   {
     "id": 6,
-    "name": "Webdesign met CMS",
+    "name": "Webdesign",
     "description": "Beheer eenvoudig je website met een krachtig Content Management Systeem.",
     "details": "Met CMS-webdesign, zoals WordPress of Shopify, creëer ik flexibele websites waarmee je content gemakkelijk zelf kunt beheren en aanpassen, zonder technische kennis.",
     "benefits": [
@@ -78,7 +78,7 @@
   },
   {
     "id": 8,
-    "name": "UI/UX Design",
+    "name": "UI/UX",
     "description": "Ontwerp intuïtieve en aantrekkelijke gebruikerservaringen met Figma.",
     "details": "Met Figma ontwerp ik gebruiksvriendelijke en visueel aantrekkelijke interfaces die de perfecte balans bieden tussen esthetiek en functionaliteit. Door middel van wireframes, prototyping en interactief design zorg ik ervoor dat jouw digitale product naadloos aansluit bij de behoeften van je doelgroep.",
     "benefits": [
@@ -89,7 +89,7 @@
   },
   {
     "id": 9,
-    "name": "Lokale Landingspagina's",
+    "name": "Lokale SEO",
     "description": "Verhoog je zichtbaarheid met geoptimaliseerde lokale landingspagina's.",
     "details": "Ik help je om op te vallen in jouw regio door unieke en doelgerichte landingspagina's te maken. Deze pagina's zijn geoptimaliseerd voor lokale SEO en ontworpen om meer klanten naar je bedrijf te leiden. Van het selecteren van relevante zoekwoorden tot het opstellen van pakkende teksten en aantrekkelijke visuals, alles wordt afgestemd op jouw lokale markt.",
     "benefits": [
