@@ -1,0 +1,171 @@
+[
+    {
+      "name": "HTML",
+      "description": "De basis van webontwikkeling, gebruikt voor het structureren van webpagina's.",
+      "link": "https://developer.mozilla.org/en-US/docs/Web/HTML",
+      "logo": "assets/logos/732212.png"
+    },
+    {
+      "name": "CSS",
+      "description": "Een stylesheet-taal die wordt gebruikt voor het stylen van webpagina's.",
+      "link": "https://developer.mozilla.org/en-US/docs/Web/CSS",
+      "logo": "assets/logos/css.svg"
+    },
+    {
+      "name": "React",
+      "description": "Een JavaScript-bibliotheek voor het bouwen van gebruikersinterfaces.",
+      "link": "https://reactjs.org/",
+      "logo": "assets/logos/1183672.png"
+    },
+    {
+      "name": "JavaScript",
+      "description": "Een programmeertaal die interactief gedrag toevoegt aan webpagina's.",
+      "link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
+      "logo": "assets/logos/5968292.png"
+    },
+    {
+      "name": "Laravel",
+      "description": "Een PHP-framework voor het bouwen van webapplicaties.",
+      "link": "https://laravel.com/",
+      "logo": "assets/logos/laravel.png"
+    },
+    {
+      "name": "Vue.js",
+      "description": "Een progressief JavaScript-framework voor het bouwen van gebruikersinterfaces.",
+      "link": "https://vuejs.org/",
+      "logo": "assets/logos/vue.svg"
+    },
+    {
+      "name": "VSCode",
+      "description": "Een populaire, lichte code-editor ontwikkeld door Microsoft met uitgebreide extensiemogelijkheden.",
+      "link": "https://code.visualstudio.com/",
+      "logo": "assets/logos/906324.png"
+    },
+    {
+      "name": "Visual Studio",
+      "description": "Een krachtige IDE van Microsoft, ideaal voor het ontwikkelen van complexe softwaretoepassingen.",
+      "link": "https://visualstudio.microsoft.com/",
+      "logo": "assets/logos/visual-studio-code.svg"
+    },
+    {
+      "name": "Microsoft 365",
+      "description": "Een suite van productiviteitstools, waaronder Word, Excel, PowerPoint en Outlook.",
+      "link": "https://www.microsoft.com/microsoft-365",
+      "logo": "assets/logos/windows.svg"
+    },
+    {
+      "name": "WordPress",
+      "description": "Een open-source contentmanagementsysteem (CMS) voor het bouwen en beheren van websites.",
+      "link": "https://wordpress.org/",
+      "logo": "assets/logos/174881.png"
+    },
+    {
+        "name": "Figma",
+        "description": "Een cloud-gebaseerde ontwerp- en prototypingtool waarmee teams in realtime kunnen samenwerken aan UI/UX-ontwerpen.",
+        "link": "https://www.figma.com/",
+        "logo": "assets/logos/5968705.png"
+      },
+    {
+      "name": "Shopify",
+      "description": "Een alles-in-één platform voor het starten, runnen en groeien van een e-commercebedrijf.",
+      "link": "https://www.shopify.com/",
+      "logo": "assets/logos/shopify.svg"
+    },
+    {
+      "name": "Wix",
+      "description": "Een websitebouwer met een gebruiksvriendelijke drag-and-drop-interface.",
+      "link": "https://www.wix.com/",
+      "logo": "assets/logos/wix.svg"
+    },
+    {
+      "name": "Autodesk Fusion 360",
+      "description": "Een cloudgebaseerde 3D CAD, CAM en CAE-tool voor productontwerp en productie.",
+      "link": "https://www.autodesk.com/products/fusion-360/",
+      "logo": "assets/logos/autodesk.svg"
+    },
+    {
+      "name": "SQL Server",
+      "description": "Een relationeel databasebeheersysteem ontwikkeld door Microsoft.",
+      "link": "https://www.microsoft.com/en-us/sql-server",
+      "logo": "assets/logos/sql-database-generic.svg"
+    },
+    {
+      "name": "Power BI",
+      "description": "Een tool van Microsoft voor het visualiseren van gegevens en het maken van interactieve rapporten.",
+      "link": "https://powerbi.microsoft.com/",
+      "logo": "assets/logos/power-bi.svg"
+    },
+    {
+      "name": "PHPMyAdmin",
+      "description": "Een gratis tool voor het beheren van MySQL-databases via een webinterface.",
+      "link": "https://www.phpmyadmin.net/",
+      "logo": "assets/logos/php.svg"
+    },
+    {
+      "name": "Google Analytics",
+      "description": "Een webanalyseplatform van Google voor het bijhouden en rapporteren van websiteverkeer.",
+      "link": "https://analytics.google.com/",
+      "logo": "assets/logos/google-analytics.svg"
+    },
+    {
+      "name": "Google Ads",
+      "description": "Een online advertentieplatform van Google voor het beheren van campagnes en advertenties.",
+      "link": "https://ads.google.com/",
+      "logo": "assets/logos/google-ads.svg"
+    },
+    {
+      "name": "Piwik",
+      "description": "Een open-source alternatief voor Google Analytics dat je volledige controle biedt over je data.",
+      "link": "https://matomo.org/",
+      "logo": "assets/logos/piwik.png"
+    },
+    {
+      "name": "ChatGPT",
+      "description": "Een AI-gebaseerde chatbot van OpenAI voor contentcreatie, assistentie en meer.",
+      "link": "https://openai.com/chatgpt",
+      "logo": "assets/logos/openai.svg"
+    },
+    {
+      "name": "Gemini",
+      "description": "Een AI-tool voor geavanceerde data-analyse en informatieverwerking.",
+      "link": "https://gemini.com/",
+      "logo": "assets/logos/google-gke.svg"
+    },
+    {
+      "name": "Adobe Firefly",
+      "description": "Een AI-gebaseerd platform voor generatieve kunst en creatieve ontwerpen.",
+      "link": "https://www.adobe.com/sensei/generative-ai/adobe-firefly.html",
+      "logo": "assets/logos/adobe.svg"
+    },
+    {
+      "name": "Canva",
+      "description": "Een online platform voor het maken van visuele ontwerpen en grafische content.",
+      "link": "https://www.canva.com/",
+      "logo": "assets/logos/canva.svg"
+    },
+    {
+      "name": "Adobe Photoshop",
+      "description": "Een krachtige tool voor beeldbewerking en grafisch ontwerp.",
+      "link": "https://www.adobe.com/products/photoshop.html",
+      "logo": "assets/logos/adobe-photoshop.svg"
+    },
+    {
+      "name": "Adobe Illustrator",
+      "description": "Een tool voor het maken van vectorillustraties en grafisch ontwerp.",
+      "link": "https://www.adobe.com/products/illustrator.html",
+      "logo": "assets/logos/adobe-illustrator.svg"
+    },
+    {
+      "name": "Adobe InDesign",
+      "description": "Een applicatie voor desktop publishing en lay-outontwerp.",
+      "link": "https://www.adobe.com/products/indesign.html",
+      "logo": "assets/logos/indesign.svg"
+    },
+    {
+      "name": "Adobe AfterEffects",
+      "description": "Een tool voor motion graphics en visuele effecten.",
+      "link": "https://www.adobe.com/products/aftereffects.html",
+      "logo": "assets/logos/adobe-after-effects.svg"
+    }
+  ]
+  

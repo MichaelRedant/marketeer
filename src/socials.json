@@ -1,0 +1,27 @@
+[
+    {
+      "name": "LinkedIn",
+      "icon": "FaLinkedin",
+      "url": "https://www.linkedin.com/in/michael-redant",
+      "color": "text-primary hover:text-hover"
+    },
+    {
+      "name": "GitHub",
+      "icon": "FaGithub",
+      "url": "https://github.com/michael-redant",
+      "color": "text-text hover:text-hover"
+    },
+    {
+      "name": "Instagram",
+      "icon": "FaInstagram",
+      "url": "https://www.instagram.com/michael-redant",
+      "color": "text-secondary hover:text-hover"
+    },
+    {
+      "name": "Facebook",
+      "icon": "FaFacebook",
+      "url": "https://www.facebook.com/michael-redant",
+      "color": "text-blue-700 hover:text-blue-900"
+    }
+  ]
+  

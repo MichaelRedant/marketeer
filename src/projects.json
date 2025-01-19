@@ -1,0 +1,36 @@
+[
+    {
+      "id": 1,
+      "title": "Project 1",
+      "description": "Beschrijving van project 1",
+      "details": "Dit is een gedetailleerde beschrijving van project 1. Hier kun je meer informatie geven over het doel, de technologieën, en het resultaat.",
+      "image": "https://via.placeholder.com/600x400",
+      "category": "AI",
+      "technologies": ["React", "Node.js", "AI"],
+      "liveLink": "https://example.com/project1",
+      "githubLink": "https://github.com/username/project1"
+    },
+    {
+      "id": 2,
+      "title": "Project 2",
+      "description": "Beschrijving van project 2",
+      "details": "Meer details over project 2. Dit project focust op content creatie met AI.",
+      "image": "https://via.placeholder.com/600x400",
+      "category": "Content",
+      "technologies": ["Vue.js", "Tailwind CSS"],
+      "liveLink": "https://example.com/project2",
+      "githubLink": "https://github.com/username/project2"
+    },
+    {
+      "id": 3,
+      "title": "Project 3",
+      "description": "Beschrijving van project 3",
+      "details": "Details van project 3. Dit project draait om SEO-optimalisatie.",
+      "image": "https://via.placeholder.com/600x400",
+      "category": "SEO",
+      "technologies": ["Next.js", "SEO Toolkit"],
+      "liveLink": "https://example.com/project3",
+      "githubLink": "https://github.com/username/project3"
+    }
+  ]
+  
