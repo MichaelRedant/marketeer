@@ -3,6 +3,7 @@ import { fetchProjects, fetchServices } from "../api"; // Importeer API functies
 import Button from "./Button";
 import GlassModal from "./GlassModal";
 import { FaArrowDown } from "react-icons/fa";
+import tools from "../tools.json"; // Importeer tools.json
 
 function Werk() {
   const [projects, setProjects] = useState([]);
@@ -19,23 +20,26 @@ function Werk() {
           fetchProjects(),
           fetchServices(),
         ]);
-  
+
         console.log("Fetched Projects:", projectsData); // Controleer ontvangen data
         console.log("Fetched Services:", servicesResponse);
-  
+
         const servicesData = Array.isArray(servicesResponse)
           ? servicesResponse
           : servicesResponse.data;
-  
-        setProjects(
-          projectsData.map((project) => ({
-            ...project,
-            opdrachtgever: project.opdrachtgever || "Niet gespecificeerd",
-            eindklant: project.eindklant || "Niet gespecificeerd",
-            technologies: project.technologies || [],
-          }))
-        );
-  
+
+        // Vertaal technologie-IDs naar namen
+        const translatedProjects = projectsData.map((project) => ({
+          ...project,
+          opdrachtgever: project.opdrachtgever || "Niet gespecificeerd",
+          eindklant: project.eindklant || "Niet gespecificeerd",
+          technologies: (project.technologies || []).map(
+            (techId) => tools.find((tool) => tool.id === techId)?.name || techId
+          ),
+        }));
+
+        setProjects(translatedProjects);
+
         setServices(
           servicesData.map((service) => ({
             id: service.name,
@@ -47,10 +51,9 @@ function Werk() {
         setError("Fout bij het laden van gegevens. Probeer het later opnieuw.");
       }
     };
-  
+
     loadData();
   }, []);
-  
 
   // Dynamische categorieën ophalen en sorteren
   const categories = [
@@ -162,19 +165,19 @@ function Werk() {
 
           {/* Technologieën */}
           <div className="flex flex-wrap gap-2 mt-4">
-  {selectedProject.technologies.length > 0 ? (
-    selectedProject.technologies.map((tech, index) => (
-      <span
-        key={index}
-        className="px-4 py-1 bg-card text-sm text-on-card rounded-lg shadow-sm"
-      >
-        {tech}
-      </span>
-    ))
-  ) : (
-    <span className="text-gray-500">Geen technologieën gespecificeerd</span>
-  )}
-</div>
+            {selectedProject.technologies.length > 0 ? (
+              selectedProject.technologies.map((tech, index) => (
+                <span
+                  key={index}
+                  className="px-4 py-1 bg-card text-sm text-on-card rounded-lg shadow-sm"
+                >
+                  {tech}
+                </span>
+              ))
+            ) : (
+              <span className="text-gray-500">Geen technologieën gespecificeerd</span>
+            )}
+          </div>
 
           {/* Links */}
           <div className="mt-8 flex space-x-4">
