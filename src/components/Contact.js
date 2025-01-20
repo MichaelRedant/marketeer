@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import services from "../services.json";
+import { fetchServices } from "../api"; // Zorg ervoor dat de API functie correct werkt
 
 function Contact() {
   const [headerHeight, setHeaderHeight] = useState(0);
+  const [services, setServices] = useState([]); // Dynamische services uit de backend
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -14,13 +15,41 @@ function Contact() {
   const [errorMessage, setErrorMessage] = useState("");
   const [searchParams] = useSearchParams();
 
+  // Haal de diensten uit de backend
+  useEffect(() => {
+    const loadServices = async () => {
+      try {
+        const servicesData = await fetchServices();
+        console.log("Fetched Services:", servicesData); // Controleer de API-respons
+        if (Array.isArray(servicesData)) {
+          setServices(servicesData); // Stel de services in als het een array is
+        } else if (servicesData.data && Array.isArray(servicesData.data)) {
+          setServices(servicesData.data); // Haal data op als het genest is
+        } else {
+          console.error("Unexpected API response format:", servicesData);
+          setErrorMessage(
+            "Fout bij het laden van diensten. Probeer het later opnieuw."
+          );
+        }
+      } catch (err) {
+        console.error("Error fetching services:", err);
+        setErrorMessage(
+          "Fout bij het laden van diensten. Probeer het later opnieuw."
+        );
+      }
+    };
+
+    loadServices();
+  }, []);
+
+  // Haal de hoogte van de header op en stel de marge in
   useEffect(() => {
     const headerElement = document.querySelector("nav");
     if (headerElement) {
       setHeaderHeight(headerElement.offsetHeight);
     }
 
-    // Haal geselecteerde service uit URL
+    // Haal de geselecteerde service uit de URL
     const preselectedService = searchParams.get("service");
     if (preselectedService) {
       setFormData((prevData) => ({
@@ -33,8 +62,11 @@ function Contact() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    // Log de formData voor debugging
+    console.log("Submitting form data:", formData);
+
     try {
-      const response = await fetch("http://localhost:5000/api/contact", {
+      const response = await fetch("http://localhost:5000/api/messages", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -51,6 +83,7 @@ function Contact() {
         setErrorMessage(data.error || "Er is een fout opgetreden.");
       }
     } catch (err) {
+      console.error("Error submitting form:", err);
       setErrorMessage("Kan geen verbinding maken met de server.");
     }
   };
@@ -143,23 +176,27 @@ function Contact() {
 
         <div>
           <h3 className="text-lg font-bold text-primary">Kies diensten</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
-            {services.map((service) => (
-              <label
-                key={service.id}
-                className="flex items-center space-x-2 cursor-pointer"
-              >
-                <input
-                  type="checkbox"
-                  value={service.name}
-                  checked={formData.services.includes(service.name)}
-                  onChange={() => handleCheckboxChange(service.name)}
-                  className="form-checkbox h-5 w-5 text-primary"
-                />
-                <span className="text-text">{service.name}</span>
-              </label>
-            ))}
-          </div>
+          {services.length > 0 ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+              {services.map((service) => (
+                <label
+                  key={service.id || service._id} // Unieke key voor elke checkbox
+                  className="flex items-center space-x-2 cursor-pointer"
+                >
+                  <input
+                    type="checkbox"
+                    value={service.name}
+                    checked={formData.services.includes(service.name)}
+                    onChange={() => handleCheckboxChange(service.name)}
+                    className="form-checkbox h-5 w-5 text-primary"
+                  />
+                  <span className="text-text">{service.name}</span>
+                </label>
+              ))}
+            </div>
+          ) : (
+            <p className="text-sm text-red-500">Geen beschikbare diensten.</p>
+          )}
         </div>
 
         <button

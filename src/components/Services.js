@@ -1,33 +1,35 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
-import { fetchServices } from "../api"; // API functie voor services
+import { fetchServices } from "../api"; // Zorg dat de API-functie correct werkt
 import tools from "../tools.json"; // Tools blijven in JSON
 import GlassModal from "../components/GlassModal";
 import { FaExternalLinkAlt, FaInfoCircle, FaEnvelope } from "react-icons/fa";
 
 function Services() {
-  const [services, setServices] = useState([]);
-  const [selectedTool, setSelectedTool] = useState(null);
-  const [selectedService, setSelectedService] = useState(null);
-  const [headerHeight, setHeaderHeight] = useState(0);
-  const [error, setError] = useState(null);
+  const [services, setServices] = useState([]); // Services van backend
+  const [selectedTool, setSelectedTool] = useState(null); // Geselecteerde tool
+  const [selectedService, setSelectedService] = useState(null); // Geselecteerde service
+  const [headerHeight, setHeaderHeight] = useState(0); // Hoogte van de header
+  const [error, setError] = useState(null); // Foutmelding
   const navigate = useNavigate();
 
-  // Data voor services ophalen van de API
+  // Data ophalen van de backend
   useEffect(() => {
     const loadServices = async () => {
       try {
-        const servicesData = await fetchServices();
-        setServices(servicesData);
+        const { data } = await fetchServices(); // Verwacht response-structuur { data: [...] }
+        console.log("Services Data:", data); // Debugging log
+        setServices(data || []);
       } catch (err) {
+        console.error("Error fetching services:", err);
         setError("Fout bij het laden van diensten. Probeer het later opnieuw.");
       }
     };
     loadServices();
   }, []);
 
-  // Haal de hoogte van de header op en stel de marge in
+  // Bereken de hoogte van de header
   useEffect(() => {
     const headerElement = document.querySelector("nav");
     if (headerElement) {
@@ -35,17 +37,18 @@ function Services() {
     }
   }, []);
 
-  // Sorteer services alfabetisch op naam
+  // Sorteer de services alfabetisch op naam
   const sortedServices = [...services].sort((a, b) =>
     a.name.localeCompare(b.name)
   );
 
-  // Animatie-instellingen
+  // Animatie-opties voor motion
   const fadeInVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
   };
 
+  // Error-melding tonen indien aanwezig
   if (error) {
     return <p className="text-red-500 text-center">{error}</p>;
   }
@@ -53,10 +56,10 @@ function Services() {
   return (
     <div
       style={{
-        marginTop: headerHeight, // Dynamische marge onder de header
+        marginTop: headerHeight, // Dynamische marge op basis van header
       }}
     >
-      {/* Services Sectie */}
+      {/* Services-sectie */}
       <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-b from-bg-light to-bg-primary">
         <h1 className="text-4xl md:text-5xl font-extrabold text-primary mb-12 text-center">
           Diensten
@@ -73,12 +76,12 @@ function Services() {
         >
           {sortedServices.map((service) => (
             <motion.div
-              key={service.id}
+              key={service.id} // Gebruik de unieke `id` van de backend
               className="relative p-6 bg-card shadow-lg rounded-lg overflow-hidden transform transition duration-300 group cursor-pointer"
               whileHover={{ scale: 1.05 }}
               onClick={() => setSelectedService(service)}
             >
-              {/* Hover Animatie Achtergrond */}
+              {/* Hover-animatie achtergrond */}
               <div className="absolute inset-0 bg-gradient-to-br from-primary to-accent opacity-0 group-hover:opacity-80 transition duration-500 rounded-lg"></div>
 
               {/* Inhoud van de Service */}
@@ -89,7 +92,7 @@ function Services() {
                 <p className="mt-4 text-on-card group-hover:text-on-accent-light transition duration-300 text-center">
                   {service.description}
                 </p>
-                {/* Klein Icoon */}
+                {/* Informatie-icoon */}
                 <div className="flex justify-center items-center mt-6">
                   <FaInfoCircle className="text-primary group-hover:text-on-accent text-lg transition duration-300" />
                 </div>
@@ -99,7 +102,7 @@ function Services() {
         </motion.div>
       </div>
 
-      {/* Tools Sectie */}
+      {/* Tools-sectie */}
       <div className="mt-16 py-16 px-6">
         <h2 className="text-3xl md:text-4xl font-bold text-primary text-center mb-8">
           Tools
@@ -110,9 +113,9 @@ function Services() {
           animate="visible"
           variants={fadeInVariants}
         >
-          {tools.map((tool) => (
+          {tools.map((tool, index) => (
             <motion.div
-              key={tool.id}
+              key={index}
               className="p-6 bg-card shadow-lg rounded-lg hover:shadow-xl transform transition duration-300 text-center group"
               whileHover={{ scale: 1.1 }}
             >
@@ -149,7 +152,7 @@ function Services() {
         </motion.div>
       </div>
 
-      {/* Modal voor Dienst Details */}
+      {/* Modaal voor Service-details */}
       {selectedService && (
         <GlassModal
           isOpen={!!selectedService}
@@ -168,7 +171,6 @@ function Services() {
                 </li>
               ))}
             </ul>
-            {/* Contact Icoon */}
             <button
               className="flex items-center justify-center px-6 py-3 bg-primary hover:bg-accent text-on-primary font-bold rounded-lg transition duration-300 w-full"
               onClick={() =>
