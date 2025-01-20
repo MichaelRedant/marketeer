@@ -19,13 +19,23 @@ function Werk() {
           fetchProjects(),
           fetchServices(),
         ]);
-
-        // Controleer of servicesResponse een geneste structuur heeft
+  
+        console.log("Fetched Projects:", projectsData); // Controleer ontvangen data
+        console.log("Fetched Services:", servicesResponse);
+  
         const servicesData = Array.isArray(servicesResponse)
           ? servicesResponse
           : servicesResponse.data;
-
-        setProjects(projectsData);
+  
+        setProjects(
+          projectsData.map((project) => ({
+            ...project,
+            opdrachtgever: project.opdrachtgever || "Niet gespecificeerd",
+            eindklant: project.eindklant || "Niet gespecificeerd",
+            technologies: project.technologies || [],
+          }))
+        );
+  
         setServices(
           servicesData.map((service) => ({
             id: service.name,
@@ -37,9 +47,10 @@ function Werk() {
         setError("Fout bij het laden van gegevens. Probeer het later opnieuw.");
       }
     };
-
+  
     loadData();
   }, []);
+  
 
   // Dynamische categorieën ophalen en sorteren
   const categories = [
@@ -98,7 +109,7 @@ function Werk() {
             {/* Inhoud van de Project Container */}
             <div className="relative z-10 flex flex-col items-center">
               <img
-                src={project.image}
+                src={project.image || "https://via.placeholder.com/600x400"}
                 alt={project.title}
                 className="rounded-lg mb-6"
               />
@@ -106,7 +117,7 @@ function Werk() {
                 {project.title}
               </h2>
               <p className="mt-4 text-on-card group-hover:text-on-accent-light transition duration-300 text-center">
-                {project.description}
+                {project.description || "Geen beschrijving beschikbaar"}
               </p>
               <p className="text-sm mt-2 text-gray-500 text-center">
                 Opdrachtgever:{" "}
@@ -135,12 +146,12 @@ function Werk() {
         >
           {/* Inhoud van het modaal */}
           <img
-            src={selectedProject.image}
+            src={selectedProject.image || "https://via.placeholder.com/600x400"}
             alt={selectedProject.title}
             className="rounded-lg shadow-lg mt-4 w-full"
           />
           <p className="mt-6 text-on-bg leading-relaxed">
-            {selectedProject.details}
+            {selectedProject.details || "Geen details beschikbaar"}
           </p>
           <p className="mt-4 text-gray-600">
             <strong>Opdrachtgever:</strong> {selectedProject.opdrachtgever}
@@ -150,21 +161,20 @@ function Werk() {
           </p>
 
           {/* Technologieën */}
-          <div className="mt-8">
-            <h3 className="text-lg font-bold text-primary">
-              Gebruikte Technologieën
-            </h3>
-            <div className="flex flex-wrap gap-2 mt-4">
-              {selectedProject.technologies.map((tech, index) => (
-                <span
-                  key={index}
-                  className="px-4 py-1 bg-card text-sm text-on-card rounded-lg shadow-sm"
-                >
-                  {tech}
-                </span>
-              ))}
-            </div>
-          </div>
+          <div className="flex flex-wrap gap-2 mt-4">
+  {selectedProject.technologies.length > 0 ? (
+    selectedProject.technologies.map((tech, index) => (
+      <span
+        key={index}
+        className="px-4 py-1 bg-card text-sm text-on-card rounded-lg shadow-sm"
+      >
+        {tech}
+      </span>
+    ))
+  ) : (
+    <span className="text-gray-500">Geen technologieën gespecificeerd</span>
+  )}
+</div>
 
           {/* Links */}
           <div className="mt-8 flex space-x-4">
