@@ -1,15 +1,31 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import services from "../services.json";
-import tools from "../tools.json";
+import { useNavigate } from "react-router-dom";
+import { fetchServices } from "../api"; // API functie voor services
+import tools from "../tools.json"; // Tools blijven in JSON
 import GlassModal from "../components/GlassModal";
-import { FaExternalLinkAlt } from "react-icons/fa";
-import { FaInfoCircle } from "react-icons/fa";
+import { FaExternalLinkAlt, FaInfoCircle, FaEnvelope } from "react-icons/fa";
 
 function Services() {
+  const [services, setServices] = useState([]);
   const [selectedTool, setSelectedTool] = useState(null);
   const [selectedService, setSelectedService] = useState(null);
   const [headerHeight, setHeaderHeight] = useState(0);
+  const [error, setError] = useState(null);
+  const navigate = useNavigate();
+
+  // Data voor services ophalen van de API
+  useEffect(() => {
+    const loadServices = async () => {
+      try {
+        const servicesData = await fetchServices();
+        setServices(servicesData);
+      } catch (err) {
+        setError("Fout bij het laden van diensten. Probeer het later opnieuw.");
+      }
+    };
+    loadServices();
+  }, []);
 
   // Haal de hoogte van de header op en stel de marge in
   useEffect(() => {
@@ -29,6 +45,10 @@ function Services() {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
   };
+
+  if (error) {
+    return <p className="text-red-500 text-center">{error}</p>;
+  }
 
   return (
     <div
@@ -92,7 +112,7 @@ function Services() {
         >
           {tools.map((tool) => (
             <motion.div
-              key={tool.name}
+              key={tool.id}
               className="p-6 bg-card shadow-lg rounded-lg hover:shadow-xl transform transition duration-300 text-center group"
               whileHover={{ scale: 1.1 }}
             >
@@ -129,33 +149,6 @@ function Services() {
         </motion.div>
       </div>
 
-      {/* Modaal voor Tool Details */}
-      {selectedTool && (
-        <GlassModal
-          isOpen={!!selectedTool}
-          onClose={() => setSelectedTool(null)}
-          title={selectedTool.name}
-        >
-          <div className="flex flex-col items-center text-center p-8 space-y-6">
-            <img
-              src={selectedTool.logo}
-              alt={`${selectedTool.name} logo`}
-              className="w-20 h-20 object-contain"
-            />
-            <p className="text-on-bg">{selectedTool.description}</p>
-            <a
-              href={selectedTool.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center mt-4 text-primary hover:text-accent transition duration-300"
-            >
-              <FaExternalLinkAlt className="text-xl mr-2" />
-              Officiële Website
-            </a>
-          </div>
-        </GlassModal>
-      )}
-
       {/* Modal voor Dienst Details */}
       {selectedService && (
         <GlassModal
@@ -175,6 +168,16 @@ function Services() {
                 </li>
               ))}
             </ul>
+            {/* Contact Icoon */}
+            <button
+              className="flex items-center justify-center px-6 py-3 bg-primary hover:bg-accent text-on-primary font-bold rounded-lg transition duration-300 w-full"
+              onClick={() =>
+                navigate(`/contact?service=${encodeURIComponent(selectedService.name)}`)
+              }
+            >
+              <FaEnvelope className="mr-2" />
+              Vraag deze dienst aan
+            </button>
           </div>
         </GlassModal>
       )}

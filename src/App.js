@@ -8,7 +8,9 @@ import About from "./components/About";
 import Services from "./components/Services";
 import Contact from "./components/Contact";
 import Werk from "./components/Werk";
+import AdminPanel from "./components/Admin"; // Zorg dat dit verwijst naar het AdminPanel-bestand
 
+// Variants for page transitions
 const pageVariants = {
   initial: {
     opacity: 0,
@@ -26,6 +28,7 @@ const pageVariants = {
   },
 };
 
+// Component for animated routes
 function AnimatedRoutes() {
   const location = useLocation();
 
@@ -84,6 +87,20 @@ function AnimatedRoutes() {
             </motion.div>
           }
         />
+        {/* Admin Dashboard Route */}
+        <Route
+          path="/admin/*" // Gebruik * zodat nested routes binnen AdminPanel werken
+          element={
+            <motion.div
+              initial="initial"
+              animate="animate"
+              exit="exit"
+              variants={pageVariants}
+            >
+              <AdminPanel />
+            </motion.div>
+          }
+        />
         <Route
           path="/contact"
           element={
@@ -102,6 +119,7 @@ function AnimatedRoutes() {
   );
 }
 
+// Main App component
 function App() {
   return (
     <Router>
@@ -109,7 +127,7 @@ function App() {
         {/* Header */}
         <Header />
 
-        {/* Content */}
+        {/* Main Content */}
         <div className="flex-grow">
           <AnimatedRoutes />
         </div>

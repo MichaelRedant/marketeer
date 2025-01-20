@@ -4,6 +4,10 @@
 
 @import './theme.css';
 
+html {
+  overflow: auto;
+}
+
 body {
   margin: 0;
   
