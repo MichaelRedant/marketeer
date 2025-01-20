@@ -8,16 +8,30 @@ const customDataProvider = {
     console.log("Fetching list for resource:", resource);
     try {
       const response = await fetchUtils.fetchJson(`${apiUrl}/${resource}`);
-      
-      // Directe toegang tot de geparseerde data
-      const { data, total } = response.json; 
+      const responseData = response.json;
 
-      console.log("Data ontvangen van getList:", { data, total });
+      console.log("Response ontvangen in getList:", responseData);
 
-      return {
-        data, // Array van data-items
-        total, // Totale telling
-      };
+      // Controleer of de data correct is
+      if (Array.isArray(responseData)) {
+        return {
+          data: responseData.map((item) => ({
+            id: item._id || item.id, // Zorg voor consistente IDs
+            ...item,
+          })),
+          total: responseData.length, // Gebruik de lengte van de array als total
+        };
+      } else if (responseData?.data) {
+        return {
+          data: responseData.data.map((item) => ({
+            id: item._id || item.id,
+            ...item,
+          })),
+          total: responseData.total || responseData.data.length,
+        };
+      }
+
+      throw new Error("Ongeldige API-respons ontvangen.");
     } catch (error) {
       console.error("Error in getList:", error);
       throw new Error("Kan de lijst niet ophalen");
@@ -44,7 +58,9 @@ const customDataProvider = {
         method: "POST",
         body: JSON.stringify(params.data),
       });
-      return { data: json.data };
+      return {
+        data: { id: json._id || json.id, ...json }, // Voeg de data correct toe
+      };
     } catch (error) {
       console.error("Error in create:", error);
       throw new Error("Kan de resource niet maken");
@@ -59,7 +75,9 @@ const customDataProvider = {
         method: "PUT",
         body: JSON.stringify(params.data),
       });
-      return { data: json.data };
+      return {
+        data: { id: json._id || json.id, ...json }, // Voeg de data correct toe
+      };
     } catch (error) {
       console.error("Error in update:", error);
       throw new Error("Kan de resource niet updaten");

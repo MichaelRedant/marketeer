@@ -14,10 +14,32 @@ router.get("/", async (req, res) => {
 
 // CREATE a new project
 router.post("/", async (req, res) => {
-  const { title, description, category } = req.body;
+  const {
+    title,
+    description,
+    details,
+    image,
+    category,
+    technologies,
+    liveLink,
+    githubLink,
+    opdrachtgever,
+    eindklant,
+  } = req.body;
 
   try {
-    const newProject = new Project({ title, description, category });
+    const newProject = new Project({
+      title,
+      description,
+      details,
+      image,
+      category,
+      technologies,
+      liveLink,
+      githubLink,
+      opdrachtgever, // Toegevoegd
+      eindklant,     // Toegevoegd
+    });
     const savedProject = await newProject.save();
     res.status(201).json(savedProject);
   } catch (err) {

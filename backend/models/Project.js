@@ -9,6 +9,8 @@ const ProjectSchema = new mongoose.Schema({
   technologies: [String],
   liveLink: { type: String },
   githubLink: { type: String },
+  opdrachtgever: { type: String }, 
+  eindklant: { type: String },
 });
 
 module.exports = mongoose.model("Project", ProjectSchema);
