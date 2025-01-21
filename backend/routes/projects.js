@@ -31,7 +31,6 @@ router.get("/:id", async (req, res) => {
 
 // CREATE a new project
 router.post("/", async (req, res) => {
-<<<<<<< HEAD
   const {
     title,
     description,
@@ -64,57 +63,6 @@ router.post("/", async (req, res) => {
     res.status(500).json({ error: "Er is een fout opgetreden bij het toevoegen." });
   }
 });
-=======
-    const {
-      title = "",
-      description = "",
-      category = "",
-      opdrachtgever = "Niet gespecificeerd",
-      eindklant = "Niet gespecificeerd",
-      technologies = [],
-      image = "",
-      details = "",
-      liveLink = "",
-      githubLink = "",
-    } = req.body;
-  
-    console.log("POST Data:", {
-      title,
-      description,
-      category,
-      opdrachtgever,
-      eindklant,
-      technologies,
-      image,
-      details,
-      liveLink,
-      githubLink,
-    }); // Debugging
-  
-    try {
-      const newProject = new Project({
-        title,
-        description,
-        category,
-        opdrachtgever,
-        eindklant,
-        technologies,
-        image,
-        details,
-        liveLink,
-        githubLink,
-      });
-      const savedProject = await newProject.save();
-      console.log("Saved Project:", savedProject); // Debugging
-      res.status(201).json(savedProject);
-    } catch (err) {
-      console.error("Error saving project:", err);
-      res.status(500).json({ error: "Er is een fout opgetreden bij het toevoegen." });
-    }
-  });
-  
->>>>>>> 79bd5850ecce2f764949f685ff558a5d848819c8
-
 // UPDATE a project by ID
 router.put("/:id", async (req, res) => {
     try {

@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Button from "../components/Button";
 import AnimatedSection from "../components/AnimatedSection";
-import { motion } from "framer-motion";
+import { useTransform, useScroll, motion } from "framer-motion";
 import faqData from "../faq.json";
+import tools from "../tools.json";
 
 function Home() {
   const navigate = useNavigate();
@@ -174,7 +175,6 @@ function Home() {
 </AnimatedSection>
 
 
-
 {/* Waarom Xinudesign Sectie */}
 <AnimatedSection
   className="py-16 px-6 relative"
@@ -187,19 +187,13 @@ function Home() {
 >
   <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center relative">
     {/* Video Sectie */}
-    <div
-      className="relative w-full h-0 pb-[56.25%] md:pb-0 md:h-auto"
-      style={{
-        zIndex: 10, // Zorgt dat de video boven andere elementen staat
-        position: "relative", // Houdt het positioneringsmodel consistent
-      }}
-    >
+    <div className="video-container">
       <video
-        key={`video-${window.innerWidth}`} // Forceer render bij grootte-aanpassing
-        className="absolute inset-0 w-full h-full object-cover rounded-lg shadow-lg"
+        className="video"
         autoPlay
         loop
         muted
+        playsInline
       >
         <source src="/assets/video/ai_video.mp4" type="video/mp4" />
         <source src="/assets/video/ai_video.webm" type="video/webm" />
@@ -208,7 +202,7 @@ function Home() {
     </div>
 
     {/* Tekst Sectie */}
-    <div className="text-center md:text-left relative" style={{ zIndex: 20 }}>
+    <div className="text-section text-center md:text-left relative">
       <h2 className="text-3xl md:text-4xl font-primary font-bold text-primary mb-4">
         Waarom Xinudesign?
       </h2>
@@ -267,6 +261,75 @@ function Home() {
       ))}
     </div>
   </AnimatedSection>
+
+  {/* Tools Carousel Sectie */}
+  <section className="relative py-16 bg-bg-light">
+        <div className="container brandsCarousel mx-auto">
+          <div className="d-flex carouselTrack">
+            {tools.map((tool, index) => (
+              <motion.div
+                className="brandLogo"
+                key={index}
+                whileHover={{ scale: 1.1 }}
+                transition={{ duration: 0.3 }}
+              >
+                <img
+                  src={tool.logo}
+                  alt={tool.name}
+                  className="logo-image grayscale"
+                />
+              </motion.div>
+            ))}
+            {tools.map((tool, index) => (
+              <motion.div
+                className="brandLogo"
+                key={`clone-${index}`}
+                whileHover={{ scale: 1.1 }}
+                transition={{ duration: 0.3 }}
+              >
+                <img
+                  src={tool.logo}
+                  alt={tool.name}
+                  className="logo-image grayscale"
+                />
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+{/* X3DPrints Reclame Sectie */}
+<div className="relative py-12 bg-bg-light">
+  <div className="relative h-[100px] overflow-hidden">
+    <motion.a
+      href="https://www.x3Dprints.be"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="absolute top-0 right-0 w-1/3 h-full rounded-lg shadow-lg px-4 py-3 flex flex-col justify-center items-start cursor-pointer"
+      style={{
+        background: `linear-gradient(90deg, #0362c8 0%, #8BC6EC  100%)`, // Horizontale gradient
+        x: useTransform(
+          useScroll({
+            target: document.body,
+            offset: ["start end", "center center", "end start"],
+          }).scrollYProgress,
+          [0.2, 0.5, 0.8], // Scroll triggers
+          ["100%", "40%", "0%"] // Maximaal 50% van de breedte in het midden
+        ),
+      }}
+      whileHover={{ scale: 1.05 }} // Hover-animatie
+      whileTap={{ scale: 0.95 }} // Tap-animatie
+      transition={{ duration: 0.3 }}
+    >
+      <h3 className="text-lg  font-primary font-bold mb-1 text-white text-left">X3DPrints</h3>
+      <p className="text-xs leading-relaxed font-secondary text-white text-left">
+        Hoogwaardige 3D-prints
+      </p>
+    </motion.a>
+  </div>
+</div>
+
+
 
       {/* FAQ Sectie */}
       <AnimatedSection className="py-16 px-6 bg-background">

@@ -19,3 +19,193 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+button.fixed {
+  background: linear-gradient(0deg, #8BC6EC 0%, #0362c8 100%);
+  color: white;
+  border: none;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  animation: fadeIn 0.3s ease-in-out;
+  transition: transform 0.2s, background 0.3s;
+}
+
+button.fixed:hover {
+  transform: scale(1.1);
+  background: linear-gradient(0deg, #0362c8 0%, #8BC6EC 100%);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+
+.video-container {
+  width: 80%;
+  max-width: 300px; /* Maximale breedte van de video */
+  height: auto; /* Hoogte wordt automatisch aangepast */
+  position: relative;
+  margin: 0 auto; /* Centreer de video */
+}
+
+.video-container video {
+  width: 100%; /* Video vult de container volledig */
+  height: auto; /* Proportionele hoogte */
+  border-radius: 10px; /* Ronde hoeken voor een moderne look */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtiele schaduw */
+}
+
+
+/* toolssectie home */
+@keyframes infiniteLoop {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(calc(-240px * 10), 0, 0); /* Houd rekening met logo + marge */
+  }
+}
+
+.brandsCarousel {
+  max-width: 960px;
+  height: 100px;
+  margin: auto;
+  overflow: hidden;
+  position: relative;
+}
+
+.brandsCarousel::before,
+.brandsCarousel::after {
+  content: "";
+  width: 100px;
+  height: 100px;
+  background: linear-gradient(to right, rgba(250, 250, 240, 1) 0%, rgba(250, 250, 240, 0) 100%);
+  position: absolute;
+  z-index: 2;
+}
+
+.brandsCarousel::before {
+  left: 0;
+}
+
+.brandsCarousel::after {
+  right: 0;
+  transform: rotateZ(180deg);
+}
+
+.carouselTrack {
+  display: flex;
+  width: calc(240px * 20); /* Logo + marge */
+  animation: infiniteLoop 50s linear infinite; /* Animatieduur aangepast voor snelheid */
+}
+
+.brandLogo {
+  width: 200px;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 20px; /* Witruimte tussen logo's */
+}
+
+.logo-image {
+  width: 100%; /* Logo-grootte behouden */
+  height: auto;
+  filter: grayscale(70%);
+  transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+.logo-image:hover {
+  filter: grayscale(0%);
+  transform: scale(1.1);
+}
+
+
+
+/* Algemeen voor de X3DPrintsectie */
+.x3dprints-section {
+  position: relative;
+  background-color: var(--background-color); /* Gebruik bestaande thema kleur */
+  overflow: hidden; /* Verberg elementen buiten beeld */
+  padding: 3rem 0;
+  z-index: 10; /* Zorgt ervoor dat het boven andere elementen staat */
+}
+
+/* Container voor de sectie */
+.x3dprints-container {
+  position: relative;
+  height: 200px;
+  overflow: visible; /* Maak zichtbaar zodra de sectie in beeld komt */
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+/* Box met content */
+.x3dprints-box {
+  position: absolute;
+  top: 0;
+  right: 0; /* Start vanaf rechts */
+  height: 100%;
+  width: 30%; /* Breedte van de box */
+  background-color: var(--primary-color); /* Primaire kleur */
+  color: var(--text-on-primary); /* Tekstkleur */
+  border-radius: 10px 0 0 10px; /* Afgeronde linkerhoek */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Schaduw */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1.5rem;
+  z-index: 20; /* Plaats boven andere elementen */
+  transform: translateX(100%); /* Verberg aan de rechterkant buiten het scherm */
+  transition: transform 0.5s ease-out; /* Soepel verschuiven */
+}
+
+/* Titel styling */
+.x3dprints-title {
+  font-size: 1.5rem;
+  font-family: var(--font-primary);
+  font-weight: var(--font-weight-bold);
+  margin-bottom: 1rem;
+}
+
+/* Tekst styling */
+.x3dprints-text {
+  font-size: 1rem;
+  font-family: var(--font-secondary);
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+/* Button styling */
+.x3dprints-button {
+  background-color: var(--secondary-color);
+  color: var(--text-on-primary);
+  font-size: 0.9rem;
+  font-weight: var(--font-weight-bold);
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.x3dprints-button:hover {
+  background-color: var(--hover-color);
+}
+
+/* Active animatie (wanneer zichtbaar) */
+.x3dprints-box.active {
+  transform: translateX(-25%); /* Komt 25% in beeld */
+}
+
+/* Terug naar rechts als niet actief */
+.x3dprints-box.inactive {
+  transform: translateX(100%); /* Verberg aan de rechterkant */
+}

@@ -3,8 +3,6 @@ import { fetchProjects, fetchServices } from "../api"; // Importeer API functies
 import Button from "./Button";
 import GlassModal from "./GlassModal";
 import { FaArrowDown } from "react-icons/fa";
-import tools from "../tools.json"; // Importeer tools.json
-
 function Werk() {
   const [projects, setProjects] = useState([]);
   const [services, setServices] = useState([]);
@@ -27,27 +25,12 @@ function Werk() {
         const servicesData = Array.isArray(servicesResponse)
           ? servicesResponse
           : servicesResponse.data;
-
-<<<<<<< HEAD
         setProjects(projectsData.map((project) => ({
           ...project,
           opdrachtgever: project.opdrachtgever || "Niet gespecificeerd",
           eindklant: project.eindklant || "Niet gespecificeerd",
           technologies: project.technologies || [],
         })));
-=======
-        // Vertaal technologie-IDs naar namen
-        const translatedProjects = projectsData.map((project) => ({
-          ...project,
-          opdrachtgever: project.opdrachtgever || "Niet gespecificeerd",
-          eindklant: project.eindklant || "Niet gespecificeerd",
-          technologies: (project.technologies || []).map(
-            (techId) => tools.find((tool) => tool.id === techId)?.name || techId
-          ),
-        }));
-
-        setProjects(translatedProjects);
->>>>>>> 79bd5850ecce2f764949f685ff558a5d848819c8
 
         setServices(
           servicesData.map((service) => ({
@@ -173,7 +156,6 @@ function Werk() {
           </p>
 
           {/* Technologieën */}
-<<<<<<< HEAD
           <div className="mt-8">
             <h3 className="text-lg font-bold text-primary">
               Gebruikte Technologieën
@@ -192,21 +174,7 @@ function Werk() {
                 <span className="text-gray-500">Geen technologieën gespecificeerd</span>
               )}
             </div>
-=======
-          <div className="flex flex-wrap gap-2 mt-4">
-            {selectedProject.technologies.length > 0 ? (
-              selectedProject.technologies.map((tech, index) => (
-                <span
-                  key={index}
-                  className="px-4 py-1 bg-card text-sm text-on-card rounded-lg shadow-sm"
-                >
-                  {tech}
-                </span>
-              ))
-            ) : (
-              <span className="text-gray-500">Geen technologieën gespecificeerd</span>
-            )}
->>>>>>> 79bd5850ecce2f764949f685ff558a5d848819c8
+
           </div>
 
           {/* Links */}
