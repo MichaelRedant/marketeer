@@ -7,6 +7,8 @@ const ProjectSchema = new mongoose.Schema({
   image: { type: String },
   category: { type: String },
   technologies: [String],
+  opdrachtgever: { type: String, default: "Niet gespecificeerd" },
+  eindklant: { type: String, default: "Niet gespecificeerd" },
   liveLink: { type: String },
   githubLink: { type: String },
   opdrachtgever: { type: String }, 

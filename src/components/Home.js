@@ -175,24 +175,49 @@ function Home() {
 
 
 
+{/* Waarom Xinudesign Sectie */}
 <AnimatedSection
-  className="py-16 px-6"
+  className="py-16 px-6 relative"
   style={{
-    background: "linear-gradient(180deg, #0362c8 0%, #ffffff 100%)", // Correcte gradient
-    backgroundSize: "cover", // Zorgt ervoor dat de gradient de volledige sectie bedekt
-    backgroundRepeat: "no-repeat", // Voorkomt herhaling
-    width: "100%", // Zorgt voor volledige breedte
+    background: "linear-gradient(180deg, #0362c8 0%, #ffffff 100%)",
+    backgroundSize: "cover",
+    backgroundRepeat: "no-repeat",
+    width: "100%",
   }}
 >
-  <div className="max-w-7xl mx-auto text-center">
-    <h2 className="text-3xl md:text-4xl font-primary font-bold text-primary">
-      Waarom Xinudesign?
-    </h2>
-    <p className="mt-4 text-text leading-relaxed font-secondary">
-      Bij Xinudesign combineren we de kracht van kunstmatige intelligentie
-      met menselijke creativiteit. Ons doel is om jouw marketing naar een
-      hoger niveau te tillen door middel van op maat gemaakte oplossingen.
-    </p>
+  <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center relative">
+    {/* Video Sectie */}
+    <div
+      className="relative w-full h-0 pb-[56.25%] md:pb-0 md:h-auto"
+      style={{
+        zIndex: 10, // Zorgt dat de video boven andere elementen staat
+        position: "relative", // Houdt het positioneringsmodel consistent
+      }}
+    >
+      <video
+        key={`video-${window.innerWidth}`} // Forceer render bij grootte-aanpassing
+        className="absolute inset-0 w-full h-full object-cover rounded-lg shadow-lg"
+        autoPlay
+        loop
+        muted
+      >
+        <source src="/assets/video/ai_video.mp4" type="video/mp4" />
+        <source src="/assets/video/ai_video.webm" type="video/webm" />
+        Je browser ondersteunt geen video.
+      </video>
+    </div>
+
+    {/* Tekst Sectie */}
+    <div className="text-center md:text-left relative" style={{ zIndex: 20 }}>
+      <h2 className="text-3xl md:text-4xl font-primary font-bold text-primary mb-4">
+        Waarom Xinudesign?
+      </h2>
+      <p className="text-lg md:text-xl leading-relaxed font-secondary text-text">
+        Bij Xinudesign combineren we de kracht van kunstmatige intelligentie
+        met menselijke creativiteit. Ons doel is om jouw marketing naar een
+        hoger niveau te tillen door middel van op maat gemaakte oplossingen.
+      </p>
+    </div>
   </div>
 </AnimatedSection>
 

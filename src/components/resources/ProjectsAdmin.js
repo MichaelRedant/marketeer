@@ -10,8 +10,10 @@ import {
   Edit,
   Create,
   SelectInput,
+  CheckboxGroupInput,
 } from "react-admin";
 import { fetchServices } from "../../api"; // Zorg ervoor dat deze functie correct is
+import tools from "../../tools.json"; // Zorg dat dit pad correct is
 
 // Project List
 export const ProjectList = (props) => (
@@ -81,11 +83,18 @@ export const ProjectEdit = (props) => {
         <TextInput source="description" label="Beschrijving" />
         <TextInput source="details" label="Details" />
         <TextInput source="image" label="Afbeelding URL" />
-        <TextInput source="technologies" label="Technologieën (komma gescheiden)" />
         <TextInput source="liveLink" label="Live Link" />
         <TextInput source="githubLink" label="GitHub Link" />
         <TextInput source="opdrachtgever" label="Opdrachtgever" />
         <TextInput source="eindklant" label="Eindklant" />
+        <CheckboxGroupInput
+          source="technologies"
+          label="Gebruikte Technologieën"
+          choices={tools.map((tool) => ({
+            id: tool.name, // Bewaar de naam in plaats van een ID
+            name: tool.name,
+          }))}
+        />
         <SelectInput
           source="category"
           label="Categorie"
@@ -112,11 +121,18 @@ export const ProjectCreate = (props) => {
         <TextInput source="description" label="Beschrijving" />
         <TextInput source="details" label="Details" />
         <TextInput source="image" label="Afbeelding URL" />
-        <TextInput source="technologies" label="Technologieën (komma gescheiden)" />
         <TextInput source="liveLink" label="Live Link" />
         <TextInput source="githubLink" label="GitHub Link" />
         <TextInput source="opdrachtgever" label="Opdrachtgever" />
         <TextInput source="eindklant" label="Eindklant" />
+        <CheckboxGroupInput
+          source="technologies"
+          label="Gebruikte Technologieën"
+          choices={tools.map((tool) => ({
+            id: tool.name, // Bewaar de naam in plaats van een ID
+            name: tool.name,
+          }))}
+        />
         <SelectInput
           source="category"
           label="Categorie"
