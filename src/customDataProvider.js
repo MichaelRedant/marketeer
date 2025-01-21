@@ -42,13 +42,25 @@ const customDataProvider = {
   getOne: async (resource, params) => {
     console.log("Fetching single resource:", params);
     try {
-      const { json } = await fetchUtils.fetchJson(`${apiUrl}/${resource}/${params.id}`);
-      return { data: json };
+      const response = await fetchUtils.fetchJson(`${apiUrl}/${resource}/${params.id}`);
+      const data = response.json;
+  
+      console.log("Response ontvangen in getOne:", data);
+  
+      // Controleer of het antwoord een object met een `_id` of `id` bevat
+      if (!data || (!data._id && !data.id)) {
+        throw new Error("Ongeldige respons: Geen id gevonden");
+      }
+  
+      return { 
+        data: { id: data._id || data.id, ...data } // Zorg voor een 'id'-veld
+      };
     } catch (error) {
       console.error("Error in getOne:", error);
       throw new Error("Kan de resource niet ophalen");
     }
   },
+  
 
   // Create a resource
   create: async (resource, params) => {
