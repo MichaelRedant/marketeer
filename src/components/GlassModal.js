@@ -10,7 +10,7 @@ function GlassModal({ isOpen, onClose, title, children }) {
       onClick={onClose} // Sluit modal bij klik buiten het venster
     >
       <motion.div
-        className="bg-white/90 rounded-lg shadow-lg max-w-lg w-full p-6 border border-gray-200"
+        className="bg-white/70 rounded-lg shadow-lg max-w-lg w-full p-6 border border-gray-200"
         initial={{ scale: 0.8, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         exit={{ scale: 0.8, opacity: 0 }}

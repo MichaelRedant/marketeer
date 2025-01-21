@@ -4,7 +4,8 @@ import { useNavigate } from "react-router-dom";
 import { fetchServices } from "../api"; // Zorg dat de API-functie correct werkt
 import tools from "../tools.json"; // Tools blijven in JSON
 import GlassModal from "../components/GlassModal";
-import { FaExternalLinkAlt, FaInfoCircle, FaEnvelope } from "react-icons/fa";
+import { FaExternalLinkAlt, FaEnvelope } from "react-icons/fa";
+import "./Cards.css"; // Voor het nieuwe card design
 
 function Services() {
   const [services, setServices] = useState([]); // Services van backend
@@ -18,8 +19,7 @@ function Services() {
   useEffect(() => {
     const loadServices = async () => {
       try {
-        const { data } = await fetchServices(); // Verwacht response-structuur { data: [...] }
-        console.log("Services Data:", data); // Debugging log
+        const { data } = await fetchServices();
         setServices(data || []);
       } catch (err) {
         console.error("Error fetching services:", err);
@@ -42,12 +42,6 @@ function Services() {
     a.name.localeCompare(b.name)
   );
 
-  // Animatie-opties voor motion
-  const fadeInVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
-  };
-
   // Error-melding tonen indien aanwezig
   if (error) {
     return <p className="text-red-500 text-center">{error}</p>;
@@ -56,48 +50,30 @@ function Services() {
   return (
     <div
       style={{
-        marginTop: headerHeight, // Dynamische marge op basis van header
+        marginTop: headerHeight,
       }}
     >
       {/* Services-sectie */}
       <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-b from-bg-light to-bg-primary">
         <h1 className="text-4xl md:text-5xl font-extrabold text-primary mb-12 text-center">
-          Diensten
+          Services
         </h1>
-        <p className="text-center text-on-bg max-w-3xl leading-relaxed">
-          Ontdek hoe mijn expertise in AI en marketing jouw bedrijf kan helpen
-          groeien. Klik op een dienst om meer te leren.
-        </p>
-        <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-10 px-6 max-w-7xl"
-          initial="hidden"
-          animate="visible"
-          variants={fadeInVariants}
-        >
+        <motion.div className="card-container" initial="hidden" animate="visible">
           {sortedServices.map((service) => (
-            <motion.div
-              key={service.id} // Gebruik de unieke `id` van de backend
-              className="relative p-6 bg-card shadow-lg rounded-lg overflow-hidden transform transition duration-300 group cursor-pointer"
-              whileHover={{ scale: 1.05 }}
-              onClick={() => setSelectedService(service)}
-            >
-              {/* Hover-animatie achtergrond */}
-              <div className="absolute inset-0 bg-gradient-to-br from-primary to-accent opacity-0 group-hover:opacity-80 transition duration-500 rounded-lg"></div>
-
-              {/* Inhoud van de Service */}
-              <div className="relative z-10">
-                <h2 className="text-xl font-bold text-primary mt-4 group-hover:text-on-accent transition duration-300 text-center">
-                  {service.name}
-                </h2>
-                <p className="mt-4 text-on-card group-hover:text-on-accent-light transition duration-300 text-center">
-                  {service.description}
-                </p>
-                {/* Informatie-icoon */}
-                <div className="flex justify-center items-center mt-6">
-                  <FaInfoCircle className="text-primary group-hover:text-on-accent text-lg transition duration-300" />
+            <div className={`card`} key={service.id}>
+              <a href="#" onClick={() => setSelectedService(service)}>
+                <div className="card--display">
+                  <i className="material-icons">{service.icon || "⤵️"}</i>
+                  <h2>{service.name}</h2>
                 </div>
-              </div>
-            </motion.div>
+                <div className="card--hover">
+                  <h2>{service.name}</h2>
+                  <p>{service.description}</p>
+                  <p className="link">Klik voor meer informatie</p>
+                </div>
+              </a>
+              <div className="card--border"></div>
+            </div>
           ))}
         </motion.div>
       </div>
@@ -111,7 +87,6 @@ function Services() {
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto"
           initial="hidden"
           animate="visible"
-          variants={fadeInVariants}
         >
           {tools.map((tool, index) => (
             <motion.div
@@ -163,18 +138,18 @@ function Services() {
             <h2 className="text-xl font-bold text-primary text-center">
               {selectedService.name}
             </h2>
-            <p className="text-on-bg">{selectedService.details}</p>
+            <p>{selectedService.details}</p>
             <ul className="list-disc mt-4 space-y-2">
               {selectedService.benefits?.map((benefit, index) => (
-                <li key={index} className="text-on-bg">
-                  {benefit}
-                </li>
+                <li key={index}>{benefit}</li>
               ))}
             </ul>
             <button
               className="flex items-center justify-center px-6 py-3 bg-primary hover:bg-accent text-on-primary font-bold rounded-lg transition duration-300 w-full"
               onClick={() =>
-                navigate(`/contact?service=${encodeURIComponent(selectedService.name)}`)
+                navigate(
+                  `/contact?service=${encodeURIComponent(selectedService.name)}`
+                )
               }
             >
               <FaEnvelope className="mr-2" />
