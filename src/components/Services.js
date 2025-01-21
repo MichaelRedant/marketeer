@@ -79,7 +79,7 @@ function Services() {
       </div>
 
       {/* Tools-sectie */}
-      <div className="mt-16 py-16 px-6">
+      <div className="flex flex-col items-center mt-32 py-16 px-6">
         <h2 className="text-3xl md:text-4xl font-bold text-primary text-center mb-8">
           Tools
         </h2>
