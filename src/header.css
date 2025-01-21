@@ -1,0 +1,95 @@
+/* Basis Stijlen */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1.2rem 5%;
+    background: transparent;
+    z-index: 1000;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .navbar.scrolled {
+    backdrop-filter: blur(12px);
+    background: rgba(255, 255, 255, 0.7); /* Matglas */
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  }
+  
+  /* Container */
+  .navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+  
+  /* Logo */
+  .logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: black; /* Beginstaat zwart */
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .navbar.scrolled .logo {
+    color: #0362c8; /* Primary blauw bij scrollen */
+  }
+  
+  /* Menu */
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+  
+  .nav-links a {
+    color: black; /* Beginstaat zwart */
+    text-decoration: none;
+    font-weight: 500;
+    position: relative;
+    padding: 0.5rem 0;
+    font-size: 1.05rem;
+    transition: color 0.3s ease;
+  }
+  
+  .navbar.scrolled .nav-links a {
+    color: #333; /* Donkere kleur bij scrollen */
+  }
+  
+  .nav-links a:hover {
+    color: #509ef1; /* Primary blauw bij hover */
+  }
+  
+  /* Hover Animatie */
+  .nav-links a::before,
+  .nav-links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: black; /* Zwarte hoveranimatie in beginstaat */
+    transition: width 0.3s ease;
+  }
+  
+  .nav-links a::before {
+    top: -4px;
+  }
+  
+  .nav-links a::after {
+    bottom: -4px;
+  }
+  
+  .navbar.scrolled .nav-links a::before,
+  .navbar.scrolled .nav-links a::after {
+    background: #0362c8; /* Primary blauw hoveranimatie bij scrollen */
+  }
+  
+  .nav-links a:hover::before,
+  .nav-links a:hover::after {
+    width: 100%;
+  }
+  
