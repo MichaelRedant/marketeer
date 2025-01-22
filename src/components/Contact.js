@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { fetchServices } from "../api"; // Zorg ervoor dat de API functie correct werkt
+import "../contact.css"; // Voeg stijlen toe voor confetti-effect
 
 function Contact() {
   const [headerHeight, setHeaderHeight] = useState(0);
@@ -15,16 +16,14 @@ function Contact() {
   const [errorMessage, setErrorMessage] = useState("");
   const [searchParams] = useSearchParams();
 
-  // Haal de diensten uit de backend
   useEffect(() => {
     const loadServices = async () => {
       try {
         const servicesData = await fetchServices();
-        console.log("Fetched Services:", servicesData); // Controleer de API-respons
         if (Array.isArray(servicesData)) {
-          setServices(servicesData); // Stel de services in als het een array is
+          setServices(servicesData);
         } else if (servicesData.data && Array.isArray(servicesData.data)) {
-          setServices(servicesData.data); // Haal data op als het genest is
+          setServices(servicesData.data);
         } else {
           console.error("Unexpected API response format:", servicesData);
           setErrorMessage(
@@ -33,23 +32,19 @@ function Contact() {
         }
       } catch (err) {
         console.error("Error fetching services:", err);
-        setErrorMessage(
-          "Fout bij het laden van diensten. Probeer het later opnieuw."
-        );
+        setErrorMessage("Fout bij het laden van diensten. Probeer het later opnieuw.");
       }
     };
 
     loadServices();
   }, []);
 
-  // Haal de hoogte van de header op en stel de marge in
   useEffect(() => {
     const headerElement = document.querySelector("nav");
     if (headerElement) {
       setHeaderHeight(headerElement.offsetHeight);
     }
 
-    // Haal de geselecteerde service uit de URL
     const preselectedService = searchParams.get("service");
     if (preselectedService) {
       setFormData((prevData) => ({
@@ -61,9 +56,6 @@ function Contact() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    // Log de formData voor debugging
-    console.log("Submitting form data:", formData);
 
     try {
       const response = await fetch("http://localhost:5000/api/messages", {
@@ -78,6 +70,7 @@ function Contact() {
         setSuccessMessage("Bericht succesvol verzonden!");
         setFormData({ name: "", email: "", message: "", services: [] });
         setErrorMessage("");
+        triggerConfetti(); // Start confetti
       } else {
         const data = await response.json();
         setErrorMessage(data.error || "Er is een fout opgetreden.");
@@ -98,9 +91,54 @@ function Contact() {
     });
   };
 
+  const triggerConfetti = () => {
+    const canvas = document.getElementById("confetti-canvas");
+    const ctx = canvas.getContext("2d");
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    const confettiCount = 50;
+    const confettiColors = ["#0362c8", "#5c86ff", "#b3c7ff"];
+    const confetti = [];
+
+    for (let i = 0; i < confettiCount; i++) {
+      confetti.push({
+        x: Math.random() * canvas.width,
+        y: canvas.height,
+        size: Math.random() * 7 + 3,
+        color: confettiColors[Math.floor(Math.random() * confettiColors.length)],
+        speedX: Math.random() * 4 - 2,
+        speedY: Math.random() * -10 - 10,
+      });
+    }
+
+    const render = () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      confetti.forEach((particle) => {
+        ctx.fillStyle = particle.color;
+        ctx.beginPath();
+        ctx.arc(particle.x, particle.y, particle.size, 0, 2 * Math.PI);
+        ctx.fill();
+        particle.x += particle.speedX;
+        particle.y += particle.speedY;
+        particle.speedY += 0.3; // Gravity effect
+      });
+
+      confetti.forEach((particle, index) => {
+        if (particle.y > canvas.height) confetti.splice(index, 1);
+      });
+
+      if (confetti.length > 0) {
+        requestAnimationFrame(render);
+      }
+    };
+
+    render();
+  };
+
   return (
     <div
-      className="bg-gradient-to-b from-bg-start to-bg-end min-h-screen flex flex-col items-center justify-center px-6"
+      className="bg-gradient-to-b from-bg-start to-bg-end min-h-screen mb-10 flex flex-col items-center justify-center px-6"
       style={{
         marginTop: headerHeight,
       }}
@@ -109,7 +147,7 @@ function Contact() {
         Contact
       </h1>
       <p className="mt-4 text-lg md:text-xl text-text font-secondary text-center max-w-3xl">
-        Neem contact met mij op voor meer informatie of om samen te werken aan
+        Neem contact op voor meer informatie of om samen te werken aan
         jouw project.
       </p>
 
@@ -135,10 +173,7 @@ function Contact() {
         </div>
 
         <div>
-          <label
-            htmlFor="email"
-            className="block text-sm font-bold text-primary"
-          >
+          <label htmlFor="email" className="block text-sm font-bold text-primary">
             E-mail
           </label>
           <input
@@ -155,10 +190,7 @@ function Contact() {
         </div>
 
         <div>
-          <label
-            htmlFor="message"
-            className="block text-sm font-bold text-primary"
-          >
+          <label htmlFor="message" className="block text-sm font-bold text-primary">
             Bericht
           </label>
           <textarea
@@ -180,7 +212,7 @@ function Contact() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
               {services.map((service) => (
                 <label
-                  key={service.id || service._id} // Unieke key voor elke checkbox
+                  key={service.id || service._id}
                   className="flex items-center space-x-2 cursor-pointer"
                 >
                   <input
@@ -200,6 +232,7 @@ function Contact() {
         </div>
 
         <button
+          id="submit-button"
           type="submit"
           className="w-full bg-primary hover:bg-hover-primary text-on-primary font-bold py-3 rounded-lg transition duration-300"
         >
@@ -213,6 +246,7 @@ function Contact() {
           <p className="mt-4 text-red-500 text-center">{errorMessage}</p>
         )}
       </form>
+      <canvas id="confetti-canvas"></canvas>
     </div>
   );
 }
