@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Helmet } from "react-helmet";
 import { useSearchParams } from "react-router-dom";
 import servicesData from "../services.json";
 import emailjs from "@emailjs/browser";
@@ -117,6 +118,35 @@ function Contact() {
         marginTop: headerHeight,
       }}
     >
+    <Helmet>
+  <title>Contact | Xinudesign</title>
+  <meta
+    name="description"
+    content="Neem contact op met Xinudesign voor maatwerkoplossingen in AI-marketing, SEO en webontwikkeling."
+  />
+  <meta
+    name="keywords"
+    content="Contact Xinudesign, AI-marketing, SEO, webontwikkeling, digitale strategieën"
+  />
+   <script type="application/ld+json">
+    {JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Xinudesign",
+      "url": "https://xinudesign.be",
+      "telephone": "+32 496 90 85 03",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Provincieweg 34a",
+        "addressLocality": "Herzele",
+        "postalCode": "9552",
+        "addressCountry": "BE",
+      },
+      "openingHours": "Mo-Su 09:00-23:00",
+    })}
+  </script>
+</Helmet>
+
       <h1 className="text-4xl md:text-5xl font-primary font-bold text-primary text-center">
         Contact
       </h1>

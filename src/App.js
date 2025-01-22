@@ -10,6 +10,9 @@ import Services from "./components/Services";
 import Contact from "./components/Contact";
 import Werk from "./components/Werk";
 import AdminPanel from "./components/Admin"; // Zorg dat dit verwijst naar het AdminPanel-bestand
+import ServicePage from "./components/ServicePage";
+import TermsAndConditions from "./components/TermsAndConditions";
+import CookiePolicy from "./components/CookiePolicy";
 
 // Variants for page transitions
 const pageVariants = {
@@ -29,7 +32,8 @@ const pageVariants = {
   },
 };
 
-// Component for animated routes
+ // Dynamische servicepagina toevoegen
+
 function AnimatedRoutes() {
   const location = useLocation();
 
@@ -76,6 +80,19 @@ function AnimatedRoutes() {
           }
         />
         <Route
+          path="/services/:serviceId" // Dynamische route voor services
+          element={
+            <motion.div
+              initial="initial"
+              animate="animate"
+              exit="exit"
+              variants={pageVariants}
+            >
+              <ServicePage />
+            </motion.div>
+          }
+        />
+        <Route
           path="/werk"
           element={
             <motion.div
@@ -85,20 +102,6 @@ function AnimatedRoutes() {
               variants={pageVariants}
             >
               <Werk />
-            </motion.div>
-          }
-        />
-        {/* Admin Dashboard Route */}
-        <Route
-          path="/admin/*" // Gebruik * zodat nested routes binnen AdminPanel werken
-          element={
-            <motion.div
-              initial="initial"
-              animate="animate"
-              exit="exit"
-              variants={pageVariants}
-            >
-              <AdminPanel />
             </motion.div>
           }
         />
@@ -115,10 +118,51 @@ function AnimatedRoutes() {
             </motion.div>
           }
         />
+        <Route
+          path="/admin/*"
+          element={
+            <motion.div
+              initial="initial"
+              animate="animate"
+              exit="exit"
+              variants={pageVariants}
+            >
+              <AdminPanel />
+            </motion.div>
+          }
+        />
+        {/* Algemene Voorwaarden Route */}
+        <Route
+          path="/algemene-voorwaarden"
+          element={
+            <motion.div
+              initial="initial"
+              animate="animate"
+              exit="exit"
+              variants={pageVariants}
+            >
+              <TermsAndConditions />
+            </motion.div>
+          }
+        />
+        <Route
+          path="/cookiebeleid"
+          element={
+            <motion.div
+              initial="initial"
+              animate="animate"
+              exit="exit"
+              variants={pageVariants}
+            >
+              <CookiePolicy />
+            </motion.div>
+          }
+        />
       </Routes>
     </AnimatePresence>
   );
 }
+
 
 // Main App component
 function App() {

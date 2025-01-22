@@ -1,6 +1,7 @@
 import React from "react";
 import socials from "../socials.json";
 import { FaLinkedin, FaGithub, FaInstagram, FaFacebook } from "react-icons/fa";
+import { Link } from "react-router-dom"; // Zorg dat je Link gebruikt voor interne navigatie
 
 const icons = {
   FaLinkedin,
@@ -15,7 +16,11 @@ function Footer() {
   return (
     <footer className="bg-primary text-white py-8">
       <div className="max-w-7xl mx-auto px-6 text-center">
-        <p className="text-lg font-semibold mb-4">© {currentYear} Michaël Redant</p>
+        <p className="text-lg font-semibold mb-4">
+          © {currentYear} Michaël Redant
+        </p>
+
+        {/* Social Media Links */}
         <div className="flex justify-center space-x-6 mb-4">
           {socials.map((social) => {
             const Icon = icons[social.icon];
@@ -33,7 +38,24 @@ function Footer() {
             );
           })}
         </div>
-        <p className="text-sm">Gemaakt met passie voor AI, webdesign, en 3D-printing.</p>
+
+        {/* Extra Links */}
+        <div className="text-sm space-y-2">
+          <p>Gemaakt met passie voor AI, webdesign, en 3D-printing.</p>
+          <Link
+            to="/algemene-voorwaarden"
+            className="underline hover:text-gray-300 transition duration-300 "
+          >
+            Algemene Voorwaarden
+          </Link>
+          {" | "}
+          <Link
+            to="/cookiebeleid"
+            className="underline hover:text-gray-300 transition duration-300"
+          >
+            Cookiebeleid
+          </Link>
+        </div>
       </div>
     </footer>
   );

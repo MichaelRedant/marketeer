@@ -3,6 +3,13 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import PiwikPro from "@piwikpro/react-piwik-pro";
+
+// Initialiseer Piwik Pro
+PiwikPro.initialize(
+  "42c0e959-7811-4197-8f3a-5fc6e8113181", // Je unieke site-ID
+  "https://xinudesi-gn.piwik.pro" // Je Piwik Pro URL
+);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

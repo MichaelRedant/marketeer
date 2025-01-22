@@ -13,6 +13,7 @@ const NotFoundSection = () => {
   return (
     <div className="empty-icon-container">
     <div className="animation-container">
+    
       <div
         className="bounce"
         style={{ backgroundImage: `url(${imgDataURI})` }}

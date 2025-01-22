@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Helmet } from "react-helmet";
 import servicesData from "../services.json";
 import NotFoundSection from "../components/NotFoundSection";
 
@@ -12,6 +13,31 @@ function Werk() {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-bg-light px-6">
+      <Helmet>
+        <title>Portfolio Werk | Xinudesign</title>
+        <meta
+          name="description"
+          content="Bekijk onze afgeronde projecten en ontdek hoe Xinudesign waarde toevoegt met AI-marketing en webontwikkeling."
+        />
+        <meta
+          name="keywords"
+          content="Portfolio, afgeronde projecten, AI-marketing, webontwikkeling, Xinudesign"
+        />
+        {/* Structured Data */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            "itemListElement": services.map((service, index) => ({
+              "@type": "ListItem",
+              "position": index + 1,
+              "name": service.name,
+              "url": `https://xinudesign.be/werk/${service.id}`,
+            })),
+          })}
+        </script>
+      </Helmet>
+
       {/* Titel */}
       <h1 className="text-4xl md:text-5xl font-extrabold text-primary mb-12">
         Werk

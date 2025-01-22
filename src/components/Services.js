@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Helmet } from "react-helmet";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import servicesData from "../services.json";
@@ -33,6 +34,31 @@ function Services() {
 
   return (
     <div style={{ marginTop: headerHeight }}>
+      <Helmet>
+        <title>Diensten | Xinudesign</title>
+        <meta
+          name="description"
+          content="Ontdek onze uitgebreide diensten: van AI-contentcreatie en automatisering tot SEO en webontwikkeling. Perfect voor jouw digitale groei."
+        />
+        <meta
+          name="keywords"
+          content="AI-content creatie, automatisering, SEO, webontwikkeling, marketingdiensten"
+        />
+        {/* Structured Data */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            "itemListElement": sortedServices.map((service, index) => ({
+              "@type": "ListItem",
+              "position": index + 1,
+              "name": service.name,
+              "description": service.description,
+            })),
+          })}
+        </script>
+      </Helmet>
+
       <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-b from-bg-light to-bg-primary">
         <h1 className="text-4xl md:text-5xl font-extrabold text-primary mb-12 text-center">
           Services
@@ -111,6 +137,15 @@ function Services() {
     onClose={() => setSelectedService(null)}
     title={selectedService.name}
   >
+    {/* Sluitknop als FontAwesome-icoon */}
+    <button
+      onClick={() => setSelectedService(null)}
+      className="absolute top-4 right-4 text-gray-500 hover:text-primary text-2xl transition duration-300"
+      aria-label="Sluiten"
+    >
+      <i className="fas fa-times"></i> {/* FontAwesome sluit-icoon */}
+    </button>
+
     <div className="p-8 space-y-6">
       {/* Titel */}
       <h2 className="text-2xl font-bold text-primary text-center mb-4">
@@ -122,9 +157,11 @@ function Services() {
         {selectedService.details}
       </p>
 
-      {/* Benefits */}
+      {/* Voordelen */}
       <div className="bg-gray-100 p-4 rounded-lg shadow-md">
-        <h3 className="text-lg font-semibold text-primary mb-3">Voordelen:</h3>
+        <h3 className="text-lg font-semibold text-primary mb-3">
+          Voordelen:
+        </h3>
         <ul className="list-disc pl-6 space-y-2">
           {selectedService.benefits.map((benefit, index) => (
             <li key={index} className="text-gray-600">
@@ -139,7 +176,11 @@ function Services() {
         <button
           className="inline-flex items-center justify-center px-6 py-3 bg-primary hover:bg-accent text-on-primary font-bold rounded-lg transition duration-300"
           onClick={() =>
-            navigate(`/contact?service=${encodeURIComponent(selectedService.name)}`)
+            navigate(
+              `/contact?service=${encodeURIComponent(
+                selectedService.name
+              )}`
+            )
           }
         >
           <FaEnvelope className="mr-2" />

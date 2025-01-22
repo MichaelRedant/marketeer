@@ -1,0 +1,17 @@
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  h1, h2 {
+    color: #0362c8;
+  }
+  
+  ul {
+    margin-bottom: 1.5rem;
+  }
+  
+  p {
+    margin-bottom: 1rem;
+  }
+  
