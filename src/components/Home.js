@@ -40,7 +40,7 @@ function Home() {
   <div
     className="absolute inset-0"
     style={{
-      backgroundImage: "url('/assets/img/hero.svg')",
+      backgroundImage: "url('/public/assets/img/hero.svg')",
       backgroundSize: "cover",
       backgroundPosition: "center",
       zIndex: 1,

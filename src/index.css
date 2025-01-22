@@ -127,6 +127,13 @@ button.fixed:hover {
   transform: scale(1.1);
 }
 
+/* Verwijder de filter voor logo's op kleinere schermen */
+@media (max-width: 768px) {
+  .logo-image {
+    filter: none;
+    transform: none;
+  }
+}
 
 
 /* Algemeen voor de X3DPrintsectie */
@@ -208,4 +215,30 @@ button.fixed:hover {
 /* Terug naar rechts als niet actief */
 .x3dprints-box.inactive {
   transform: translateX(100%); /* Verberg aan de rechterkant */
+}
+
+/* Responsive Styling voor Diensten Sectie */
+@media (max-width: 768px) {
+  .grid.grid-cols-1.md\:grid-cols-2.lg\:grid-cols-3 {
+    grid-template-columns: 1fr; /* Eén kolom op kleine schermen */
+    gap: 1rem; /* Kleinere ruimte tussen items */
+  }
+
+  .relative.p-6.bg-card.shadow-lg.rounded-lg {
+    max-width: 90%; /* Maximaal 90% van de schermbreedte */
+    margin: 0 auto; /* Centreer de kaarten */
+  }
+}
+
+/* Responsive Styling voor "Efficiëntie, Creativiteit, Resultaatgericht" */
+@media (max-width: 768px) {
+  .grid.grid-cols-1.md\:grid-cols-3 {
+    grid-template-columns: 1fr; /* Eén kolom op kleine schermen */
+    gap: 1rem; /* Kleinere ruimte tussen items */
+  }
+
+  .p-6.bg-card.shadow-lg.rounded-lg.text-center.relative.group.overflow-hidden {
+    max-width: 90%; /* Maximaal 90% van de schermbreedte */
+    margin: 0 auto; /* Centreer de containers */
+  }
 }

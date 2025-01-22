@@ -1,94 +1,45 @@
 import React, { useEffect, useState } from "react";
-import { useSearchParams } from "react-router-dom";
-import { fetchServices } from "../api"; // Zorg ervoor dat de API functie correct werkt
-import "../contact.css"; // Voeg stijlen toe voor confetti-effect
+import emailjs from "@emailjs/browser";
+import "../contact.css";
 
 function Contact() {
   const [headerHeight, setHeaderHeight] = useState(0);
-  const [services, setServices] = useState([]); // Dynamische services uit de backend
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     message: "",
-    services: [],
   });
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
-  const [searchParams] = useSearchParams();
-
-  useEffect(() => {
-    const loadServices = async () => {
-      try {
-        const servicesData = await fetchServices();
-        if (Array.isArray(servicesData)) {
-          setServices(servicesData);
-        } else if (servicesData.data && Array.isArray(servicesData.data)) {
-          setServices(servicesData.data);
-        } else {
-          console.error("Unexpected API response format:", servicesData);
-          setErrorMessage(
-            "Fout bij het laden van diensten. Probeer het later opnieuw."
-          );
-        }
-      } catch (err) {
-        console.error("Error fetching services:", err);
-        setErrorMessage("Fout bij het laden van diensten. Probeer het later opnieuw.");
-      }
-    };
-
-    loadServices();
-  }, []);
 
   useEffect(() => {
     const headerElement = document.querySelector("nav");
     if (headerElement) {
       setHeaderHeight(headerElement.offsetHeight);
     }
+  }, []);
 
-    const preselectedService = searchParams.get("service");
-    if (preselectedService) {
-      setFormData((prevData) => ({
-        ...prevData,
-        services: [...prevData.services, preselectedService],
-      }));
-    }
-  }, [searchParams]);
-
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
-    try {
-      const response = await fetch("http://localhost:5000/api/messages", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
+    // Configuratie voor EmailJS
+    const serviceID = "service_nmdx9zi"; // Vervang door je EmailJS-service-ID
+    const templateID = "template_iab6bsa"; // Vervang door je EmailJS-template-ID
+    const userID = "-sGG7XerTMORdNsUw"; // Vervang door je EmailJS-gebruikers-ID
 
-      if (response.ok) {
+    emailjs
+      .send(serviceID, templateID, formData, userID)
+      .then((response) => {
+        console.log("SUCCESS!", response.status, response.text);
         setSuccessMessage("Bericht succesvol verzonden!");
-        setFormData({ name: "", email: "", message: "", services: [] });
         setErrorMessage("");
+        setFormData({ name: "", email: "", message: "" });
         triggerConfetti(); // Start confetti
-      } else {
-        const data = await response.json();
-        setErrorMessage(data.error || "Er is een fout opgetreden.");
-      }
-    } catch (err) {
-      console.error("Error submitting form:", err);
-      setErrorMessage("Kan geen verbinding maken met de server.");
-    }
-  };
-
-  const handleCheckboxChange = (serviceName) => {
-    setFormData((prevData) => {
-      const updatedServices = prevData.services.includes(serviceName)
-        ? prevData.services.filter((service) => service !== serviceName)
-        : [...prevData.services, serviceName];
-
-      return { ...prevData, services: updatedServices };
-    });
+      })
+      .catch((error) => {
+        console.error("FAILED...", error);
+        setErrorMessage("Er is een fout opgetreden. Probeer het later opnieuw.");
+      });
   };
 
   const triggerConfetti = () => {
@@ -147,11 +98,11 @@ function Contact() {
         Contact
       </h1>
       <p className="mt-4 text-lg md:text-xl text-text font-secondary text-center max-w-3xl">
-        Neem contact op voor meer informatie of om samen te werken aan
-        jouw project.
+        Neem contact op voor meer informatie of om samen te werken aan jouw project.
       </p>
 
       <form
+        id="form"
         onSubmit={handleSubmit}
         className="mt-8 w-full max-w-3xl p-6 bg-card-background rounded-lg shadow-lg space-y-6"
       >
@@ -204,31 +155,6 @@ function Contact() {
             required
             className="w-full mt-2 p-3 border rounded-lg"
           ></textarea>
-        </div>
-
-        <div>
-          <h3 className="text-lg font-bold text-primary">Kies diensten</h3>
-          {services.length > 0 ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
-              {services.map((service) => (
-                <label
-                  key={service.id || service._id}
-                  className="flex items-center space-x-2 cursor-pointer"
-                >
-                  <input
-                    type="checkbox"
-                    value={service.name}
-                    checked={formData.services.includes(service.name)}
-                    onChange={() => handleCheckboxChange(service.name)}
-                    className="form-checkbox h-5 w-5 text-primary"
-                  />
-                  <span className="text-text">{service.name}</span>
-                </label>
-              ))}
-            </div>
-          ) : (
-            <p className="text-sm text-red-500">Geen beschikbare diensten.</p>
-          )}
         </div>
 
         <button

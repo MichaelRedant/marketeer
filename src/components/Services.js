@@ -1,35 +1,25 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
-import { fetchServices } from "../api"; // Zorg dat de API-functie correct werkt
-import tools from "../tools.json"; // Tools blijven in JSON
+import servicesData from "../services.json";
+import tools from "../tools.json";
 import GlassModal from "../components/GlassModal";
 import { FaExternalLinkAlt, FaEnvelope } from "react-icons/fa";
-import "./Cards.css"; // Voor het nieuwe card design
+import "./Cards.css";
 
 function Services() {
-  const [services, setServices] = useState([]); // Services van backend
+  const [services, setServices] = useState([]); // Services vanuit JSON
   const [selectedTool, setSelectedTool] = useState(null); // Geselecteerde tool
   const [selectedService, setSelectedService] = useState(null); // Geselecteerde service
   const [headerHeight, setHeaderHeight] = useState(0); // Hoogte van de header
-  const [error, setError] = useState(null); // Foutmelding
+
   const navigate = useNavigate();
 
-  // Data ophalen van de backend
   useEffect(() => {
-    const loadServices = async () => {
-      try {
-        const { data } = await fetchServices();
-        setServices(data || []);
-      } catch (err) {
-        console.error("Error fetching services:", err);
-        setError("Fout bij het laden van diensten. Probeer het later opnieuw.");
-      }
-    };
-    loadServices();
+    // Laad services vanuit de JSON
+    setServices(servicesData);
   }, []);
 
-  // Bereken de hoogte van de header
   useEffect(() => {
     const headerElement = document.querySelector("nav");
     if (headerElement) {
@@ -37,30 +27,19 @@ function Services() {
     }
   }, []);
 
-  // Sorteer de services alfabetisch op naam
   const sortedServices = [...services].sort((a, b) =>
     a.name.localeCompare(b.name)
   );
 
-  // Error-melding tonen indien aanwezig
-  if (error) {
-    return <p className="text-red-500 text-center">{error}</p>;
-  }
-
   return (
-    <div
-      style={{
-        marginTop: headerHeight,
-      }}
-    >
-      {/* Services-sectie */}
+    <div style={{ marginTop: headerHeight }}>
       <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-b from-bg-light to-bg-primary">
         <h1 className="text-4xl md:text-5xl font-extrabold text-primary mb-12 text-center">
           Services
         </h1>
         <motion.div className="card-container" initial="hidden" animate="visible">
           {sortedServices.map((service) => (
-            <div className={`card`} key={service.id}>
+            <div className="card" key={service.id}>
               <a href="#" onClick={() => setSelectedService(service)}>
                 <div className="card--display">
                   <i className="material-icons">{service.icon || "⤵️"}</i>
@@ -78,7 +57,6 @@ function Services() {
         </motion.div>
       </div>
 
-      {/* Tools-sectie */}
       <div className="flex flex-col items-center mt-32 py-16 px-6">
         <h2 className="text-3xl md:text-4xl font-bold text-primary text-center mb-8">
           Tools
@@ -127,37 +105,51 @@ function Services() {
         </motion.div>
       </div>
 
-      {/* Modaal voor Service-details */}
       {selectedService && (
-        <GlassModal
-          isOpen={!!selectedService}
-          onClose={() => setSelectedService(null)}
-          title={selectedService.name}
+  <GlassModal
+    isOpen={!!selectedService}
+    onClose={() => setSelectedService(null)}
+    title={selectedService.name}
+  >
+    <div className="p-8 space-y-6">
+      {/* Titel */}
+      <h2 className="text-2xl font-bold text-primary text-center mb-4">
+        {selectedService.name}
+      </h2>
+
+      {/* Details */}
+      <p className="text-lg text-gray-700 text-center leading-relaxed mb-6">
+        {selectedService.details}
+      </p>
+
+      {/* Benefits */}
+      <div className="bg-gray-100 p-4 rounded-lg shadow-md">
+        <h3 className="text-lg font-semibold text-primary mb-3">Voordelen:</h3>
+        <ul className="list-disc pl-6 space-y-2">
+          {selectedService.benefits.map((benefit, index) => (
+            <li key={index} className="text-gray-600">
+              {benefit}
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      {/* Actieknop */}
+      <div className="text-center mt-6">
+        <button
+          className="inline-flex items-center justify-center px-6 py-3 bg-primary hover:bg-accent text-on-primary font-bold rounded-lg transition duration-300"
+          onClick={() =>
+            navigate(`/contact?service=${encodeURIComponent(selectedService.name)}`)
+          }
         >
-          <div className="p-8 space-y-6">
-            <h2 className="text-xl font-bold text-primary text-center">
-              {selectedService.name}
-            </h2>
-            <p>{selectedService.details}</p>
-            <ul className="list-disc mt-4 space-y-2">
-              {selectedService.benefits?.map((benefit, index) => (
-                <li key={index}>{benefit}</li>
-              ))}
-            </ul>
-            <button
-              className="flex items-center justify-center px-6 py-3 bg-primary hover:bg-accent text-on-primary font-bold rounded-lg transition duration-300 w-full"
-              onClick={() =>
-                navigate(
-                  `/contact?service=${encodeURIComponent(selectedService.name)}`
-                )
-              }
-            >
-              <FaEnvelope className="mr-2" />
-              Vraag deze dienst aan
-            </button>
-          </div>
-        </GlassModal>
-      )}
+          <FaEnvelope className="mr-2" />
+          Vraag deze dienst aan
+        </button>
+      </div>
+    </div>
+  </GlassModal>
+)}
+
     </div>
   );
 }
