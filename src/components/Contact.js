@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import { useSearchParams } from "react-router-dom";
+import servicesData from "../services.json";
 import emailjs from "@emailjs/browser";
 import "../contact.css";
 
@@ -8,16 +10,27 @@ function Contact() {
     name: "",
     email: "",
     message: "",
+    services: [],
   });
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+  const [searchParams] = useSearchParams();
 
   useEffect(() => {
     const headerElement = document.querySelector("nav");
     if (headerElement) {
       setHeaderHeight(headerElement.offsetHeight);
     }
-  }, []);
+
+    // Stel de vooraf geselecteerde service in als de gebruiker van de servicepagina komt
+    const preselectedService = searchParams.get("service");
+    if (preselectedService) {
+      setFormData((prevData) => ({
+        ...prevData,
+        services: [...prevData.services, preselectedService],
+      }));
+    }
+  }, [searchParams]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -33,7 +46,7 @@ function Contact() {
         console.log("SUCCESS!", response.status, response.text);
         setSuccessMessage("Bericht succesvol verzonden!");
         setErrorMessage("");
-        setFormData({ name: "", email: "", message: "" });
+        setFormData({ name: "", email: "", message: "", services: [] });
         triggerConfetti(); // Start confetti
       })
       .catch((error) => {
@@ -85,6 +98,16 @@ function Contact() {
     };
 
     render();
+  };
+
+  const handleCheckboxChange = (serviceName) => {
+    setFormData((prevData) => {
+      const updatedServices = prevData.services.includes(serviceName)
+        ? prevData.services.filter((service) => service !== serviceName)
+        : [...prevData.services, serviceName];
+
+      return { ...prevData, services: updatedServices };
+    });
   };
 
   return (
@@ -155,6 +178,27 @@ function Contact() {
             required
             className="w-full mt-2 p-3 border rounded-lg"
           ></textarea>
+        </div>
+
+        <div>
+          <h3 className="text-lg font-bold text-primary">Kies diensten</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+            {servicesData.map((service) => (
+              <label
+                key={service.id}
+                className="flex items-center space-x-2 cursor-pointer"
+              >
+                <input
+                  type="checkbox"
+                  value={service.name}
+                  checked={formData.services.includes(service.name)}
+                  onChange={() => handleCheckboxChange(service.name)}
+                  className="form-checkbox h-5 w-5 text-primary"
+                />
+                <span className="text-text">{service.name}</span>
+              </label>
+            ))}
+          </div>
         </div>
 
         <button
