@@ -16,9 +16,30 @@ function Werk() {
   }, []);
 
   const filteredProjects =
-    selectedService === "All"
-      ? projects
-      : projects.filter((project) => project.category === selectedService);
+  selectedService === "All"
+    ? projects
+    : projects.filter((project) =>
+        typeof selectedService === "string" &&
+        project.category.toLowerCase() === selectedService.toLowerCase()
+      );
+
+      const [currentPage, setCurrentPage] = useState(0);
+
+      const handlePageChange = (pageIndex) => {
+        setCurrentPage(pageIndex);
+        document
+          .querySelectorAll(".pagination-btn")
+          .forEach((btn, idx) => btn.classList.toggle("active", idx === pageIndex));
+      };
+      
+      // Filter projecten voor de huidige pagina
+      const projectsPerPage = 4;
+      const paginatedProjects = filteredProjects.slice(
+        currentPage * projectsPerPage,
+        (currentPage + 1) * projectsPerPage
+      );
+      
+
 
   return (
     <div className="app bodyWerk">
@@ -54,51 +75,76 @@ function Werk() {
           <h2 className="side-title">Services</h2>
           <h3 className="sub-title">Categorieën</h3>
           <div className="side-menu">
-            {services.map((service) => (
-              <button
-                key={service.id}
-                onClick={() => setSelectedService(service.id)}
-                className={`menu-link ${
-                  selectedService === service.id ? "is-active" : ""
-                }`}
-              >
-                {service.name}
-              </button>
-            ))}
+          {services.map((service) => (
+  <button
+    key={service.id}
+    onClick={() => setSelectedService(service.name)} // Gebruik de naam van de service
+    className={`menu-link ${selectedService === service.name ? "is-active" : ""}`}
+  >
+    {service.name}
+  </button>
+))}
+
           </div>
         </div>
 
         {/* Main Content */}
         <div className="main-container glass-effect">
-          <h1 className="content-section-title">Projecten</h1>
-          <div className="apps-card">
-            {filteredProjects.length > 0 ? (
-              filteredProjects.map((project) => (
-                <div
-                  className="app-card"
-                  key={project.id}
-                  onClick={() => setSelectedProject(project)}
-                >
-                  <div className="app-card-content">
-                    <img
-                      src={project.image}
-                      alt={project.title}
-                      className="project-thumbnail"
-                    />
-                    <h3>{project.title}</h3>
-                    <p className="app-card__subtext">{project.description}</p>
-                  </div>
-                </div>
-              ))
-            ) : (
-              <p className="text-center text-gray-500">
-                Geen projecten gevonden voor de geselecteerde categorie.
+  <h1 className="content-section-title">Projecten</h1>
+  <div className="apps-card">
+    {paginatedProjects.length > 0 ? (
+      paginatedProjects.map((project) => (
+        <div
+          className="app-card"
+          key={project.id}
+          onClick={() => setSelectedProject(project)}
+        >
+          <div className="app-card-content">
+            <img
+              src={project.image}
+              alt={project.title}
+              className="project-thumbnail"
+            />
+            <div className="app-card-header">
+              <h3 className="project-title">{project.title}</h3>
+              <span className="click-icon">🔍</span>
+            </div>
+            <p className="app-card__subtext">{project.description}</p>
+            <div className="project-details">
+              <p>
+                <strong>Opdrachtgever:</strong> {project.opdrachtgever}
               </p>
-            )}
+              <p>
+                <strong>Eindklant:</strong> {project.eindklant}
+              </p>
+            </div>
           </div>
         </div>
-      </div>
-
+      ))
+    ) : (
+      <p className="text-center text-gray-500">
+        Geen projecten gevonden voor de geselecteerde categorie.
+      </p>
+    )}
+  </div>
+    <div className="pagination-container">
+      {Array.from(
+        { length: Math.ceil(filteredProjects.length / projectsPerPage) },
+        (_, index) => (
+          <button
+            key={index}
+            className={`pagination-btn ${
+              index === currentPage ? "active" : ""
+            }`}
+            onClick={() => handlePageChange(index)}
+          >
+            {index + 1}
+          </button>
+        )
+      )}
+    </div>
+  </div>
+</div>
       {/* Modal for Project Details */}
 {selectedProject && (
   <div
