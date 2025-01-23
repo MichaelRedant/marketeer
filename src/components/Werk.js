@@ -1,18 +1,28 @@
 import React, { useState, useEffect } from "react";
 import { Helmet } from "react-helmet";
+import projectsData from "../projects.json";
 import servicesData from "../services.json";
-import NotFoundSection from "../components/NotFoundSection";
+import "../werk.css";
 
 function Werk() {
+  const [projects, setProjects] = useState([]);
   const [services, setServices] = useState([]);
   const [selectedService, setSelectedService] = useState("All");
+  const [selectedProject, setSelectedProject] = useState(null);
 
   useEffect(() => {
+    setProjects(projectsData);
     setServices([{ id: "All", name: "All" }, ...servicesData]);
   }, []);
 
+  const filteredProjects =
+    selectedService === "All"
+      ? projects
+      : projects.filter((project) => project.category === selectedService);
+
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-bg-light px-6">
+    <div className="app bodyWerk">
+      {/* SEO */}
       <Helmet>
         <title>Portfolio Werk | Xinudesign</title>
         <meta
@@ -28,40 +38,132 @@ function Werk() {
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "ItemList",
-            "itemListElement": services.map((service, index) => ({
+            "itemListElement": projects.map((project, index) => ({
               "@type": "ListItem",
-              "position": index + 1,
-              "name": service.name,
-              "url": `https://xinudesign.be/werk/${service.id}`,
+              position: index + 1,
+              name: project.title,
+              url: project.liveLink || "#",
             })),
           })}
         </script>
       </Helmet>
 
-      {/* Titel */}
-      <h1 className="text-4xl md:text-5xl font-extrabold text-primary mb-12">
-        Werk
-      </h1>
+      <div className="layout-container">
+        {/* Services Sidebar */}
+        <div className="left-side glass-effect">
+          <h2 className="side-title">Services</h2>
+          <h3 className="sub-title">Categorieën</h3>
+          <div className="side-menu">
+            {services.map((service) => (
+              <button
+                key={service.id}
+                onClick={() => setSelectedService(service.id)}
+                className={`menu-link ${
+                  selectedService === service.id ? "is-active" : ""
+                }`}
+              >
+                {service.name}
+              </button>
+            ))}
+          </div>
+        </div>
 
-      {/* Filters */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
-        {services.map((service) => (
-          <button
-            key={service.id}
-            onClick={() => setSelectedService(service.id)}
-            className={`flex items-center justify-center px-4 py-3 rounded-md transition duration-300 text-center font-bold text-base ${
-              selectedService === service.id
-                ? "bg-primary text-on-primary shadow-md scale-105"
-                : "bg-card text-on-card hover:bg-hover-card hover:shadow-md"
-            }`}
-          >
-            {service.name}
-          </button>
-        ))}
+        {/* Main Content */}
+        <div className="main-container glass-effect">
+          <h1 className="content-section-title">Projecten</h1>
+          <div className="apps-card">
+            {filteredProjects.length > 0 ? (
+              filteredProjects.map((project) => (
+                <div
+                  className="app-card"
+                  key={project.id}
+                  onClick={() => setSelectedProject(project)}
+                >
+                  <div className="app-card-content">
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="project-thumbnail"
+                    />
+                    <h3>{project.title}</h3>
+                    <p className="app-card__subtext">{project.description}</p>
+                  </div>
+                </div>
+              ))
+            ) : (
+              <p className="text-center text-gray-500">
+                Geen projecten gevonden voor de geselecteerde categorie.
+              </p>
+            )}
+          </div>
+        </div>
       </div>
 
-      {/* 404 Sectie */}
-      <NotFoundSection />
+      {/* Modal for Project Details */}
+{selectedProject && (
+  <div
+    className="overlay-app fade-in"
+    onClick={() => setSelectedProject(null)} // Sluit modal bij klikken buiten modal
+  >
+    <div
+      className="pop-up glass-effect"
+      onClick={(e) => e.stopPropagation()} // Voorkom sluiten bij klikken in modal
+    >
+      <div className="pop-up__header">
+        <h2 className="modal-title">{selectedProject.title}</h2>
+        <button
+          className="close-button"
+          onClick={() => setSelectedProject(null)}
+        >
+          ✕
+        </button>
+      </div>
+      <p className="modal-details">{selectedProject.details}</p>
+      <div className="modal-section">
+        <strong>Opdrachtgever:</strong> {selectedProject.opdrachtgever}
+      </div>
+      <div className="modal-section">
+        <strong>Eindklant:</strong> {selectedProject.eindklant}
+      </div>
+      <div className="modal-section">
+        <strong>Technologieën:</strong>
+        <div className="pills-container">
+          {selectedProject.technologies.map((tech, index) => (
+            <span key={index} className="tech-pill">
+              {tech}
+            </span>
+          ))}
+        </div>
+      </div>
+      <div className="pop-up__links centered-icons">
+  {selectedProject.liveLink && (
+    <a
+      href={selectedProject.liveLink}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="text-button"
+      title="Bekijk Live"
+    >
+      Bekijk
+    </a>
+  )}
+  {selectedProject.githubLink && (
+    <a
+      href={selectedProject.githubLink}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="text-button"
+      title="Bekijk GitHub"
+    >
+      GitHub
+    </a>
+  )}
+</div>
+    </div>
+  </div>
+)}
+
+
     </div>
   );
 }

@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { NavLink, Link } from "react-router-dom";
+import { NavLink, Link, useLocation } from "react-router-dom";
 import "../header.css";
 
 function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const location = useLocation();
+  const isWerkPage = location.pathname === "/werk";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -23,7 +25,11 @@ function Header() {
   };
 
   return (
-    <nav className={`navbar ${isScrolled ? "scrolled" : ""}`}>
+    <nav
+      className={`navbar ${isScrolled ? "scrolled" : ""} ${
+        isWerkPage && !isScrolled ? "werk-page" : ""
+      }`}
+    >
       <div className="navbar-container">
         <Link to="/" className="logo">
           XINUDESIGN

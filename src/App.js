@@ -32,8 +32,7 @@ const pageVariants = {
   },
 };
 
- // Dynamische servicepagina toevoegen
-
+// Dynamische servicepagina toevoegen
 function AnimatedRoutes() {
   const location = useLocation();
 
@@ -80,7 +79,7 @@ function AnimatedRoutes() {
           }
         />
         <Route
-          path="/services/:serviceId" // Dynamische route voor services
+          path="/services/:serviceId"
           element={
             <motion.div
               initial="initial"
@@ -131,7 +130,6 @@ function AnimatedRoutes() {
             </motion.div>
           }
         />
-        {/* Algemene Voorwaarden Route */}
         <Route
           path="/algemene-voorwaarden"
           element={
@@ -162,7 +160,6 @@ function AnimatedRoutes() {
     </AnimatePresence>
   );
 }
-
 
 // Main App component
 function App() {
