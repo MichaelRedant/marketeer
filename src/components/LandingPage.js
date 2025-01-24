@@ -2,15 +2,15 @@ import React, { useState, useEffect } from "react";
 import { Helmet } from "react-helmet";
 import { useParams } from "react-router-dom";
 import sectionsData from "../sections.json";
-import servicesData from "../services.json"; // Import de services.json
+import servicesData from "../services.json";
 import "../landingPage.css";
 
 const LandingPage = () => {
   const { slug } = useParams();
-  const [services, setServices] = useState([]); // Gebruik useState voor dynamische services
+  const [services, setServices] = useState([]);
 
   useEffect(() => {
-    setServices(servicesData); // Zet services uit de JSON file
+    setServices(servicesData);
   }, []);
 
   const pageData = sectionsData.pages.find((page) =>
@@ -38,36 +38,37 @@ const LandingPage = () => {
         <meta name="description" content={metaDescription} />
       </Helmet>
 
-      {/* Branding Sectie */}
-      <section className="branding-section">
-        <h1 className="branding-title">Xinudesign</h1>
-        <p className="branding-slogan">Van idee tot realisatie</p>
-      </section>
-
-      {/* Landing Header */}
-      <header className="landing-header">
-        <h1 className="landing-title">{title}</h1>
-        <p className="landing-intro">{introText}</p>
-        <img className="landing-image" src={image} alt={`${title}`} />
+      {/* Header met Branding */}
+      <header id="header">
+        <div className="title">
+          <h1 className="branding-title">Xinudesign</h1>
+          <p className="branding-slogan">Van idee tot realisatie</p>
+        </div>
       </header>
 
-      {/* Main Content */}
-      <main className="landing-main">
+      {/* Hero Sectie */}
+      <section id="about" className="landing-header">
+        <div className="about-content">
+          <h1 className="landing-title">{title}</h1>
+          <p className="landing-intro">{introText}</p>
+        </div>
+        <div className="about-image">
+          <img className="landing-image" src={image} alt={`${title}`} />
+        </div>
+      </section>
+
+      {/* Main Sectie */}
+      <section id="main-content" className="landing-main">
         {sections.map((section, index) => (
-          <div key={index} className="landing-section">
+          <div key={index} className="main-section">
             <h2 className="section-heading">{section.heading}</h2>
             <p className="section-content">{section.content}</p>
           </div>
         ))}
-      </main>
+      </section>
 
-      {/* Footer */}
-      <footer className="landing-footer">
-        <p>{callToAction}</p>
-      </footer>
-
-      {/* Services Sectie */}
-      <section className="services-section">
+      {/* Diensten Sectie */}
+      <section id="services" className="services-section">
         <h2 className="services-title">Onze Diensten</h2>
         <div className="services-list">
           {services.map((service, index) => (
