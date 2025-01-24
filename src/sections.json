@@ -1,0 +1,67 @@
+{
+  "pages": [
+    {
+      "id": 1,
+      "title": "Webdesign in Gent",
+      "metaTitle": "Professioneel Webdesign in Gent - Xinudesign",
+      "metaDescription": "Laat je bedrijf groeien met professioneel webdesign in Gent. Neem vandaag contact op!",
+      "introText": "Welkom bij Xinudesign! Wij zijn jouw partner in professioneel webdesign in Gent.",
+      "image": "https://via.placeholder.com/600x400",
+      "sections": [
+        {
+          "heading": "Waarom kiezen voor ons?",
+          "content": "We leveren maatwerk en gebruiken de nieuwste technologieën voor jouw website.",
+          "image": "https://via.placeholder.com/600x200"
+        },
+        {
+          "heading": "Onze Diensten",
+          "content": "Webdesign, SEO-optimalisatie, en meer.",
+          "image": "https://via.placeholder.com/600x200"
+        }
+      ],
+      "callToAction": "Neem vandaag nog contact op!"
+    },
+    {
+      "id": 2,
+      "title": "Lokale SEO in Aalst",
+      "metaTitle": "Verbeter je zichtbaarheid met Lokale SEO in Aalst - Xinudesign",
+      "metaDescription": "Word zichtbaar voor klanten in Aalst met professionele lokale SEO-strategieën. Neem contact op voor meer informatie.",
+      "introText": "Xinudesign biedt op maat gemaakte lokale SEO-diensten voor bedrijven die in Aalst actief willen groeien.",
+      "image": "https://via.placeholder.com/600x400",
+      "sections": [
+        {
+          "heading": "SEO op maat in Aalst",
+          "content": "We analyseren de lokale markt en passen zoekmachineoptimalisatiestrategieën toe die specifiek zijn afgestemd op jouw regio.",
+          "image": "https://via.placeholder.com/600x200"
+        },
+        {
+          "heading": "Krachtige tools en strategieën",
+          "content": "Met tools zoals Google My Business en lokale linkbuilding verhogen we je zichtbaarheid.",
+          "image": "https://via.placeholder.com/600x200"
+        }
+      ],
+      "callToAction": "Vraag nu je gratis SEO-audit aan!"
+    },
+    {
+      "id": 3,
+      "title": "Figma Workshops in Brugge",
+      "metaTitle": "Professionele Figma Workshops in Brugge - Xinudesign",
+      "metaDescription": "Leer de ins en outs van Figma met onze workshops in Brugge. Perfect voor zowel beginners als gevorderden.",
+      "introText": "Ontwikkel je ontwerpvaardigheden met onze Figma-workshops, speciaal aangeboden in Brugge.",
+      "image": "https://via.placeholder.com/600x400",
+      "sections": [
+        {
+          "heading": "Praktijkgerichte sessies",
+          "content": "Onze workshops zijn ontworpen om je snel te laten groeien in Figma, met praktische oefeningen.",
+          "image": "https://via.placeholder.com/600x200"
+        },
+        {
+          "heading": "Geschikt voor elk niveau",
+          "content": "Of je nu een beginner of een gevorderde ontwerper bent, wij hebben een passend programma.",
+          "image": "https://via.placeholder.com/600x200"
+        }
+      ],
+      "callToAction": "Schrijf je vandaag nog in!"
+    }
+  ]
+}

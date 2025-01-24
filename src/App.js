@@ -13,6 +13,9 @@ import AdminPanel from "./components/Admin"; // Zorg dat dit verwijst naar het A
 import ServicePage from "./components/ServicePage";
 import TermsAndConditions from "./components/TermsAndConditions";
 import CookiePolicy from "./components/CookiePolicy";
+import LandingPageWrapper from "./components/LandingPageWrapper";
+import sectionsData from "./sections.json"; 
+import LandingPage from "./components/LandingPage";
 
 // Variants for page transitions
 const pageVariants = {
@@ -153,6 +156,20 @@ function AnimatedRoutes() {
               variants={pageVariants}
             >
               <CookiePolicy />
+            </motion.div>
+          }
+        />
+        <Route
+          path="/lokaal-in/:slug"
+          element={
+            <motion.div
+              initial="initial"
+              animate="animate"
+              exit="exit"
+              variants={pageVariants}
+            >
+              <LandingPage pageData={sectionsData.pages[0]} />
+              {/* Pas deze lijn aan om dynamische pagina's te ondersteunen */}
             </motion.div>
           }
         />

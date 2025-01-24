@@ -1,0 +1,156 @@
+/* Basisstijl voor de landingpagina */
+.landing-page-container {
+    font-family: "Montserrat", sans-serif;
+    background: linear-gradient(175deg, rgba(255, 255, 255, 1) 20%, rgba(190, 221, 255, 1) 100%);
+    color: #333;
+    padding: 20px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Algemeen: Centraal positioneren */
+.landing-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centraal uitlijnen */
+    align-items: center; /* Horizontaal centreren */
+    min-height: 100vh; /* Vul de volledige hoogte van het scherm */
+    padding: 20px;
+  }
+
+/* Aanpassing landing-header */
+.landing-header {
+    max-width: 800px; /* Limiteer de breedte voor consistentie */
+    background: rgba(255, 255, 255, 0.85); /* Subtiele matglas look */
+    backdrop-filter: blur(8px); /* Glas effect */
+    padding: 20px 40px; /* Extra padding */
+    border-radius: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+
+  
+
+.landing-title {
+    font-size: 2rem;
+    color: #174a7c;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.landing-intro {
+    font-size: 1rem;
+    color: #555;
+    margin: 0 auto 20px auto;
+    max-width: 700px;
+    line-height: 1.6;
+}
+
+/* Centraal uitlijnen van de landing-main inhoud */
+.landing-main {
+    max-width: 1000px; /* Limiteer de breedte */
+    width: 100%; /* Zorg dat het responsief blijft */
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* Dynamische grid */
+    gap: 20px;
+    justify-content: center; /* Horizontaal centreren */
+  }
+
+/* Section stijl */
+.landing-section {
+    background: rgba(255, 255, 255, 0.85); /* Lichter matglas effect */
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.section-heading {
+    font-size: 1.4rem;
+    color: #174a7c;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.section-content {
+    font-size: 0.95rem;
+    color: #555;
+    margin-bottom: 20px;
+    max-width: 600px;
+    line-height: 1.6;
+}
+
+.section-image {
+    max-width: 100%;
+    height: auto;
+    margin-top: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Subtiele stijl voor de footer */
+.landing-footer {
+  margin-top: 40px;
+  background: linear-gradient(90deg, rgba(23, 74, 124, 0.85), rgba(23, 74, 124, 0.6)); /* Aantrekkelijker gradient */
+  color: white;
+  text-align: center;
+  padding: 15px 30px; /* Compactere padding */
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-size: 1rem; /* Iets kleinere tekst */
+  font-weight: bold;
+  text-transform: uppercase;
+  width: auto; /* Maak het meer box-vormig i.p.v. de hele breedte */
+}
+
+/* Bewegende kleuren achtergrond */
+.animated-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: linear-gradient(120deg, #74b9ff, #3022f5, #81ecec, #ffeaa7);
+    background-size: 300% 300%;
+    animation: moveColors 10s infinite alternate;
+    opacity: 0.4; /* Minder opdringerig */
+}
+
+/* Animatie voor kleurverandering */
+@keyframes moveColors {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Responsieve styling */
+@media (max-width: 768px) {
+    .landing-header {
+      padding: 15px 20px;
+    }
+  
+    .landing-main {
+      grid-template-columns: 1fr; /* Eén kolom op kleinere schermen */
+    }
+  
+    .landing-footer {
+      font-size: 0.9rem;
+      padding: 10px 20px; /* Compactere footer */
+    }
+}
