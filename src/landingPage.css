@@ -1,156 +1,288 @@
-/* Basisstijl voor de landingpagina */
-.landing-page-container {
-    font-family: "Montserrat", sans-serif;
-    background: linear-gradient(175deg, rgba(255, 255, 255, 1) 20%, rgba(190, 221, 255, 1) 100%);
-    color: #333;
-    padding: 20px;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-/* Algemeen: Centraal positioneren */
+/* Algemene stijl */
 .landing-page {
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Centraal uitlijnen */
-    align-items: center; /* Horizontaal centreren */
-    min-height: 100vh; /* Vul de volledige hoogte van het scherm */
+    align-items: center;
+    justify-content: flex-start; /* Bovenaan starten */
     padding: 20px;
-  }
-
-/* Aanpassing landing-header */
-.landing-header {
-    max-width: 800px; /* Limiteer de breedte voor consistentie */
-    background: rgba(255, 255, 255, 0.85); /* Subtiele matglas look */
-    backdrop-filter: blur(8px); /* Glas effect */
-    padding: 20px 40px; /* Extra padding */
-    border-radius: 15px;
+    min-height: 70vh; /* Pagina vullend */
+}
+.landing-header,
+.landing-footer {
     margin-bottom: 20px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 90%;
+    max-width: 1000px;
+    border-radius: 15px;
+}
+
+  /* Branding Sectie */
+.branding-section {
+    text-align: center;
+    padding: 50px 20px;
+    
+    color: white;
+    margin-bottom: 40px;
+    margin-top: 40px;
+    animation: fadeIn 1.5s ease-in-out;
+  }
+  
+  .branding-title {
+    font-size: 2.8rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    animation: slideDown 1.5s ease-in-out;
+  }
+  
+  .branding-slogan {
+    font-size: 1.3rem;
+    font-style: italic;
+    color:#174a7c;
+    animation: slideUp 1.5s ease-in-out;
+  }
+  
+  /* Services Sectie */
+  .services-section {
+    padding: 40px 20px;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(8px);
+    border-radius: 15px;
+    margin: 40px auto;
     text-align: center;
   }
-
   
-
-.landing-title {
+  .services-title {
     font-size: 2rem;
     color: #174a7c;
-    margin-bottom: 10px;
-    font-weight: bold;
-}
-
-.landing-intro {
-    font-size: 1rem;
-    color: #555;
-    margin: 0 auto 20px auto;
-    max-width: 700px;
-    line-height: 1.6;
-}
-
-/* Centraal uitlijnen van de landing-main inhoud */
-.landing-main {
-    max-width: 1000px; /* Limiteer de breedte */
-    width: 100%; /* Zorg dat het responsief blijft */
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* Dynamische grid */
-    gap: 20px;
-    justify-content: center; /* Horizontaal centreren */
+    margin-bottom: 20px;
   }
-
-/* Section stijl */
-.landing-section {
-    background: rgba(255, 255, 255, 0.85); /* Lichter matglas effect */
-    backdrop-filter: blur(10px);
+  
+  .services-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
     padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  .service-card {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.8), rgba(240, 240, 255, 0.9));
+    border-radius: 10px;
+    padding: 20px;
     text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.section-heading {
-    font-size: 1.4rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  .service-name {
+    font-size: 1.6rem;
+    font-weight: bold;
     color: #174a7c;
     margin-bottom: 10px;
-    font-weight: bold;
-}
-
-.section-content {
-    font-size: 0.95rem;
+  }
+  
+  .service-description {
+    font-size: 1rem;
     color: #555;
+    line-height: 1.5;
+  }
+  
+  /* Footer stijl */
+  .landing-footer {
+    margin-top: 40px;
+    background: linear-gradient(90deg, rgba(23, 74, 124, 0.85), rgba(23, 74, 124, 0.6));
+    color: white;
+    text-align: center;
+    padding: 15px 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    animation: fadeIn 1s ease-in-out;
+  }
+  
+  /* Animaties */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes slideUp {
+    from {
+      transform: translateY(30px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes slideDown {
+    from {
+      transform: translateY(-30px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  /* Responsieve styling */
+  @media (max-width: 768px) {
+    .services-list {
+      grid-template-columns: 1fr; /* Eén kolom op kleinere schermen */
+    }
+  
+    .branding-title {
+      font-size: 2.2rem;
+    }
+  
+    .services-title {
+      font-size: 1.8rem;
+    }
+  }
+  
+  
+  /* Header */
+  .landing-header {
+    max-width: 800px;
+    text-align: center;
+    margin-bottom: 40px;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    padding: 20px 40px;
+    border-radius: 15px;
+  }
+  
+  /* Main */
+  .landing-main {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Flexibel grid */
+    gap: 20px;
+    justify-content: center; /* Centraal uitlijnen */
+    align-items: center; /* Verticaal centreren */
+    margin-bottom: 40px;
+    width: 100%; /* Volledige breedte gebruiken */
+    max-width: 1200px; /* Maximale breedte */
+    min-height: 300px; /* Zorg dat het altijd wat ruimte heeft */
+}
+  
+  /* Services Sectie */
+  .services-section {
+    text-align: center;
+    margin: 40px 0;
+  }
+  
+  .services-title {
+    font-size: 1.8rem;
+    color: #174a7c;
     margin-bottom: 20px;
-    max-width: 600px;
-    line-height: 1.6;
-}
+  }
+  .section-content{
+    color: rgb(73, 73, 73);
+  }
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+  }
+  
+  .service-card {
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.8), rgba(245, 245, 245, 0.8));
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  
+  .service-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  }
+  
+  .service-icon {
+    font-size: 2.5rem;
+    color: #6c63ff;
+    margin-bottom: 10px;
+  }
+  
+  .service-title {
+    font-size: 1.4rem;
+    margin-bottom: 5px;
+  }
+  
+  .service-description {
+    font-size: 1rem;
+    color: #555;
+  }
+  
+  /* Footer */
+  .landing-footer {
+    background: linear-gradient(90deg, rgba(23, 74, 124, 0.9), rgba(23, 74, 124, 0.8));
+    color: white;
+    text-align: center;
+    padding: 15px 30px;
+    border-radius: 10px;
+    margin-top: 40px;
+    font-size: 1rem;
+    animation: fadeInFooter 1s ease-in-out;
+  }
 
-.section-image {
-    max-width: 100%;
-    height: auto;
-    margin-top: 10px;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-}
+  .landing-title{
+    font-weight: bold;
+    font-size: 1.8 rem;
+    margin: 10px;
+    text-transform: uppercase;
+  }
 
-/* Subtiele stijl voor de footer */
-.landing-footer {
-  margin-top: 40px;
-  background: linear-gradient(90deg, rgba(23, 74, 124, 0.85), rgba(23, 74, 124, 0.6)); /* Aantrekkelijker gradient */
-  color: white;
-  text-align: center;
-  padding: 15px 30px; /* Compactere padding */
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  font-size: 1rem; /* Iets kleinere tekst */
-  font-weight: bold;
-  text-transform: uppercase;
-  width: auto; /* Maak het meer box-vormig i.p.v. de hele breedte */
-}
-
-/* Bewegende kleuren achtergrond */
-.animated-background {
+  .landing-intro{
+    color: #174a7c;
+  }
+  
+  @keyframes fadeInFooter {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Bewegende achtergrond */
+  .animated-background {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     z-index: -1;
-    background: linear-gradient(120deg, #74b9ff, #3022f5, #81ecec, #ffeaa7);
+    background: linear-gradient(120deg, #74b9ff, #d0ccff, #c1eded, #ffffff);
     background-size: 300% 300%;
     animation: moveColors 10s infinite alternate;
-    opacity: 0.4; /* Minder opdringerig */
-}
-
-/* Animatie voor kleurverandering */
-@keyframes moveColors {
+  }
+  
+  @keyframes moveColors {
     0% {
-        background-position: 0% 50%;
+      background-position: 0% 50%;
     }
     50% {
-        background-position: 100% 50%;
+      background-position: 100% 50%;
     }
     100% {
-        background-position: 0% 50%;
+      background-position: 0% 50%;
     }
-}
-
-/* Responsieve styling */
-@media (max-width: 768px) {
-    .landing-header {
-      padding: 15px 20px;
-    }
+  }
   
-    .landing-main {
-      grid-template-columns: 1fr; /* Eén kolom op kleinere schermen */
-    }
-  
-    .landing-footer {
-      font-size: 0.9rem;
-      padding: 10px 20px; /* Compactere footer */
-    }
-}
