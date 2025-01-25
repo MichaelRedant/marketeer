@@ -198,3 +198,152 @@ h1, h2, h3, .branding-title, .section-heading {
   font-size: 1rem;
   color: #555;
 }
+.scroll-downs {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  
+  width :34px;
+  height: 55px;
+}
+.mousey {
+  width: 3px;
+  padding: 10px 15px;
+  margin-top: 150px;
+  height: 35px;
+  border: 2px solid #174a7c;
+  border-radius: 25px;
+  opacity: 0.75;
+  box-sizing: content-box;
+}
+.scroller {
+  width: 3px;
+  height: 10px;
+  border-radius: 25%;
+  background-color: #174a7c;
+  animation-name: scroll;
+  animation-duration: 2.2s;
+  animation-timing-function: cubic-bezier(.15,.41,.69,.94);
+  animation-iteration-count: infinite;
+}
+@keyframes scroll {
+  0% { opacity: 0; }
+  10% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(15px); opacity: 0;}
+}
+
+/* toolssectie home */
+@keyframes infiniteLoop {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(calc(-240px * 10), 0, 0); /* Houd rekening met logo + marge */
+  }
+}
+
+.brandsCarousel {
+  max-width: 960px;
+  height: 100px;
+  margin: auto;
+  overflow: hidden;
+  position: relative;
+}
+
+.brandsCarousel::before,
+.brandsCarousel::after {
+  content: "";
+  width: 100px;
+  height: 100px;
+  background: linear-gradient(to right, rgba(250, 250, 240, 1) 0%, rgba(250, 250, 240, 0) 100%);
+  position: absolute;
+  z-index: 2;
+}
+
+.brandsCarousel::before {
+  left: 0;
+}
+
+.brandsCarousel::after {
+  right: 0;
+  transform: rotateZ(180deg);
+}
+
+.carouselTrack {
+  display: flex;
+  width: calc(240px * 20); /* Logo + marge */
+  animation: infiniteLoop 50s linear infinite; /* Animatieduur aangepast voor snelheid */
+}
+
+.brandLogo {
+  width: 200px;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 20px; /* Witruimte tussen logo's */
+}
+
+.logo-image {
+  width: 100%; /* Logo-grootte behouden */
+  height: auto;
+  filter: grayscale(70%);
+  transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+.logo-image:hover {
+  filter: grayscale(0%);
+  transform: scale(1.1);
+}
+
+/* Verwijder de filter voor logo's op kleinere schermen */
+@media (max-width: 768px) {
+  .logo-image {
+    filter: none;
+    transform: none;
+  }
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #0362c8;
+  color: #fff;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 5px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.cta-button:hover {
+  background-color: #024a99;
+  transform: translateY(-3px);
+}
+
+.cta-button:active {
+  transform: translateY(0);
+}
+.cta-button-services {
+  display: inline-block;
+  padding: 8px 16px;
+  font-size: 0.9rem;
+  color: #0362c8;
+  background-color: rgba(3, 98, 200, 0.1);
+  border: 1px solid #0362c8;
+  border-radius: 5px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.cta-button-services:hover {
+  background-color: #0362c8;
+  color: #fff;
+  box-shadow: 0 4px 8px rgba(3, 98, 200, 0.3);
+}
+

@@ -199,3 +199,35 @@
     right: 5px;
   }
 }
+
+/* Responsieve styling voor modals */
+@media (max-width: 768px) {
+  .glass-modal {
+    width: 90%; /* Vul bijna de volledige breedte van het scherm */
+    height: auto; /* Laat de hoogte dynamisch aanpassen */
+    max-height: 80%; /* Zorg dat de modal niet te groot wordt */
+    overflow-y: auto; /* Voeg scrollen toe als de inhoud te lang is */
+    padding: 15px; /* Compactere padding */
+    top: 10%; /* Positioneer de modal iets lager */
+    transform: translate(-50%, 0); /* Pas transform aan voor juiste positie */
+  }
+
+  .glass-modal-header {
+    font-size: 1.2rem; /* Kleiner lettertype */
+  }
+
+  .glass-modal-content {
+    font-size: 0.9rem; /* Kleiner lettertype voor tekst */
+    line-height: 1.4; /* Verbeterde leesbaarheid */
+  }
+
+  .glass-modal-footer {
+    margin-top: 10px; /* Minder ruimte boven de footer */
+  }
+
+  .glass-modal-close {
+    font-size: 1rem; /* Kleinere sluitknop */
+    top: 10px; /* Bovenaan gepositioneerd */
+    right: 10px; /* Rechts uitgelijnd */
+  }
+}

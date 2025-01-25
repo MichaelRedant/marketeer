@@ -2,31 +2,43 @@
   "pages": [
     {
       "id": 1,
-      "title": "Webdesign in Gent",
-      "metaTitle": "Professioneel Webdesign in Gent - Xinudesign",
-      "metaDescription": "Laat je bedrijf groeien met professioneel webdesign in Gent. Neem vandaag contact op!",
-      "introText": "Welkom bij Xinudesign! Wij zijn jouw partner in professioneel webdesign in Gent.",
-      "image": "https://xinudesign.be/assets/img/Gent.jpg",
+      "title": "SEO met AI Herzele",
+      "metaTitle": "SEO met AI Herzele - Innovatieve Zoekmachine Optimalisatie | Xinudesign",
+      "metaDescription": "Boost jouw online zichtbaarheid in Herzele met AI-gestuurde SEO-oplossingen van Xinudesign. Ontdek de kracht van datagedreven optimalisatie!",
+      "metaKeywords": "SEO Herzele, AI-SEO, Zoekmachine Optimalisatie Herzele",
+      "image": "https://xinudesign.be/assets/img/herzele.jpg",
+      "introText": "Wil je jouw online zichtbaarheid vergroten in Herzele? Met de krachtige combinatie van **SEO en AI** helpt Xinudesign jouw bedrijf om hoger te scoren in zoekmachines en meer klanten aan te trekken. Onze innovatieve aanpak garandeert dat jouw website niet alleen opvalt, maar ook blijft presteren in een steeds veranderende digitale wereld.",
       "sections": [
         {
-          "heading": "Waarom kiezen voor ons?",
-          "content": "We leveren maatwerk en gebruiken de nieuwste technologieën voor jouw website.",
-          "image": "https://via.placeholder.com/600x200"
+          "heading": "Waarom kiezen voor SEO met AI in Herzele?",
+          "content": "Herzele is een dynamische gemeente met een groeiend aantal bedrijven die strijden om online zichtbaarheid. Traditionele SEO-methoden voldoen niet meer in deze competitieve omgeving. Door gebruik te maken van AI-technologieën biedt Xinudesign geavanceerde oplossingen waarmee jouw bedrijf zich onderscheidt in zoekresultaten en lokaal beter zichtbaar wordt."
         },
         {
-          "heading": "Onze Diensten",
-          "content": "Webdesign, SEO-optimalisatie, en meer.",
-          "image": "https://via.placeholder.com/600x200"
+          "heading": "Wat maakt AI-SEO zo krachtig?",
+          "content": "Met AI brengen we zoekmachine-optimalisatie naar een hoger niveau. Hier is hoe wij AI integreren in onze SEO-strategieën:\n1. **Datagedreven Zoekwoordanalyse**: AI identificeert niet alleen de beste zoekwoorden, maar analyseert ook gebruikersintenties en trends in Herzele.\n2. **Contentcreatie met AI**: Met tools zoals GPT creëren we SEO-vriendelijke teksten die boeien en converteren.\n3. **Technische SEO**: Met AI identificeren en lossen we technische problemen op, zoals laadsnelheid, mobiele bruikbaarheid en crawl-efficiëntie.\n4. **Realtime Prestatie-analyse**: Onze AI-systemen monitoren continu jouw rankings en passen strategieën aan op basis van live data."
+        },
+        {
+          "heading": "De voordelen van SEO met AI voor jouw bedrijf in Herzele",
+          "content": "- **Hogere zoekmachineposities**: Meer zichtbaarheid voor jouw bedrijf.\n- **Relevante bezoekers**: Trek klanten aan die echt geïnteresseerd zijn in jouw producten of diensten.\n- **Snel resultaat**: AI versnelt het proces van optimalisatie en aanpassingen.\n- **Blijvende impact**: Onze strategieën zijn ontworpen om duurzame resultaten te leveren."
+        },
+        {
+          "heading": "Lokale focus: Herzele als jouw markt",
+          "content": "Herzele, met zijn mix van lokale ondernemingen en landelijke charme, biedt een unieke kans om een sterke online aanwezigheid op te bouwen. Of je nu een lokale winkel, dienstverlener of e-commerceplatform runt, onze AI-SEO-strategieën zorgen ervoor dat jouw bedrijf optimaal zichtbaar is voor de gemeenschap in Herzele en omstreken. Door gebruik te maken van lokale zoekwoorden en relevantie binnen de regio, positioneren wij jouw bedrijf als een autoriteit in jouw vakgebied."
+        },
+        {
+          "heading": "Hoe Xinudesign jou helpt slagen",
+          "content": "Wij combineren onze diepgaande SEO-expertise met de kracht van AI om een strategie op maat te leveren. Van technische audits en contentcreatie tot backlinkopbouw en prestatie-analyse, wij begeleiden jouw bedrijf op elk moment van het optimalisatieproces. Ons team is toegewijd om niet alleen jouw verwachtingen te overtreffen, maar ook om meetbare resultaten te leveren die echt impact maken."
         }
       ],
-      "callToAction": "Neem vandaag nog contact op!"
-    },
+      "callToAction": "Wil jij jouw online zichtbaarheid maximaliseren in Herzele? Laat Xinudesign jouw partner zijn voor innovatieve SEO-oplossingen met AI. Neem vandaag nog contact op voor een vrijblijvend adviesgesprek en ontdek hoe wij jouw bedrijf naar de top van de zoekresultaten kunnen brengen!"
+    },    
     {
       "id": 2,
       "title": "Lokale SEO in Aalst",
       "metaTitle": "Verbeter je zichtbaarheid met Lokale SEO in Aalst - Xinudesign",
       "metaDescription": "Word zichtbaar voor klanten in Aalst met professionele lokale SEO-strategieën. Neem contact op voor meer informatie.",
-      "introText": "Xinudesign biedt op maat gemaakte lokale SEO-diensten voor bedrijven die in Aalst actief willen groeien.",
+      "metaKeywords": "SEO, Aalst, lokaal webdesign, marketingstrategie Aalst",
+      "introText": "Zoek je professioneel SEO, Search Engine Optimization, in Aalst? Xinudesign biedt op maat gemaakte oplossingen voor jouw bedrijf, gericht op groei en online zichtbaarheid.",
       "image": "https://xinudesign.be/assets/img/aalst.jpg",
       "sections": [
         {
@@ -47,8 +59,9 @@
       "title": "Figma Workshops in Brugge",
       "metaTitle": "Professionele Figma Workshops in Brugge - Xinudesign",
       "metaDescription": "Leer de ins en outs van Figma met onze workshops in Brugge. Perfect voor zowel beginners als gevorderden.",
+      "metaKeywords": "UI/UX, Brugge, lokaal webdesign, marketingstrategie Brugge",
       "introText": "Ontwikkel je ontwerpvaardigheden met onze Figma-workshops, speciaal aangeboden in Brugge.",
-      "image": "https://xinudesign.be/assets/img/Bruggge.jpg",
+      "image": "https://xinudesign.be/assets/img/Brugge.jpg",
       "sections": [
         {
           "heading": "Praktijkgerichte sessies",
@@ -62,6 +75,175 @@
         }
       ],
       "callToAction": "Schrijf je vandaag nog in!"
+    },
+    {
+      "id": 4,
+      "title": "Lokale SEO in Zottegem – Verhoog jouw online zichtbaarheid",
+      "metaTitle": "Lokale SEO in Zottegem - Xinudesign",
+      "metaDescription": "Wil je beter vindbaar zijn in Zottegem? Met onze lokale SEO-diensten trek je meer klanten aan in jouw regio. Verhoog je zichtbaarheid en groei je bedrijf vandaag nog!",
+      "metaKeywords": [
+        "Lokale SEO Zottegem",
+        "SEO diensten Zottegem",
+        "Online zichtbaarheid Zottegem",
+        "Zoekmachine optimalisatie Zottegem",
+        "Digitale marketing Zottegem",
+        "SEO expert Zottegem",
+        "SEO bureau Zottegem",
+        "SEO specialist Zottegem",
+        "SEO consultant Zottegem",
+        "SEO bedrijf Zottegem"
+      ],
+      "introText": "Ben je op zoek naar manieren om jouw bedrijf in Zottegem beter zichtbaar te maken? Onze lokale SEO-diensten helpen je om hoger te scoren in de zoekresultaten en meer klanten uit jouw regio te bereiken. Door strategische zoekwoordoptimalisatie en maatwerkoplossingen zorgen we ervoor dat jouw bedrijf opvalt in Zottegem. Neem vandaag nog contact op en groei je online aanwezigheid!",
+      "image": "https://xinudesign.be/assets/img/zottegem.jpg",
+      "sections": [
+        {
+          "heading": "Waarom kiezen voor onze lokale SEO-diensten?",
+          "content": "Onze lokale SEO-diensten zijn specifiek ontworpen om bedrijven in Zottegem te helpen groeien. Met jarenlange ervaring en een bewezen aanpak zorgen we ervoor dat jouw bedrijf beter zichtbaar wordt voor klanten in jouw regio. Wij begrijpen de unieke uitdagingen en kansen in Zottegem en stemmen onze strategie af op jouw behoeften."
+        },
+        {
+          "heading": "Onze aanpak voor lokale SEO in Zottegem",
+          "content": "Onze aanpak begint met een grondige analyse van jouw huidige online zichtbaarheid en zoekwoorden. We optimaliseren je website, verbeteren lokale vermeldingen en creëren content die relevant is voor klanten in Zottegem. Daarnaast zorgen we ervoor dat je bedrijf wordt vermeld in lokale gidsen en Google Mijn Bedrijf voor maximale zichtbaarheid."
+        },
+        {
+          "heading": "De voordelen van lokale SEO voor jouw bedrijf",
+          "content": "Lokale SEO helpt je niet alleen om hoger te scoren in zoekmachines, maar zorgt ook voor meer klanten in Zottegem. Je profiteert van: Meer verkeer naar je website. Een betere online reputatie. Meer conversies dankzij gerichte lokale marketing. Met lokale SEO maak je een blijvende impact op jouw regionale markt."
+        },
+        {
+          "heading": "Veelgestelde vragen over lokale SEO",
+          "content": "Wat is lokale SEO? Lokale SEO is een strategie om jouw bedrijf zichtbaar te maken voor klanten in jouw regio. Waarom is lokale SEO belangrijk? Het helpt je om klanten te bereiken die specifiek in Zottegem zoeken naar jouw producten of diensten. Hoe lang duurt het voordat ik resultaten zie? De meeste bedrijven zien na 3-6 maanden een duidelijke verbetering in hun zichtbaarheid en verkeer."
+        }
+      ],
+      "callToAction": "Wil je jouw bedrijf in Zottegem laten groeien? Neem vandaag nog contact op voor een vrijblijvend adviesgesprek en ontdek hoe onze lokale SEO-diensten jou kunnen helpen."
+    },
+    {
+      "id": 5,
+      "title": "Webdesign Sint-Lievens-Houtem",
+      "metaTitle": "Webdesign Sint-Lievens-Houtem - Professioneel en AI-geoptimaliseerd | Xinudesign",
+      "metaDescription": "Ontdek hoe Xinudesign jouw bedrijf in Sint-Lievens-Houtem helpt groeien met AI-geoptimaliseerd webdesign en lokale SEO. Neem vandaag nog contact op!",
+      "metaKeywords": "webdesign, Sint-Lievens-Houtem, lokale SEO, AI-geoptimaliseerd webdesign",
+      "image": "https://xinudesign.be/assets/img/sint-lievens-houtem.jpg",
+      "introText": "Ben je op zoek naar professioneel webdesign in Sint-Lievens-Houtem? Xinudesign, gevestigd in Herzele, biedt geavanceerde webdesign- en marketingoplossingen aan, speciaal geoptimaliseerd voor lokale bedrijven. Met behulp van de nieuwste AI-technologieën ontwikkelen wij websites die niet alleen visueel aantrekkelijk zijn, maar ook perfect aansluiten bij jouw doelgroepen.",
+      "sections": [
+        {
+          "heading": "Waarom kiezen voor Xinudesign in Sint-Lievens-Houtem?",
+          "content": "Bij Xinudesign combineren we creativiteit met innovatieve AI-tools om websites te bouwen die indruk maken en resultaten leveren. Onze aanpak is specifiek gericht op lokale SEO, waardoor jouw bedrijf beter vindbaar wordt in zoekmachines en meer relevante bezoekers aantrekt."
+        },
+        {
+          "heading": "Hoe we AI gebruiken in ons proces",
+          "content": "1. Slimme Zoekwoordanalyse: Met AI-tools analyseren we de meest relevante zoekwoorden voor jouw bedrijf in Sint-Lievens-Houtem.\n2. Contentcreatie met Data-inzichten: Door AI-gestuurde inzichten creëren we pakkende teksten die perfect aansluiten bij de zoekintentie van jouw klanten.\n3. Technische SEO-Optimalisatie: Dankzij AI identificeren we verbeterpunten in jouw website, zoals laadsnelheid en structuur, om jouw online prestaties te verbeteren.\n4. Geavanceerde Analyses en Rapportages: Met AI monitoren we de prestaties van jouw landingspagina en voeren we datagedreven optimalisaties door."
+        },
+        {
+          "heading": "Wat maakt Sint-Lievens-Houtem uniek?",
+          "content": "Sint-Lievens-Houtem staat bekend om zijn landelijke charme, een bloeiende gemeenschap en ondernemersgeest. Onze expertise in lokale SEO stelt ons in staat om jouw bedrijf te positioneren als dé keuze in de regio. Door specifieke lokale kenmerken te integreren, zorgen we ervoor dat jouw webdesign aansluit bij de behoeften van zowel inwoners als bedrijven in de regio. Voorbeelden van lokale bedrijven en sectoren waar we ons op richten:\n- Lokale winkels en detailhandel\n- Ambachtelijke en creatieve ondernemers\n- Horeca en evenementenlocaties"
+        },
+        {
+          "heading": "Voordelen van Xinudesign voor jouw bedrijf",
+          "content": "Met onze combinatie van expertise en AI-technologie kun je profiteren van:\n- Betere vindbaarheid in Sint-Lievens-Houtem: Meer lokale klanten vinden jouw bedrijf via zoekmachines.\n- Meer relevante bezoekers: AI-tools zorgen voor een strategie die aansluit bij de lokale zoekintenties.\n- Professionele uitstraling: Onze webdesigns zijn modern, gebruiksvriendelijk en gericht op conversie."
+        }
+      ],
+      "callToAction": "Wacht niet langer om jouw online zichtbaarheid te vergroten in Sint-Lievens-Houtem. Xinudesign staat klaar om je te helpen met AI-gedreven webdesign en lokale SEO-oplossingen. Neem contact op via ons contactformulier of bel ons direct voor een vrijblijvend gesprek."
+    },
+
+    {
+      "id": 6,
+      "title": "Lokale SEO Gent",
+      "metaTitle": "Lokale SEO Gent - Verhoog je zichtbaarheid | Xinudesign",
+      "metaDescription": "Boost je online zichtbaarheid in Gent met op maat gemaakte lokale SEO-landingspagina's van Xinudesign. Neem contact op voor een offerte!",
+      "metaKeywords": "Lokale SEO, SEO Gent, Zoekmachine optimalisatie Gent",
+      "image": "https://xinudesign.be/assets/img/gent.jpg",
+      "introText": "Ben je op zoek naar een manier om jouw bedrijf beter zichtbaar te maken in Gent? Met onze lokale SEO-oplossingen zorgt Xinudesign ervoor dat jouw onderneming gevonden wordt door klanten in de regio.",
+      "sections": [
+        {
+          "heading": "Waarom kiezen voor Lokale SEO in Gent?",
+          "content": "Gent is een bruisende stad met een grote concurrentie in verschillende sectoren. Door je online aanwezigheid te optimaliseren met lokale SEO, vergroot je jouw kansen om op te vallen in zoekresultaten en trek je meer klanten naar jouw website."
+        },
+        {
+          "heading": "Onze Lokale SEO-aanpak",
+          "content": "1. Zoekwoordanalyse: We onderzoeken de beste zoekwoorden voor jouw doelgroep in Gent.\n2. Contentoptimalisatie: Jouw website krijgt lokale, SEO-vriendelijke inhoud.\n3. Technische SEO: Verbeter laadsnelheid en gebruiksvriendelijkheid.\n4. Backlinkstrategie: Bouw autoriteit op met kwalitatieve lokale links."
+        },
+        {
+          "heading": "De voordelen voor jouw bedrijf",
+          "content": "- Meer lokale bezoekers\n- Verbeterde zoekmachinepositie\n- Hogere conversieratio’s"
+        }
+      ],
+      "callToAction": "Wacht niet langer en laat jouw bedrijf groeien met lokale SEO in Gent. Neem vandaag nog contact op!"
+    },
+    {
+      "id": 7,
+      "title": "Webdevelopment Gentbrugge",
+      "metaTitle": "Webdevelopment Gentbrugge - Moderne en schaalbare oplossingen | Xinudesign",
+      "metaDescription": "Bouw krachtige webapplicaties voor jouw bedrijf in Gentbrugge met moderne technologieën zoals React en Laravel. Contacteer Xinudesign!",
+      "metaKeywords": "Webdevelopment Gentbrugge, Laravel, React, Moderne webapplicaties",
+      "image": "https://xinudesign.be/assets/img/gentbrugge.jpg",
+      "introText": "Ben je gevestigd in Gentbrugge en zoek je naar moderne webdevelopment oplossingen? Xinudesign bouwt krachtige, schaalbare webapplicaties op maat van jouw bedrijfsprocessen.",
+      "sections": [
+        {
+          "heading": "Waarom webdevelopment belangrijk is voor jouw bedrijf in Gentbrugge",
+          "content": "Een sterke online aanwezigheid is essentieel in Gentbrugge. Met webapplicaties die perfect aansluiten op jouw bedrijfsbehoeften blijf je concurrenten een stap voor."
+        },
+        {
+          "heading": "Onze technologieën",
+          "content": "1. Laravel: Voor robuuste backends.\n2. React & Vue.js: Voor interactieve en snelle frontends.\n3. API-integraties: Naadloze koppelingen tussen systemen."
+        },
+        {
+          "heading": "Voordelen van onze webdevelopment services",
+          "content": "- Schaalbaarheid voor groei\n- Hoge prestaties\n- Efficiënte workflows"
+        }
+      ],
+      "callToAction": "Start jouw project vandaag nog met Xinudesign. Samen bouwen we aan jouw digitale succes!"
+    },
+    {
+      "id": 8,
+      "title": "Content Creatie Melle",
+      "metaTitle": "Content Creatie Melle - Unieke en creatieve inhoud | Xinudesign",
+      "metaDescription": "Creëer hoogwaardige content met AI-tools in Melle. Xinudesign helpt je met blogs, visuals en meer!",
+      "metaKeywords": "Content creatie Melle, AI-tools, Blogs en visuals",
+      "image": "https://xinudesign.be/assets/img/melle.jpg",
+      "introText": "Heb je unieke en creatieve inhoud nodig voor jouw bedrijf in Melle? Xinudesign combineert menselijke creativiteit met AI-tools om content te maken die scoort.",
+      "sections": [
+        {
+          "heading": "Waarom kiezen voor content creatie in Melle?",
+          "content": "Content is koning! Of je nu blogs, sociale media posts of visuals nodig hebt, wij zorgen ervoor dat jouw bedrijf opvalt in Melle."
+        },
+        {
+          "heading": "Onze werkwijze",
+          "content": "1. Brainstorm: Samen verkennen we jouw wensen.\n2. AI-tools: We gebruiken GPT en DALL-E voor unieke ideeën.\n3. Publicatie: Inhoud klaar om te delen op jouw platforms."
+        },
+        {
+          "heading": "Voordelen van onze content creatie",
+          "content": "- Snel en efficiënt\n- Unieke, op maat gemaakte content\n- Gebruik van geavanceerde AI-technologie"
+        }
+      ],
+      "callToAction": "Laat jouw merk spreken met opvallende content. Contacteer Xinudesign voor creatieve oplossingen in Melle!"
+    },
+    {
+      "id": 9,
+      "title": "Automatisering Oosterzele",
+      "metaTitle": "Automatisering Oosterzele - Versnel je processen | Xinudesign",
+      "metaDescription": "Optimaliseer jouw bedrijfsprocessen in Oosterzele met automatisering. Gebruik AI-tools zoals HubSpot voor efficiënte workflows. Neem contact op!",
+      "metaKeywords": "Automatisering Oosterzele, HubSpot, Workflow optimalisatie",
+      "image": "https://xinudesign.be/assets/img/oosterzele.jpg",
+      "introText": "Wil je jouw campagnes en workflows optimaliseren in Oosterzele? Xinudesign helpt je bij het automatiseren van tijdrovende taken en het verbeteren van jouw conversieratio’s.",
+      "sections": [
+        {
+          "heading": "Waarom automatiseren?",
+          "content": "Automatisering bespaart tijd en verhoogt de efficiëntie van jouw bedrijfsprocessen, vooral in een competitieve omgeving zoals Oosterzele."
+        },
+        {
+          "heading": "Onze automatiseringsdiensten",
+          "content": "1. HubSpot: Voor marketingautomatisering.\n2. ActiveCampaign: Persoonlijke e-mails en funnels.\n3. AI-geoptimaliseerde campagnes: Sneller en effectiever."
+        },
+        {
+          "heading": "De voordelen van automatisering",
+          "content": "- Minder handmatige taken\n- Meer gepersonaliseerde klantervaring\n- Verhoogde conversies"
+        }
+      ],
+      "callToAction": "Maak jouw bedrijfsprocessen efficiënter met automatisering in Oosterzele. Neem vandaag nog contact op met Xinudesign!"
     }
+    
+    
+    
+    
+    
   ]
 }

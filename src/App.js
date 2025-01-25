@@ -16,6 +16,7 @@ import CookiePolicy from "./components/CookiePolicy";
 import LandingPageWrapper from "./components/LandingPageWrapper";
 import sectionsData from "./sections.json"; 
 import LandingPage from "./components/LandingPage";
+import NotFound from "./components/notFound";
 
 // Variants for page transitions
 const pageVariants = {
@@ -173,6 +174,7 @@ function AnimatedRoutes() {
             </motion.div>
           }
         />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </AnimatePresence>
   );

@@ -58,8 +58,8 @@ function About() {
               className="rounded-full"
             />
           </div>
-          <h1>Michaël Redant</h1>
-          <h2>Marketeer & Webdesigner</h2>
+          <h1 className="profile-name">Michaël Redant</h1>
+          <h2 className="profile-job">Marketeer & Webdesigner</h2>
         </div>
         <div className="profile-bio">
           <p className="short-description">

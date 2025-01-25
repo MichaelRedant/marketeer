@@ -1,0 +1,42 @@
+
+  
+  
+  a {
+    color: #fff;
+  }
+  
+  .code-area {
+    position: absolute;
+    background: #081421;
+    height: 100vh;
+    width: 100vw;
+    min-width: 320px;
+    top: 50%;
+    line-height: 1.5em;
+    cursor: default;
+    left: 50%;
+    display: flex; /* Gebruik flexbox om de inhoud te centreren */
+    justify-content: center;
+    align-items: center;
+    margin: 0; /* Verwijder standaard marges van de body */
+    padding: 0; /* Verwijder standaard padding van de body */
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  }
+  
+  .code-area > span {
+    display: block;
+  }
+  
+  @media screen and (max-width: 320px) {
+    .code-area {
+      font-size: 5vw;
+      min-width: auto;
+      width: 95%;
+      margin: auto;
+      padding: 5px;
+      padding-left: 10px;
+      line-height: 6.5vw;
+    }
+  }
+  
