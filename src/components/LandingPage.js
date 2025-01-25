@@ -20,52 +20,51 @@ const hoverAnimation = {
   },
 };
 
-
-
 const LandingPage = () => {
-  const { slug } = useParams();
+  const { location, service } = useParams(); // Dynamic slug params
   const [services, setServices] = useState([]);
-  
 
   useEffect(() => {
     setServices(servicesData);
   }, []);
 
-  const pageData = sectionsData.pages.find((page) =>
-    page.title.toLowerCase().includes(slug.toLowerCase())
+  // Controleer of `location` en `service` bestaan, en zorg ervoor dat ze strings zijn
+  const pageData = sectionsData.pages.find(
+    (page) =>
+      page.location?.toLowerCase() === location?.toLowerCase() &&
+      page.service?.toLowerCase().replace(/\s+/g, "-") === service?.toLowerCase()
   );
+  
 
   if (!pageData) {
     return (
       <div className="landing-page-container">
         <div className="landing-page-error">
           <h1>Pagina niet gevonden</h1>
-          <p>De landingspagina voor deze locatie is niet beschikbaar.</p>
+          <p>De landingspagina voor deze locatie en dienst is niet beschikbaar.</p>
         </div>
       </div>
     );
   }
 
   const { title, metaTitle, metaDescription, introText, image, sections, callToAction } = pageData;
-  
-// Functie om de content te analyseren op lijsten
-const parseContent = (content) => {
-  // Controleer of de content lijsten bevat (bijvoorbeeld begint met "1.", "2.", of "/n")
-  if (/^\d+\./.test(content) || /\n/.test(content)) {
-    // Split de tekst op nieuwe regels of nummers om een array te maken
-    const listItems = content.split(/\n|(?=\d+\.)/).filter((item) => item.trim() !== "");
-    return (
-      <ul className="section-list">
-        {listItems.map((item, index) => (
-          <li key={index} className="list-item">
-            {item.trim()}
-          </li>
-        ))}
-      </ul>
-    );
-  }
-  return <p className="section-content">{content}</p>; // Geen lijst, toon als normale tekst
-};
+
+  const parseContent = (content) => {
+    if (/^\d+\./.test(content) || /\n/.test(content)) {
+      const listItems = content.split(/\n|(?=\d+\.)/).filter((item) => item.trim() !== "");
+      return (
+        <ul className="section-list">
+          {listItems.map((item, index) => (
+            <li key={index} className="list-item">
+              {item.trim()}
+            </li>
+          ))}
+        </ul>
+      );
+    }
+    return <p className="section-content">{content}</p>;
+  };
+
   return (
     <div className="landing-page">
       <div className="animated-background"></div>
@@ -108,6 +107,13 @@ const parseContent = (content) => {
   <div className="title">
     <h1 className="branding-title">Xinudesign</h1>
     <p className="branding-slogan">Van idee tot realisatie</p>
+    <p className="branding-location-service">
+  {`${service
+    .split('-')
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ')} in ${location.charAt(0).toUpperCase() + location.slice(1)}`}
+</p>
+
   </div>
   <div className="scroll-downs" onClick={() => document.getElementById('about').scrollIntoView({ behavior: 'smooth' })}>
     <div className="mousey">
@@ -121,9 +127,7 @@ const parseContent = (content) => {
         <div className="about-content">
           <h1 className="landing-title">{title}</h1>
           <p className="landing-intro">{introText}</p>
-          <a href="/contact" className="cta-button">
-      Neem contact op
-    </a>
+         
         </div>
         <div className="about-image">
         <img
@@ -135,6 +139,14 @@ const parseContent = (content) => {
 />
         </div>
       </section>
+
+      {/* CTA Sectie */}
+<section id="cta-section" className="cta-section">
+  <p className="cta-text">{callToAction}</p>
+  <a href="/contact" className="cta-button">
+    Neem contact op
+  </a>
+</section>
 
       {/* Main Sectie */}
         <section className="landing-main">

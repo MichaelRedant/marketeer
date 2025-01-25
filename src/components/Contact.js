@@ -18,20 +18,18 @@ function Contact() {
   const [searchParams] = useSearchParams();
 
   useEffect(() => {
-    const headerElement = document.querySelector("nav");
-    if (headerElement) {
-      setHeaderHeight(headerElement.offsetHeight);
-    }
-
-    // Stel de vooraf geselecteerde service in als de gebruiker van de servicepagina komt
     const preselectedService = searchParams.get("service");
     if (preselectedService) {
-      setFormData((prevData) => ({
-        ...prevData,
-        services: [...prevData.services, preselectedService],
-      }));
+      setFormData((prevData) => {
+        const updatedServices = prevData.services.includes(preselectedService)
+          ? prevData.services
+          : [...prevData.services, preselectedService];
+  
+        return { ...prevData, services: updatedServices };
+      });
     }
   }, [searchParams]);
+  
 
   const handleSubmit = (e) => {
     e.preventDefault();
