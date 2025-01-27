@@ -339,7 +339,7 @@ function Home() {
 
 
       {/* FAQ Sectie */}
-      <Helmet>
+<Helmet>
   <script type="application/ld+json">
     {JSON.stringify({
       "@context": "https://schema.org",
@@ -356,42 +356,44 @@ function Home() {
   </script>
 </Helmet>
 
-      <AnimatedSection className="py-16 px-6 bg-background">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-primary font-bold text-primary text-center">
-            Veelgestelde Vragen
-          </h2>
-          <div className="mt-10">
-            {faqData.map((faq, index) => (
-              <div key={index} className="border-b border-border-light pb-4 mb-4">
-                <button
-                  className="w-full text-left text-lg font-primary font-bold text-primary focus:outline-none flex justify-between items-center"
-                  onClick={() => toggleAnswer(index)}
-                >
-                  {faq.question}
-                  <span
-                    className={`transform transition-transform duration-300 ${
-                      activeIndex === index ? "rotate-180" : ""
-                    }`}
-                  >
-                    ▼
-                  </span>
-                </button>
-                {activeIndex === index && (
-                  <motion.p
-                    className="mt-2 text-text font-secondary"
-                    initial={{ opacity: 0, height: 0 }}
-                    animate={{ opacity: 1, height: "auto" }}
-                    exit={{ opacity: 0, height: 0 }}
-                  >
-                    {faq.answer}
-                  </motion.p>
-                )}
-              </div>
-            ))}
-          </div>
+<AnimatedSection className="faq-section py-16 px-6 bg-background">
+  <div className="faq-title text-center">
+    <h2 className="text-3xl md:text-4xl font-primary font-bold text-primary">
+      Veelgestelde Vragen
+    </h2>
+    <p className="mt-4 text-text font-secondary">
+      Hier vind je de antwoorden op de meest gestelde vragen.
+    </p>
+  </div>
+  <div className="faq mt-10" id="accordion">
+    {faqData.map((faq, index) => (
+      <div key={index} className="card">
+        <div
+          className="card-header"
+          id={`faqHeading-${index}`}
+          onClick={() => toggleAnswer(index)}
+        >
+          <h5 className="faq-title">
+            <span className="badge">{index + 1}</span>
+            {faq.question}
+          </h5>
         </div>
-      </AnimatedSection>
+        {activeIndex === index && (
+          <motion.div
+            id={`faqCollapse-${index}`}
+            className="card-body"
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+          >
+            <p>{faq.answer}</p>
+          </motion.div>
+        )}
+      </div>
+    ))}
+  </div>
+</AnimatedSection>
+
 
       {/* Call-to-Action Sectie */}
   <AnimatedSection className="flex flex-col items-center justify-center py-16 bg-primary text-on-primary px-6">

@@ -264,5 +264,61 @@
   <changefreq>monthly</changefreq>
   <priority>0.8</priority>
 </url>
+<!-- Dynamische landingspagina's voor Erpe-Mere -->
+<url>
+  <loc>https://xinudesign.be/erpe-mere/content-creatie</loc>
+  <lastmod>2025-01-25</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://xinudesign.be/erpe-mere/automatisering</loc>
+  <lastmod>2025-01-25</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://xinudesign.be/erpe-mere/seo-sem</loc>
+  <lastmod>2025-01-25</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://xinudesign.be/erpe-mere/workshops-trainingen</loc>
+  <lastmod>2025-01-25</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://xinudesign.be/erpe-mere/data-gedreven-strategieën</loc>
+  <lastmod>2025-01-25</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://xinudesign.be/erpe-mere/webdesign</loc>
+  <lastmod>2025-01-25</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://xinudesign.be/erpe-mere/webdevelopment</loc>
+  <lastmod>2025-01-25</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://xinudesign.be/erpe-mere/ui-ux-design</loc>
+  <lastmod>2025-01-25</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://xinudesign.be/erpe-mere/lokale-seo</loc>
+  <lastmod>2025-01-25</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority>
+</url>
+
 
 </urlset>

@@ -136,6 +136,138 @@ button.fixed:hover {
 }
 
 
+.faq-section {
+  background: #fdfdfd;
+  padding: 50px 20px;
+  border-radius: 10px;
+}
+
+.faq {
+  background: #FFFFFF;
+  box-shadow: 0 2px 48px 0 rgba(0, 0, 0, 0.06);
+  border-radius: 4px;
+  width: 100%; /* Zorg ervoor dat de container de volledige breedte benut */
+  max-width: 800px; /* Limiteer de maximale breedte voor leesbaarheid */
+  margin: 0 auto; /* Centreer de FAQ container */
+  padding: 0; /* Verwijder onnodige padding */
+}
+
+.faq .card {
+  border: none;
+  background: none;
+  border-bottom: 1px dashed #CEE1F8;
+  margin: 0; /* Verwijder onnodige marge */
+  width: 100%; /* Zorg dat de kaart de volledige containerbreedte vult */
+}
+
+.faq .card .card-header {
+  cursor: pointer;
+  background: none;
+  transition: all 0.3s ease;
+  padding: 20px; /* Zorg voor nette padding binnen de header */
+  font-size: 1rem;
+  font-weight: bold;
+  color: #3b566e;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%; /* Zorg dat de header de volledige kaartbreedte vult */
+  box-sizing: border-box; /* Inclusief padding in de breedteberekening */
+}
+
+.faq .card .card-header:hover {
+  background: rgba(3, 98, 200, 0.1);
+  padding-left: 25px; /* Subtiele verschuiving bij hover */
+  transition: background 0.3s ease, padding-left 0.3s ease;
+}
+
+.faq .card .card-header .faq-title {
+  width: 100%; /* Breder vragenblok */
+}
+
+.faq .card .card-header .badge {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background: #0362c8;
+  color: #fff;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 30px;
+  margin-right: 10px;
+  font-size: 0.9rem;
+}
+
+.faq .card .card-body {
+  padding: 20px;
+  background: rgba(240, 240, 255, 0.6);
+  border-radius: 8px;
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.6;
+  max-width: 100%; /* Zorg dat de tekst binnen de container blijft */
+  box-sizing: border-box;
+}
+
+.faq .card .card-body p {
+  margin: 0;
+}
+
+/* Mini animaties */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-5px);
+  }
+  60% {
+    transform: translateY(-3px);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    height: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    height: auto;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .faq {
+    max-width: 90%; /* Maak het smaller op mobiel */
+  }
+
+  .faq .card .card-header {
+    font-size: 0.9rem; /* Kleiner lettertype voor mobiel */
+  }
+
+  .faq .card .card-body {
+    font-size: 0.85rem; /* Kleiner lettertype */
+    padding: 15px;
+  }
+}
+
+
+
+
 /* Algemeen voor de X3DPrintsectie */
 .x3dprints-section {
   position: relative;

@@ -1,43 +1,100 @@
 [
-    {
-      "question": "Wat is Xinudesign?",
-      "answer": "Xinudesign is een creatieve marketingpartner die kunstmatige intelligentie en innovatie gebruikt om bedrijven te helpen groeien."
-    },
-    {
-      "question": "Welke diensten bieden jullie aan?",
-      "answer": "We bieden AI-gestuurde contentcreatie, marketingstrategieën, SEO/SEA, workshops en data-analyse oplossingen."
-    },
-    {
-      "question": "Hoe kan ik starten met jullie diensten?",
-      "answer": "Neem contact met ons op via het contactformulier of plan een kennismakingsgesprek via onze website."
-    },
-    {
-      "question": "Werken jullie met kleine bedrijven?",
-      "answer": "Ja, we werken graag samen met zowel kleine bedrijven als grote organisaties om op maat gemaakte oplossingen te bieden."
-    },
-    {
-      "question": "Welke AI-tools gebruiken jullie?",
-      "answer": "We maken gebruik van tools zoals ChatGPT, Adobe Firefly, en Google Analytics om geavanceerde oplossingen te bieden."
-    },
-    {
-      "question": "Kan ik een demo aanvragen?",
-      "answer": "Ja, we bieden demo's aan om onze aanpak en tools te laten zien. Neem contact op voor meer informatie."
-    },
-    {
+  {
+      "question": "Wat is Xinudesign en wat maakt jullie uniek?",
+      "answer": "Xinudesign is een innovatieve marketingpartner die gebruikmaakt van kunstmatige intelligentie, creativiteit en data-analyse om bedrijven te helpen groeien. Wat ons uniek maakt, is onze focus op maatwerk en de combinatie van technologie en menselijke expertise."
+  },
+  {
+      "question": "Welke diensten biedt Xinudesign aan?",
+      "answer": "Wij bieden een breed scala aan diensten, waaronder AI-gestuurde contentcreatie, lokale en technische SEO, SEA-campagnes, data-analyse, webdesign en workshops over moderne marketingtools."
+  },
+  {
+      "question": "Hoe helpt Xinudesign met lokale SEO?",
+      "answer": "Wij optimaliseren je website voor lokale zoekresultaten door middel van zoekwoordonderzoek, Google Mijn Bedrijf-optimalisatie en lokale linkbuilding, zodat je beter zichtbaar bent voor klanten in jouw regio."
+  },
+  {
+      "question": "Kunnen kleine bedrijven samenwerken met Xinudesign?",
+      "answer": "Absoluut! Wij werken graag samen met kleine en middelgrote bedrijven om op maat gemaakte oplossingen te bieden die aansluiten bij hun specifieke behoeften en budget."
+  },
+  {
+      "question": "Welke AI-tools gebruikt Xinudesign?",
+      "answer": "Wij maken gebruik van geavanceerde tools zoals ChatGPT, DALL·E, Adobe Firefly en Google Analytics om onze klanten hoogwaardige marketingoplossingen te bieden."
+  },
+  {
       "question": "Hoe werkt AI-gestuurde contentcreatie?",
-      "answer": "We gebruiken AI-tools om ideeën te genereren, teksten te schrijven en visuals te maken, terwijl we de menselijke touch behouden."
+      "answer": "Met behulp van AI-tools creëren wij teksten, visuals en strategieën die jouw merk versterken. AI genereert ideeën en basiscontent, waarna wij het verfijnen met een menselijke touch voor optimale kwaliteit."
+  },
+  {
+    "question": "Hoe werkt de samenwerking tussen Xinudesign en Pixapop Webdesign?",
+    "answer": "Xinudesign werkt nauw samen met Pixapop Webdesign om hoogwaardige websites te leveren die zowel visueel aantrekkelijk als functioneel zijn. Pixapop brengt hun expertise in webdesign en creativiteit, terwijl Xinudesign zorgt voor SEO-optimalisatie, contentstrategie en technische ondersteuning. Samen bieden we complete oplossingen die jouw online aanwezigheid versterken."
+},
+
+  {
+      "question": "Wat zijn de voordelen van jullie workshops?",
+      "answer": "Onze workshops helpen bedrijven om moderne AI-tools en marketingstrategieën te begrijpen en toe te passen. Dit leidt tot meer efficiëntie, betere besluitvorming en een sterke digitale aanwezigheid."
+  },
+  {
+      "question": "Hoe verloopt het proces van een samenwerking met Xinudesign?",
+      "answer": "We starten met een kennismakingsgesprek om jouw doelen en uitdagingen te begrijpen. Vervolgens stellen we een op maat gemaakt plan op en werken we samen om resultaten te behalen."
+  },
+  {
+      "question": "Wat zijn de kosten van Xinudesign's diensten?",
+      "answer": "De kosten zijn afhankelijk van jouw specifieke wensen en het type project. Neem contact met ons op voor een vrijblijvende offerte op maat."
+  },
+  {
+      "question": "Bieden jullie onderhoud en ondersteuning na een project?",
+      "answer": "Ja, wij bieden uitgebreide ondersteuning en onderhoud om ervoor te zorgen dat jouw project optimaal blijft presteren en meegaat met de nieuwste trends."
+  },
+  {
+      "question": "Kan Xinudesign helpen met het verbeteren van mijn Google-ranking?",
+      "answer": "Ja, we helpen je met on-page en off-page optimalisaties, technische verbeteringen en contentstrategieën om jouw Google-ranking te verbeteren."
+  },
+  {
+      "question": "Wat is het verschil tussen SEO en SEA en bieden jullie beide aan?",
+      "answer": "SEO richt zich op het organisch verbeteren van je vindbaarheid in zoekmachines, terwijl SEA draait om betaalde advertenties zoals Google Ads. Wij bieden beide aan voor een complete online marketingstrategie."
+  },
+  {
+      "question": "Wat is lokale SEO en waarom is het belangrijk?",
+      "answer": "Lokale SEO richt zich op het verbeteren van je zichtbaarheid voor klanten in jouw regio. Dit is cruciaal voor bedrijven die lokaal actief zijn en meer klanten uit hun directe omgeving willen aantrekken."
+  },
+    {
+        "question": "Wat maakt Xinudesign een specialist in lokale SEO?",
+        "answer": "Wij hebben jarenlange ervaring in het optimaliseren van lokale zoekresultaten. Door zoekwoordonderzoek, Google Mijn Bedrijf-optimalisatie en lokale linkbuilding zorgen wij ervoor dat jouw bedrijf zichtbaar is voor klanten in jouw regio."
     },
     {
-      "question": "Wat zijn de kosten van jullie diensten?",
-      "answer": "Onze prijzen zijn afhankelijk van het project. Neem contact met ons op voor een offerte op maat."
+        "question": "Hoe kan Xinudesign mijn online zichtbaarheid verbeteren?",
+        "answer": "Met een combinatie van SEO, SEA, contentcreatie en webdesign verbeteren wij jouw online vindbaarheid. Onze strategieën zijn volledig afgestemd op jouw bedrijfsdoelen en doelgroep."
     },
     {
-      "question": "Bieden jullie ondersteuning na een project?",
-      "answer": "Ja, we bieden ongoing support en onderhoud om ervoor te zorgen dat jouw project optimaal blijft presteren."
+        "question": "Kan Xinudesign helpen met een volledige rebranding van mijn website?",
+        "answer": "Ja, wij bieden complete rebrandingservices, inclusief webdesign, SEO-optimalisatie en contentcreatie. Samen met onze partner Pixapop Webdesign maken wij van jouw website een krachtig visitekaartje."
     },
     {
-      "question": "Organiseren jullie workshops?",
-      "answer": "Ja, we organiseren workshops om bedrijven te trainen in het gebruik van AI-tools en moderne marketingstrategieën."
-    }
-  ]
-  
+        "question": "Welke bedrijven kunnen profiteren van de diensten van Xinudesign?",
+        "answer": "Onze diensten zijn geschikt voor bedrijven van elke omvang. Of je nu een lokale ondernemer bent of een groot bedrijf runt, wij bieden op maat gemaakte oplossingen die passen bij jouw behoeften."
+    },
+    {
+        "question": "Hoe lang duurt het om resultaten te zien van SEO-optimalisatie?",
+        "answer": "Afhankelijk van jouw sector en concurrentie kun je binnen 3 tot 6 maanden verbeteringen in je zoekresultaten zien. SEA-campagnes leveren vaak snellere resultaten."
+    },
+    {
+        "question": "Wat houdt de combinatie van SEO en SEA in bij Xinudesign?",
+        "answer": "Wij combineren de lange termijn voordelen van SEO met de directe impact van SEA-campagnes, zoals Google Ads. Deze aanpak zorgt voor zowel snelle zichtbaarheid als duurzame groei."
+    },
+    {
+        "question": "Kan Xinudesign mijn huidige website optimaliseren?",
+        "answer": "Ja, wij kunnen jouw bestaande website analyseren en optimaliseren op het gebied van snelheid, SEO, design en gebruikerservaring om betere resultaten te behalen."
+    },
+    {
+        "question": "Hoe kan Xinudesign helpen met contentmarketing?",
+        "answer": "Wij creëren unieke en waardevolle content die jouw doelgroep aanspreekt. Dit omvat blogs, social media posts, visuals en meer, allemaal geoptimaliseerd voor zoekmachines."
+    },
+    {
+        "question": "Biedt Xinudesign op maat gemaakte webdesign-oplossingen?",
+        "answer": "Ja, samen met Pixapop Webdesign bieden wij op maat gemaakte websites die perfect aansluiten bij jouw merkidentiteit, doelgroep en bedrijfsdoelen."
+    },
+
+  {
+      "question": "Kan ik een gratis adviesgesprek aanvragen bij Xinudesign?",
+      "answer": "Ja, wij bieden gratis adviesgesprekken aan om jouw uitdagingen te bespreken en een gepersonaliseerde aanpak te presenteren."
+  }
+]

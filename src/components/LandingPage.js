@@ -23,10 +23,15 @@ const hoverAnimation = {
 const LandingPage = () => {
   const { location, service } = useParams(); // Dynamic slug params
   const [services, setServices] = useState([]);
+  const [activeFaqIndex, setActiveFaqIndex] = useState(null);
 
   useEffect(() => {
     setServices(servicesData);
   }, []);
+
+  const toggleFaq = (index) => {
+    setActiveFaqIndex(activeFaqIndex === index ? null : index);
+  };
 
   // Controleer of `location` en `service` bestaan, en zorg ervoor dat ze strings zijn
   const pageData = sectionsData.pages.find(
@@ -47,7 +52,7 @@ const LandingPage = () => {
     );
   }
 
-  const { title, metaTitle, metaDescription, introText, image, sections, callToAction } = pageData;
+  const { title, metaTitle, metaDescription, introText, image, sections,faq , callToAction } = pageData;
 
   const parseContent = (content) => {
     if (/^\d+\./.test(content) || /\n/.test(content)) {
@@ -332,7 +337,7 @@ const LandingPage = () => {
 
       </section>
 
-      <h2 className="services-title">Onze Diensten</h2>
+      <h2 className="services-title">Onze Diensten voor {location}</h2>
 <a href="/services" className="text-primary hover:underline">
   Ontdek meer over onze diensten
 </a>
@@ -349,10 +354,60 @@ const LandingPage = () => {
 </div>
 
       </section>
+       {/* FAQ Sectie */}
+       
+       <section id="faq-section" className="faq-section">
+       <Helmet>
+  <script type="application/ld+json">
+    {JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": pageData.faq?.map((faqItem) => ({
+        "@type": "Question",
+        "name": faqItem.question,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": faqItem.answer,
+        },
+      })),
+    })}
+  </script>
+</Helmet>
+
+        <div className="faq-title">
+          <h2 className="text-3xl md:text-4xl font-primary font-bold text-primary text-center">
+            Veelgestelde Vragen
+          </h2>
+          <p className="text-center mt-2 text-secondary">
+            Hier vind je de antwoorden op de meest gestelde vragen.
+          </p>
+        </div>
+        <div className="faq max-w-4xl mx-auto">
+          {faq?.map((item, index) => (
+            <div key={index} className="card">
+              <div
+                className={`card-header ${activeFaqIndex === index ? "active" : ""}`}
+                onClick={() => toggleFaq(index)}
+              >
+                <h3 className="faq-title">
+                  <span className="badge">{index + 1}</span>
+                  {item.question}
+                </h3>
+              </div>
+              {activeFaqIndex === index && (
+                <div className="card-body">
+                  <p>{item.answer}</p>
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+      </section>
     </div>
     
   );
 };
+
 
 
 export default LandingPage;
