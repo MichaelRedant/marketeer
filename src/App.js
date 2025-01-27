@@ -8,6 +8,7 @@ import Home from "./components/Home";
 import About from "./components/About";
 import Services from "./components/Services";
 import Contact from "./components/Contact";
+import Locaties from "./components/locaties";
 import Werk from "./components/Werk";
 import AdminPanel from "./components/Admin"; // Zorg dat dit verwijst naar het AdminPanel-bestand
 import ServicePage from "./components/ServicePage";
@@ -16,6 +17,8 @@ import CookiePolicy from "./components/CookiePolicy";
 import sectionsData from "./sections.json"; 
 import LandingPage from "./components/LandingPage";
 import NotFound from "./components/notFound";
+import BlogPage from "./components/BlogPage";
+import BlogPost from "./components/BlogPost";
 
 // Variants for page transitions
 const pageVariants = {
@@ -121,6 +124,19 @@ function AnimatedRoutes() {
           }
         />
         <Route
+          path="/locaties"
+          element={
+            <motion.div
+              initial="initial"
+              animate="animate"
+              exit="exit"
+              variants={pageVariants}
+            >
+              <Locaties />
+            </motion.div>
+          }
+        />
+        <Route
           path="/admin/*"
           element={
             <motion.div
@@ -130,6 +146,32 @@ function AnimatedRoutes() {
               variants={pageVariants}
             >
               <AdminPanel />
+            </motion.div>
+          }
+        />
+        <Route
+          path="/blog"
+          element={
+            <motion.div
+              initial="initial"
+              animate="animate"
+              exit="exit"
+              variants={pageVariants}
+            >
+              <BlogPage />
+            </motion.div>
+          }
+        />
+        <Route
+          path="/blog/:slug"
+          element={
+            <motion.div
+              initial="initial"
+              animate="animate"
+              exit="exit"
+              variants={pageVariants}
+            >
+              <BlogPost />
             </motion.div>
           }
         />

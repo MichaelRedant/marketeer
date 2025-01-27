@@ -82,53 +82,31 @@ function Home() {
       </Helmet>
 
       {/* Hero Sectie */}
-      <div
-        className="relative text-on-dark flex items-center justify-center overflow-hidden"
-        style={{
-          minHeight: "100vh",
-          background: `linear-gradient(0deg, #8BC6EC 0%, #0362c8 100%)`,
-        }}
+<div className="relative hero-section">
+  {/* Geanimeerde achtergrond */}
+  <div className="animated-background"></div>
+
+  {/* Hero Content */}
+  <div className="container mx-auto flex flex-col lg:flex-row items-center px-6 relative z-10">
+    <div className="text-center lg:text-left lg:w-1/2">
+      <h1 className="hero-title text-5xl md:text-6xl font-primary font-bold uppercase tracking-wide mb-4">
+        Xinudesign
+      </h1>
+      <p className="hero-subtitle text-lg md:text-xl font-secondary mb-6">
+        Van idee tot realisatie
+      </p>
+      <Button
+        onClick={() => navigate("/services")}
+        className="hero-button px-6 py-3 font-bold rounded-lg transition duration-300"
       >
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage: "url('/public/assets/img/hero.svg')",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            zIndex: 1,
-          }}
-        ></div>
-        <div className="container mx-auto flex flex-col lg:flex-row items-center px-6 relative z-10">
-          <div className="text-center lg:text-left lg:w-1/2">
-            <h1 className="text-5xl md:text-6xl font-primary font-bold uppercase tracking-wide mb-4 text-on-dark">
-              Xinudesign
-            </h1>
-            <p className="text-lg md:text-xl font-secondary text-on-dark mb-6">
-              Van idee tot realisatie
-            </p>
-            <Button
-              onClick={() => navigate("/services")}
-              className="px-6 py-3 bg-primary hover:bg-hover-primary text-on-primary font-bold rounded-lg transition duration-300"
-            >
-              Get Started
-            </Button>
-          </div>
-        </div>
-        <div className="absolute bottom-0 left-0 right-0">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 1440 320"
-            className="w-full h-auto"
-            fill="currentColor"
-            style={{ color: "#8BC6EC" }}
-          >
-            <path
-              fill="currentColor"
-              d="M0,128L60,122.7C120,117,240,107,360,106.7C480,107,600,117,720,128C840,139,960,149,1080,154.7C1200,160,1320,160,1380,160L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"
-            ></path>
-          </svg>
-        </div>
-      </div>
+        Get Started
+      </Button>
+    </div>
+  </div>
+
+  
+</div>
+
 
       {/* Waarom Xinudesign Sectie */}
       <AnimatedSection

@@ -96,7 +96,41 @@
     <priority>0.7</priority>
   </url>
 
+  <url>
+  <loc>https://xinudesign.be/blog</loc>
+  <lastmod>2025-01-25</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.9</priority>
+</url>
+
+<!-- Individuele blogpagina's -->
+<url>
+  <loc>https://xinudesign.be/blog/hoe-je-een-website-maakt-die-goed-scoort-in-google</loc>
+  <lastmod>2025-01-25</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://xinudesign.be/blog/de-voordelen-van-lokale-seo-voor-jouw-bedrijf</loc>
+  <lastmod>2025-01-25</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://xinudesign.be/blog/hoe-ai-de-toekomst-van-marketing-transformeert</loc>
+  <lastmod>2025-01-25</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority>
+</url>
+
+
   <!-- Dynamische landingspagina's -->
+  <url>
+  <loc>https://xinudesign.be/locaties</loc>
+  <lastmod>2025-01-27</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority>
+</url>
 <!-- Dynamische landingspagina's voor Aalst -->
 <url>
   <loc>https://xinudesign.be/aalst/content-creatie</loc>
@@ -315,6 +349,117 @@
 </url>
 <url>
   <loc>https://xinudesign.be/erpe-mere/lokale-seo</loc>
+  <lastmod>2025-01-25</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority>
+</url>
+<!-- Dendermonde -->
+<url>
+  <loc>https://xinudesign.be/dendermonde/content-creatie</loc>
+  <lastmod>2025-01-25</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://xinudesign.be/dendermonde/automatisering</loc>
+  <lastmod>2025-01-25</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://xinudesign.be/dendermonde/seo-sem</loc>
+  <lastmod>2025-01-25</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://xinudesign.be/dendermonde/workshops-en-trainingen</loc>
+  <lastmod>2025-01-25</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://xinudesign.be/dendermonde/data-gedreven-strategieen</loc>
+  <lastmod>2025-01-25</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://xinudesign.be/dendermonde/webdesign</loc>
+  <lastmod>2025-01-25</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://xinudesign.be/dendermonde/webdevelopment</loc>
+  <lastmod>2025-01-25</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://xinudesign.be/dendermonde/ui-ux-design</loc>
+  <lastmod>2025-01-25</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://xinudesign.be/dendermonde/lokale-seo</loc>
+  <lastmod>2025-01-25</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority>
+</url>
+
+<!-- Geraardsbergen -->
+<url>
+  <loc>https://xinudesign.be/geraardsbergen/content-creatie</loc>
+  <lastmod>2025-01-25</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://xinudesign.be/geraardsbergen/automatisering</loc>
+  <lastmod>2025-01-25</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://xinudesign.be/geraardsbergen/seo-sem</loc>
+  <lastmod>2025-01-25</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://xinudesign.be/geraardsbergen/workshops-en-trainingen</loc>
+  <lastmod>2025-01-25</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://xinudesign.be/geraardsbergen/data-gedreven-strategieen</loc>
+  <lastmod>2025-01-25</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://xinudesign.be/geraardsbergen/webdesign</loc>
+  <lastmod>2025-01-25</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://xinudesign.be/geraardsbergen/webdevelopment</loc>
+  <lastmod>2025-01-25</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://xinudesign.be/geraardsbergen/ui-ux-design</loc>
+  <lastmod>2025-01-25</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://xinudesign.be/geraardsbergen/lokale-seo</loc>
   <lastmod>2025-01-25</lastmod>
   <changefreq>monthly</changefreq>
   <priority>0.8</priority>

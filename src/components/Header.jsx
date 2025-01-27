@@ -40,7 +40,7 @@ function Header() {
           <div className="line"></div>
         </div>
         <ul className={`nav-links ${isMenuOpen ? "open" : ""}`}>
-          {["/", "/about", "/services", "/werk", "/contact"].map((path, index) => (
+          {["/", "/about", "/services", "/werk", "/blog", "/contact"].map((path, index) => (
             <li key={index}>
               <NavLink to={path} onClick={() => setIsMenuOpen(false)}>
                 {path === "/"

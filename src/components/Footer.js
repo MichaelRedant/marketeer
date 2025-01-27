@@ -16,7 +16,8 @@ function Footer() {
   return (
     <footer className="bg-primary text-white py-8">
       <div className="max-w-7xl mx-auto px-6 text-center">
-        <p className="text-lg font-semibold mb-4">
+        {/* Titel en jaartal */}
+        <p className="text-lg font-semibold text-white mb-4">
           © {currentYear} Michaël Redant
         </p>
 
@@ -39,22 +40,35 @@ function Footer() {
           })}
         </div>
 
-        {/* Extra Links */}
+        {/* Links naar pagina's */}
         <div className="text-sm space-y-2">
-          <p>Gemaakt met passie voor AI, webdesign, en 3D-printing.</p>
-          <Link
-            to="/algemene-voorwaarden"
-            className="underline hover:text-gray-300 transition duration-300 "
-          >
-            Algemene Voorwaarden
-          </Link>
-          {" | "}
-          <Link
-            to="/cookiebeleid"
-            className="underline hover:text-gray-300 transition duration-300"
-          >
-            Cookiebeleid
-          </Link>
+          {/* Toegevoegde link naar locaties */}
+          <p>
+            <Link
+              to="/locaties"
+              className="underline hover:text-gray-300 transition duration-300"
+            >
+              Bekijk onze diensten per locatie
+            </Link>
+          </p>
+
+          <p className="text-white">Gemaakt met passie voor AI, webdesign, en 3D-printing.</p>
+
+          <div className="text-white">
+            <Link
+              to="/algemene-voorwaarden"
+              className="underline hover:text-gray-300 transition duration-300"
+            >
+              Algemene Voorwaarden
+            </Link>
+            {" | "}
+            <Link
+              to="/cookiebeleid"
+              className="underline hover:text-gray-300 transition duration-300"
+            >
+              Cookiebeleid
+            </Link>
+          </div>
         </div>
       </div>
     </footer>
