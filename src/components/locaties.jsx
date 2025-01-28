@@ -73,7 +73,7 @@ function Locaties() {
               {location.services.map((service) => (
                 <li key={service.slug} className="mb-2">
                   <a
-                    href={`/locaties/${service.slug}`}
+                    href={`/${service.slug}`}
                     className="text-secondary hover:underline font-bold"
                   >
                     {service.service}

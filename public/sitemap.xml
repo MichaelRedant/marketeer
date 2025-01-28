@@ -465,5 +465,60 @@
   <priority>0.8</priority>
 </url>
 
+<!-- Ninove -->
+<url>
+  <loc>https://xinudesign.be/ninove/content-creatie</loc>
+  <lastmod>2025-01-25</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://xinudesign.be/ninove/automatisering</loc>
+  <lastmod>2025-01-25</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://xinudesign.be/ninove/seo-sem</loc>
+  <lastmod>2025-01-25</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://xinudesign.be/ninove/workshops-en-trainingen</loc>
+  <lastmod>2025-01-25</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://xinudesign.be/ninove/data-gedreven-strategieen</loc>
+  <lastmod>2025-01-25</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://xinudesign.be/ninove/webdesign</loc>
+  <lastmod>2025-01-25</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://xinudesign.be/ninove/webdevelopment</loc>
+  <lastmod>2025-01-25</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://xinudesign.be/ninove/ui-ux-design</loc>
+  <lastmod>2025-01-25</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://xinudesign.be/ninove/lokale-seo</loc>
+  <lastmod>2025-01-25</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority>
+</url>
 
 </urlset>

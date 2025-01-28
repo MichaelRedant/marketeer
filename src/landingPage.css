@@ -505,3 +505,22 @@ h1, h2, h3, .branding-title, .section-heading {
     height: 8px;
   }
 }
+.services-section {
+  padding: 50px 20px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.9);
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centreer inhoud horizontaal */
+  justify-content: center; /* Centreer inhoud verticaal */
+  width: 100%; /* Zorg dat de sectie de volledige breedte inneemt */
+}
+
+.services-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  width: 100%; /* Zorg dat de lijst de volledige breedte benut */
+  max-width: 1200px; /* Beperk de maximale breedte voor leesbaarheid */
+  justify-content: center; /* Centreer de items binnen de grid */
+}

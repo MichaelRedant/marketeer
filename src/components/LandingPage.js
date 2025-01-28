@@ -336,22 +336,27 @@ const LandingPage = () => {
 
 
       </section>
+<section>
+  
+</section>
+     <section id="services" className="services-section">
+  <h2 className="services-title">Onze Diensten voor {location}</h2>
+  <div className="services-list">
+    {services.map((service, index) => (
+      <div key={index} className="service-card">
+        <h3 className="service-name">{service.name}</h3>
+        <p className="service-description">{service.description}</p>
+        <a
+          href={`/contact?service=${encodeURIComponent(service.name)}`}
+          className="cta-button-services"
+        >
+          Meer info
+        </a>
+      </div>
+    ))}
+  </div>
+</section>
 
-      <h2 className="services-title">Onze Diensten voor {location}</h2>
-<a href="/services" className="text-primary hover:underline">
-  Ontdek meer over onze diensten
-</a>
-<div className="services-list mt-4">
-  {services.map((service, index) => (
-    <div key={index} className="service-card">
-      <h3 className="service-name">{service.name}</h3>
-      <p className="service-description">{service.description}</p>
-      <a href={`/contact?service=${encodeURIComponent(service.name)}`} className="cta-button-services">
-        Meer info
-      </a>
-    </div>
-  ))}
-</div>
 
       </section>
        {/* FAQ Sectie */}
