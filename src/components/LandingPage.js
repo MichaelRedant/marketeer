@@ -7,7 +7,6 @@ import AnimatedSection from "../components/AnimatedSection";
 import { motion } from "framer-motion";
 import tools from "../tools.json";
 import "../landingPage.css";
-import "../index.css"
 
 const hoverAnimation = {
   hidden: { backgroundPosition: "left bottom" },

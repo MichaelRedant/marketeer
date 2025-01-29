@@ -1,3 +1,9 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
 /* Geanimeerde achtergrond */
 .animated-background {
   position: fixed;
@@ -62,17 +68,28 @@ h1, h2, h3, .branding-title, .section-heading {
   margin-top: 5px;
 }
 
+.landing-page {
+  overflow-x: hidden; /* Voorkom horizontaal scrollen */
+  width: 100%;       /* Zorg dat de pagina breedte 100% is */
+}
 
+.container, .max-w-7xl {
+  max-width: 100%;   /* Voorkom dat containers breder zijn dan het scherm */
+  overflow-x: hidden;
+}
+
+section {
+  box-sizing: border-box;
+}
 
 /* Hero Sectie */
 .landing-header {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 40px 20px;
+  text-align: center;
+  width: 100%;
+  padding: 20px;
 }
 
 .landing-title {
@@ -82,13 +99,13 @@ h1, h2, h3, .branding-title, .section-heading {
 }
 
 .about-content {
-  flex: 1;
-  padding-right: 20px;
+  padding: 0;
+  max-width: 90%;
 }
 
-.about-image {
-  flex: 1;
-  text-align: center;
+.about-image img {
+  max-width: 100%;
+  height: auto;
 }
 
 .cta-section {
@@ -98,7 +115,7 @@ h1, h2, h3, .branding-title, .section-heading {
   background: rgba(255, 255, 255, 0.7);
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  max-width: 800px;
+  max-width: 600px;
 }
 
 .cta-text {
@@ -111,6 +128,7 @@ h1, h2, h3, .branding-title, .section-heading {
 .cta-button {
   display: inline-block;
   padding: 10px 20px;
+  margin: 2px auto;
   font-size:0.9rem;
   color: white;
   background: #0362c8;
@@ -148,18 +166,17 @@ h1, h2, h3, .branding-title, .section-heading {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
+  max-width: 600px;
   justify-content: center;
   align-items: center; 
 }
 
 .landing-main {
-  max-width: 1200px;
-  margin: 40px auto;
-  padding: 20px;
   display: grid;
-  grid-template-columns: 1fr 1fr; 
-  gap: 40px;
-  align-items: start;
+  grid-template-columns: 1fr; /* Eén kolom op mobiele schermen */
+  gap: 20px;
+  padding: 0 10px;
+  justify-items: center;
 }
 
 .boxed-container {
@@ -193,10 +210,10 @@ h1, h2, h3, .branding-title, .section-heading {
 }
 /* Services Sectie */
 .services-section {
-  padding: 50px 20px;
-  background: rgba(255, 255, 255, 0.95);
-  border-radius: 10px;
-  margin-top: 20px;
+  width: 100%;
+  padding: 30px 10px;
+  text-align: center;
+  box-sizing: border-box;
 }
 
 /* Diensten Sectie */
@@ -214,8 +231,10 @@ h1, h2, h3, .branding-title, .section-heading {
 
 .services-list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 15px;
+  justify-content: center;
+  width: 100%;
 }
 
 .service-card {
@@ -224,6 +243,13 @@ h1, h2, h3, .branding-title, .section-heading {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.8), rgba(240, 240, 255, 0.9));
+}
+
+.faq-section, .services-section, .cta-section {
+  padding: 20px;
+  width: 100%;
+  box-sizing: border-box;
+  overflow-x: hidden;
 }
 
 .service-card:hover {
@@ -272,6 +298,66 @@ h1, h2, h3, .branding-title, .section-heading {
   animation-timing-function: cubic-bezier(.15,.41,.69,.94);
   animation-iteration-count: infinite;
 }
+
+.benefits {
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+/* Grid layout aanpassen */
+.grid {
+  display: grid;
+  gap: 20px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+  box-sizing: border-box;
+}
+
+/* Responsive grid-layout */
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr; 
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: 1fr 1fr 1fr; /* Drie kolommen op desktops */
+  }
+}
+
+/* Content styling binnen kaarten */
+.p-6 {
+
+  padding: 15px;
+  overflow: hidden;
+}
+
+.text-xl {
+  font-size: 1.25rem;
+  word-wrap: break-word;
+}
+
+/* Overloop probleem met teksten en kaarten verhelpen */
+.bg-card {
+  width: 100%;
+
+  border-radius: 12px;
+  overflow: hidden;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+/* Zorg dat tekst binnen blijft */
+.mt-4 {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  line-height: 1.6;
+}
+
 @keyframes scroll {
   0% { opacity: 0; }
   10% { transform: translateY(0); opacity: 1; }
@@ -504,7 +590,7 @@ h1, h2, h3, .branding-title, .section-heading {
     width: 2px;
     height: 8px;
   }
-}
+
 .services-section {
   padding: 50px 20px;
   text-align: center;
@@ -521,6 +607,6 @@ h1, h2, h3, .branding-title, .section-heading {
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 20px;
   width: 100%; /* Zorg dat de lijst de volledige breedte benut */
-  max-width: 1200px; /* Beperk de maximale breedte voor leesbaarheid */
   justify-content: center; /* Centreer de items binnen de grid */
+}
 }
