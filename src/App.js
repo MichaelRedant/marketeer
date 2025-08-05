@@ -4,6 +4,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import ScrollToTop from "./components/ScrollToTop";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import routes from "./routes.json";
 import Home from "./components/Home";
 import About from "./components/About";
 import Services from "./components/Services";
@@ -33,61 +34,36 @@ const pageVariants = {
 function AnimatedRoutes() {
   const location = useLocation();
 
+  const routeComponents = {
+    "/": Home,
+    "/about": About,
+    "/services": Services,
+    "/werk": Werk,
+    "/contact": Contact,
+  };
+
   return (
     <AnimatePresence mode="wait">
       <Routes key={location.pathname} location={location}>
-        <Route
-          path="/"
-          element={
-            <motion.div
-              initial="initial"
-              animate="animate"
-              exit="exit"
-              variants={pageVariants}
-            >
-              <Home />
-            </motion.div>
-          }
-        />
-        <Route
-          path="/about"
-          element={
-            <motion.div
-              initial="initial"
-              animate="animate"
-              exit="exit"
-              variants={pageVariants}
-            >
-              <About />
-            </motion.div>
-          }
-        />
-        <Route
-          path="/services"
-          element={
-            <motion.div
-              initial="initial"
-              animate="animate"
-              exit="exit"
-              variants={pageVariants}
-            >
-              <Services />
-            </motion.div>
-          }
-        />
-        <Route
-          path="/werk"
-          element={
-            <motion.div
-              initial="initial"
-              animate="animate"
-              exit="exit"
-              variants={pageVariants}
-            >
-              <Werk />
-            </motion.div>
-          }
-        />
+        {routes.map((path) => {
+          const Component = routeComponents[path];
+          return (
+            <Route
+              key={path}
+              path={path}
+              element={
+                <motion.div
+                  initial="initial"
+                  animate="animate"
+                  exit="exit"
+                  variants={pageVariants}
+                >
+                  <Component />
+                </motion.div>
+              }
+            />
+          );
+        })}
         {/* Admin Dashboard Route */}
         <Route
           path="/admin/*" // Gebruik * zodat nested routes binnen AdminPanel werken
@@ -99,19 +75,6 @@ function AnimatedRoutes() {
               variants={pageVariants}
             >
               <AdminPanel />
-            </motion.div>
-          }
-        />
-        <Route
-          path="/contact"
-          element={
-            <motion.div
-              initial="initial"
-              animate="animate"
-              exit="exit"
-              variants={pageVariants}
-            >
-              <Contact />
             </motion.div>
           }
         />
