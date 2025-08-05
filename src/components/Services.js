@@ -61,7 +61,11 @@ function Services() {
         <motion.div className="card-container" initial="hidden" animate="visible">
           {sortedServices.map((service) => (
             <div className={`card`} key={service.id}>
-              <a href="#" onClick={() => setSelectedService(service)}>
+              <button
+                type="button"
+                onClick={() => setSelectedService(service)}
+                className="w-full text-left"
+              >
                 <div className="card--display">
                   <i className="material-icons">{service.icon || "⤵️"}</i>
                   <h2>{service.name}</h2>
@@ -71,7 +75,7 @@ function Services() {
                   <p>{service.description}</p>
                   <p className="link">Klik voor meer informatie</p>
                 </div>
-              </a>
+              </button>
               <div className="card--border"></div>
             </div>
           ))}

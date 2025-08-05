@@ -11,8 +11,6 @@ const ProjectSchema = new mongoose.Schema({
   eindklant: { type: String, default: "Niet gespecificeerd" },
   liveLink: { type: String },
   githubLink: { type: String },
-  opdrachtgever: { type: String }, 
-  eindklant: { type: String },
 });
 
 module.exports = mongoose.model("Project", ProjectSchema);

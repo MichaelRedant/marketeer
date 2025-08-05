@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import { fetchServices } from "../api"; // Zorg ervoor dat de API functie correct werkt
+import { fetchServices, sendMessage } from "../api"; // Zorg ervoor dat de API functies correct werken
 import "../contact.css"; // Voeg stijlen toe voor confetti-effect
 
 function Contact() {
@@ -58,23 +58,11 @@ function Contact() {
     e.preventDefault();
 
     try {
-      const response = await fetch("http://localhost:5000/api/messages", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
-
-      if (response.ok) {
-        setSuccessMessage("Bericht succesvol verzonden!");
-        setFormData({ name: "", email: "", message: "", services: [] });
-        setErrorMessage("");
-        triggerConfetti(); // Start confetti
-      } else {
-        const data = await response.json();
-        setErrorMessage(data.error || "Er is een fout opgetreden.");
-      }
+      await sendMessage(formData);
+      setSuccessMessage("Bericht succesvol verzonden!");
+      setFormData({ name: "", email: "", message: "", services: [] });
+      setErrorMessage("");
+      triggerConfetti(); // Start confetti
     } catch (err) {
       console.error("Error submitting form:", err);
       setErrorMessage("Kan geen verbinding maken met de server.");
