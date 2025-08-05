@@ -8,8 +8,15 @@ const router = express.Router();
 router.post("/", async (req, res) => {
   const { name, email, message, services, "g-recaptcha-response": recaptchaToken } = req.body;
 
-  // Controleer op lege velden
-  if (!name || !email || !message || !services || !recaptchaToken) {
+  // Controleer op lege velden en lege services array
+  if (
+    !name ||
+    !email ||
+    !message ||
+    !Array.isArray(services) ||
+    services.length === 0 ||
+    !recaptchaToken
+  ) {
     return res.status(400).json({ error: "Alle velden en reCAPTCHA zijn verplicht." });
   }
 

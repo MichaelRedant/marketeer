@@ -29,7 +29,9 @@ function Header() {
               <NavLink to={path}>
                 {path === "/"
                   ? "Home"
-                  : path.substring(1).charAt(0).toUpperCase() + path.substring(2)}
+                  : path
+                      .slice(1)
+                      .replace(/^\w/, (c) => c.toUpperCase())}
               </NavLink>
             </li>
           ))}

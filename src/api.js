@@ -1,4 +1,5 @@
-const API_BASE_URL = "http://localhost:5000/api";
+const API_BASE_URL =
+  process.env.REACT_APP_API_BASE_URL || "http://localhost:5000/api";
 
 // Algemene functie voor API-requests
 const apiCall = async (endpoint, method = "GET", body = null) => {
@@ -63,3 +64,6 @@ export const updateService = (id, service) =>
   apiCall(`services-admin/${id}`, "PUT", service);
 export const deleteService = (id) =>
   apiCall(`services-admin/${id}`, "DELETE");
+
+// Message API-calls
+export const sendMessage = (message) => apiCall("messages", "POST", message);
